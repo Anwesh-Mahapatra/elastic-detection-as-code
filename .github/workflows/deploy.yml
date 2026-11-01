@@ -1,0 +1,37 @@
+# Continuous deployment: after a rule PR is merged, push the rules to a real Kibana.
+# Disabled until you set repo variable KIBANA_URL and secret ELASTIC_API_KEY (Settings >
+# Secrets and variables > Actions). A local-only stack on your laptop is not reachable from
+# GitHub; deploy there with:  python -m dac.validate_rules deploy
+name: Deploy rules
+
+on:
+  push:
+    branches: [main]
+    paths: ["rules/**"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-rules
+  cancel-in-progress: false   # never interrupt a half-finished import
+
+jobs:
+  deploy:
+    if: ${{ vars.KIBANA_URL != '' }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    environment: production    # add required reviewers on this environment for a manual approval step
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Import rules (idempotent, overwrite by rule_id)
+        env:
+          KIBANA_URL: ${{ vars.KIBANA_URL }}
+          ELASTIC_API_KEY: ${{ secrets.ELASTIC_API_KEY }}
+        run: python -m dac.validate_rules deploy

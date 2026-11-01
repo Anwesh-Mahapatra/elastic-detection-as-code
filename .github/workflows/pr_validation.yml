@@ -1,0 +1,167 @@
+# Pull-request gate for detection rules.
+#   Stage 1  lint      deterministic: schema, ECS 9.5.0, ATT&CK v20, query shape     (seconds)
+#   Stage 2  replay    real Elasticsearch: attack logs must alert, benign must not    (~4 min)
+#            deploy    the same rules import cleanly into a real Kibana detection engine
+#   Stage 3  ai-judge  LLM review of the changed rules, evidence-checked, scored by code
+# Make all three jobs "required status checks" in branch protection.
+#
+# No `paths:` filter on purpose: required checks that never start block the PR forever.
+
+name: PR validation
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, labeled, unlabeled]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pr-validation-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+env:
+  PYTHON_VERSION: "3.12"
+
+jobs:
+  lint:
+    name: Stage 1 · Lint
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip
+
+      - name: Install
+        run: pip install -r requirements-dev.txt
+
+      - name: Unit tests (the pipeline tests itself first)
+        run: python -m pytest -q tests/unit
+
+      - name: Lint every rule (cheap, catches regressions from shared config/schema changes)
+        run: python -m dac.validate_rules lint --report reports/lint.json
+
+      - uses: actions/upload-artifact@v7
+        if: ${{ !cancelled() }}
+        with:
+          name: stage1-reports
+          path: reports/
+          if-no-files-found: ignore
+
+  replay:
+    name: Stage 2 · Replay + deploy smoke test
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip
+
+      - name: Install
+        run: pip install -r requirements.txt
+
+      - name: Throwaway secrets for the ephemeral stack
+        run: |
+          {
+            echo "STACK_VERSION=9.5.5"
+            echo "ELASTIC_PASSWORD=$(openssl rand -hex 16)"
+            echo "KIBANA_SYSTEM_PASSWORD=$(openssl rand -hex 16)"
+            echo "KIBANA_ENCRYPTION_KEY=$(openssl rand -hex 32)"
+            echo "ES_HEAP=1g"
+          } > .env
+
+      - name: Start Elasticsearch + Kibana (same compose file as local dev)
+        run: docker compose up -d --wait --wait-timeout 600
+
+      - name: Replay attack + benign ECS logs through every rule
+        run: python -m dac.validate_rules replay --report reports/replay.json
+
+      - name: Turn on the detection engine
+        run: python -m dac.validate_rules bootstrap
+
+      - name: Deploy smoke test (Kibana must accept every rule)
+        run: python -m dac.validate_rules deploy
+
+      - name: Stack logs on failure
+        if: failure()
+        run: docker compose logs --tail 200
+
+      - uses: actions/upload-artifact@v7
+        if: ${{ !cancelled() }}
+        with:
+          name: stage2-reports
+          path: reports/
+          if-no-files-found: ignore
+
+  ai-judge:
+    name: Stage 3 · AI judge
+    needs: [lint, replay]
+    # Run even when Stage 1/2 failed: the author gets the complete review in one comment.
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    permissions:
+      contents: read
+      pull-requests: write   # create/update the single review comment
+      # models: read         # only if JUDGE_PROVIDER=openai_compat with GitHub Models
+    env:
+      JUDGE_PROVIDER: ${{ vars.JUDGE_PROVIDER || 'ollama' }}
+      JUDGE_MODEL: ${{ vars.JUDGE_MODEL || 'gemma4:e4b' }}
+      OLLAMA_VERSION: "0.40.13"
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0     # needed to diff the PR against its base branch
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip
+
+      - name: Install
+        run: pip install -r requirements.txt
+
+      - name: Stage 2 results (fed to the judge as verified facts)
+        uses: actions/download-artifact@v8
+        continue-on-error: true
+        with:
+          name: stage2-reports
+          path: reports/
+
+      - name: Start Ollama and pull the judge model
+        if: env.JUDGE_PROVIDER == 'ollama'
+        run: |
+          curl -fsSL https://ollama.com/install.sh | sh
+          curl -sf http://127.0.0.1:11434/api/version || (nohup ollama serve > /tmp/ollama.log 2>&1 &)
+          for i in $(seq 1 30); do curl -sf http://127.0.0.1:11434/api/version && break; sleep 2; done
+          ollama pull "$JUDGE_MODEL"
+
+      - name: Reuse judge answers for rules that did not change
+        uses: actions/cache@v6
+        with:
+          path: .judge-cache
+          key: judge-${{ github.event.pull_request.number }}-${{ github.sha }}
+          restore-keys: |
+            judge-${{ github.event.pull_request.number }}-
+            judge-
+
+      - name: Judge the changed rules and post the PR comment
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          JUDGE_API_KEY: ${{ secrets.JUDGE_API_KEY }}
+          BASE_REF: ${{ github.base_ref }}   # via env, never inlined into the script (injection-safe)
+        run: python -m dac.ai_judge_elastic --base "origin/$BASE_REF" --post-comment
+
+      - uses: actions/upload-artifact@v7
+        if: ${{ !cancelled() }}
+        with:
+          name: judge-report
+          path: reports/
+          if-no-files-found: ignore
