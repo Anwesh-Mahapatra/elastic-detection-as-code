@@ -1,0 +1,8 @@
+# Versions resolved together by pip on 2026-10-30 (pySigma-backend-elasticsearch 2.1.1 is the
+# newest release and pins pySigma < 2, so pySigma 2.x / sigma-cli 4.x aren't usable yet).
+pySigma==1.5.1
+pySigma-backend-elasticsearch==2.1.1
+eql==1.0.1
+requests==2.34.2
+PyYAML==6.0.3
+jsonschema==4.26.0

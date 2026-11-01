@@ -1,0 +1,95 @@
+# Single-node Elasticsearch + Kibana for local Detection-as-Code work and CI.
+# Layout follows Elastic's official "start-local" setup: security ON, plain HTTP
+# inside a localhost-only network. Same file is used on your laptop and in GitHub
+# Actions, so "works on my machine" == "works in CI".
+#
+#   cp .env.example .env      # then edit the secrets
+#   docker compose up -d --wait
+#   python -m dac.validate_rules bootstrap   # turns on the detection engine
+#
+# NOT for production: Elastic's "Turn on detections" guide lists HTTPS between
+# Elasticsearch and Kibana for self-managed clusters. Keep this bound to 127.0.0.1.
+
+name: dac-elastic
+
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:${STACK_VERSION:-9.5.5}
+    environment:
+      - discovery.type=single-node
+      - ELASTIC_PASSWORD=${ELASTIC_PASSWORD:?set ELASTIC_PASSWORD in .env}
+      # Detection engine requires security features to be enabled.
+      - xpack.security.enabled=true
+      - xpack.security.http.ssl.enabled=false
+      # Free Basic tier: custom query, EQL, threshold and ES|QL rules work on it.
+      - xpack.license.self_generated.type=basic
+      # Detection rules rely on wildcard/regex queries; must stay true (the default).
+      - search.allow_expensive_queries=true
+      # ML anomaly-detection rules need a paid tier; switching ML off saves RAM.
+      - xpack.ml.enabled=false
+      - ES_JAVA_OPTS=-Xms${ES_HEAP:-1g} -Xmx${ES_HEAP:-1g}
+      # Laptops and CI runners often have <15% free disk; don't go read-only.
+      - cluster.routing.allocation.disk.threshold_enabled=false
+    # No memlock ulimit on purpose: we don't set bootstrap.memory_lock, and the
+    # ulimit breaks container start on LXC-style hosts.
+    mem_limit: ${ES_MEM_LIMIT:-2g}
+    ports:
+      - "127.0.0.1:${ES_PORT:-9200}:9200"
+    volumes:
+      - esdata:/usr/share/elasticsearch/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -s -f -u elastic:$${ELASTIC_PASSWORD} http://localhost:9200/_cluster/health?wait_for_status=yellow&timeout=5s >/dev/null"]
+      interval: 10s
+      timeout: 10s
+      retries: 30
+
+  # One-shot job: Kibana must not log in as the "elastic" superuser, so set the
+  # password of the built-in kibana_system user.
+  kibana_setup:
+    image: docker.elastic.co/elasticsearch/elasticsearch:${STACK_VERSION:-9.5.5}
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+    restart: "no"
+    environment:
+      - ELASTIC_PASSWORD=${ELASTIC_PASSWORD}
+      - KIBANA_SYSTEM_PASSWORD=${KIBANA_SYSTEM_PASSWORD:?set KIBANA_SYSTEM_PASSWORD in .env}
+    # Keep the curl on ONE line: in a YAML folded block (>), a more-indented
+    # continuation line keeps its newline and bash runs it as a new command.
+    command: >
+      bash -c '
+        until curl -s -u "elastic:$${ELASTIC_PASSWORD}" -X POST -H "Content-Type: application/json" -d "{\"password\":\"$${KIBANA_SYSTEM_PASSWORD}\"}" http://elasticsearch:9200/_security/user/kibana_system/_password | grep -q "^{}"; do
+          echo "waiting for elasticsearch..."; sleep 2;
+        done; echo "kibana_system password set"'
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:${STACK_VERSION:-9.5.5}
+    depends_on:
+      kibana_setup:
+        condition: service_completed_successfully
+    environment:
+      - SERVER_NAME=kibana
+      - SERVER_PUBLICBASEURL=http://localhost:${KIBANA_PORT:-5601}
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+      - ELASTICSEARCH_USERNAME=kibana_system
+      - ELASTICSEARCH_PASSWORD=${KIBANA_SYSTEM_PASSWORD}
+      # Required by the detection engine (rules are encrypted saved objects).
+      # Must be 32+ chars and must never change, or every rule has to be restarted.
+      - XPACK_ENCRYPTEDSAVEDOBJECTS_ENCRYPTIONKEY=${KIBANA_ENCRYPTION_KEY:?set KIBANA_ENCRYPTION_KEY (32+ chars) in .env}
+      - TELEMETRY_OPTIN=false
+    mem_limit: ${KIBANA_MEM_LIMIT:-2g}
+    ports:
+      - "127.0.0.1:${KIBANA_PORT:-5601}:5601"
+    volumes:
+      - kibanadata:/usr/share/kibana/data
+    healthcheck:
+      # Same probe as Elastic's start-local: "/" answers 302 (to /login) only once
+      # Kibana has finished starting; before that it answers 503.
+      test: ["CMD-SHELL", "curl -s -I http://localhost:5601 | grep -q 'HTTP/1.1 302 Found'"]
+      interval: 10s
+      timeout: 10s
+      retries: 60
+
+volumes:
+  esdata:
+  kibanadata:

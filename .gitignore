@@ -1,0 +1,13 @@
+# secrets
+.env
+# python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+# generated
+reports/
+build/
+.judge-cache/
+.claude/settings.local.json

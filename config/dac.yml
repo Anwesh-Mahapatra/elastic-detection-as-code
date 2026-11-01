@@ -1,0 +1,97 @@
+# Central settings for the Detection-as-Code pipeline.
+# Connection secrets never live here: they come from env vars (or a local .env file).
+
+stack_version: "9.5.5"
+
+ecs:
+  version: "9.5.0"
+  schema_file: schemas/ecs_fields_9.5.0.json      # regenerate: python scripts/build_ecs_schema.py <ver>
+  allowlist_file: schemas/non_ecs_allowlist.yml
+
+mitre:
+  file: schemas/mitre_attack_enterprise_v20.0.json # ATT&CK v20.0 (TA0005 is now "Stealth")
+
+rules_dir: rules
+tests_dir: tests/cases     # one YAML per rule: positive (attack) + negative (benign) replays
+
+sigma:
+  target: eql                                      # eql | lucene
+  pipelines:                                       # applied in order, per target
+    eql: [ecs_windows, config/sigma_eql_pipeline.yml]
+    lucene: [ecs_windows]
+  # Sigma speaks "logsources"; Kibana needs index patterns. Map one to the other.
+  index_by_logsource:
+    windows/process_creation:
+      - logs-endpoint.events.process-*
+      - logs-windows.sysmon_operational-*
+      - winlogbeat-*
+  rule_defaults:
+    from: now-9m          # 5m schedule + 4m look-back overlap for late-arriving events
+    interval: 5m
+    max_signals: 100
+    timestamp_override: event.ingested
+
+lint:
+  max_sequence_maxspan: 1h
+  broad_index_patterns: ["*", "*:*", "logs-*", "logs-*-*", "*-*"]
+  # Windows names/paths/args are case-insensitive, so case-sensitive matching is an evasion gap.
+  case_insensitive_fields:
+    - process.name
+    - process.executable
+    - process.args
+    - process.command_line
+    - process.pe.original_file_name
+    - process.parent.name
+    - process.parent.executable
+    - process.parent.args
+    - process.parent.command_line
+    - file.name
+    - file.path
+    - dll.name
+    - dll.path
+    - registry.path
+  # Attacker-influenced or ambiguous attributes: never the only anchor of an exclusion.
+  spoofable_exclusion_fields:
+    - process.name
+    - process.parent.name
+    - user.name
+    - file.name
+    - host.name
+  binary_identity_fields:
+    - process.name
+    - process.executable
+    - process.pe.original_file_name
+  # Fields present only in some data sources; EQL errors if no index maps them unless "?"-prefixed.
+  optional_field_prefixes:
+    - process.pe.
+    - process.code_signature.
+    - process.parent.code_signature.
+
+replay:
+  index_prefix: dac-test
+  max_hits: 1000
+  parallelism: 4
+
+deploy:
+  space: default
+  batch_size: 200          # rules per _import request (keeps request bodies small)
+
+judge:
+  prompt_file: judge/system_prompt.md
+  rubric_file: judge/rubric.yml
+  schema_file: judge/scorecard.schema.json
+  pass_score: 80
+  provider: ollama         # ollama | openai_compat | replay   (env JUDGE_PROVIDER)
+  model: gemma4:e4b        # env JUDGE_MODEL
+  ollama_host: http://localhost:11434
+  openai_base_url: https://models.github.ai/inference   # used when provider=openai_compat
+  temperature: 0
+  seed: 42
+  num_ctx: 16384
+  timeout_seconds: 900
+  max_retries: 1
+  concurrency: 1           # raise for hosted providers; keep 1 for CPU-only Ollama
+  fail_mode: closed        # closed: a judge error fails the PR check
+  cache_dir: .judge-cache
+  replay_dir: demo/judge_responses
+  override_label: ai-judge-override

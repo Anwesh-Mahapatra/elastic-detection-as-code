@@ -1,0 +1,3 @@
+# Keep LF everywhere, also on Windows checkouts: YAML/TOML/compose files and the judge's
+# verbatim-evidence check must see the same bytes on every machine.
+* text=auto eol=lf
