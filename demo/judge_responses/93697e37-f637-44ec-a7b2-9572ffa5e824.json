@@ -1,0 +1,43 @@
+{
+  "rule_summary": "Single-event EQL rule for LSASS dumping with ProcDump (renamed copies and every dash prefix included) or with comsvcs.dll MiniDump through rundll32 (by export name or ordinal), limited to Windows process start events.",
+  "findings": [
+    {
+      "category": "query_performance",
+      "kind": "leading_wildcard",
+      "severity": "major",
+      "title": "Leading wildcard in comsvcs match",
+      "evidence_type": "quote",
+      "evidence": "process.command_line : \"*comsvcs*\"",
+      "explanation": "Leading wildcards force a scan of every term in the field.",
+      "recommendation": "Anchor the pattern, e.g. process.command_line : \"C:\\\\Windows\\\\System32\\\\comsvcs*\""
+    },
+    {
+      "category": "evasion_fp_hygiene",
+      "kind": "coverage_gap",
+      "severity": "minor",
+      "title": "ProcDump targeting LSASS by PID is not matched",
+      "evidence_type": "quote",
+      "evidence": "process.command_line : (\"*lsass*\", \"* keyiso*\", \"* samss*\")",
+      "explanation": "`procdump -ma 724 out.dmp` names LSASS only by PID, so the target check misses it. The rule's note documents this gap and hands it to LSASS process-access detections, so this stays minor.",
+      "recommendation": "Keep as documented, and make sure the companion LSASS handle-access rule is deployed alongside this one."
+    },
+    {
+      "category": "evasion_fp_hygiene",
+      "kind": "coverage_gap",
+      "severity": "minor",
+      "title": "Security 4688 and Defender XDR process data not searched",
+      "evidence_type": "quote",
+      "evidence": "index = [\"logs-endpoint.events.process-*\", \"logs-windows.sysmon_operational-*\", \"winlogbeat-*\"]",
+      "explanation": "The query already marks the PE field optional, so it would run unchanged on sources without it; hosts that only ship Windows Security 4688 or Defender XDR telemetry are currently blind spots.",
+      "recommendation": "Add \"logs-system.security*\" and \"logs-m365_defender.event-*\" after confirming they carry process.args and process.command_line."
+    }
+  ],
+  "strengths": [
+    "Catches renamed ProcDump and rundll32 through ?process.pe.original_file_name",
+    "Lists every windash variant of the dump switches",
+    "Covers comsvcs MiniDump by name and by ordinal (#24, #+24, #-, #65560)",
+    "Scoped to Windows process start events, so one alert per execution",
+    "No exclusions on spoofable fields; FP guidance points to scoped exceptions"
+  ],
+  "suggested_query": ""
+}

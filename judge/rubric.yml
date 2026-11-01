@@ -1,0 +1,37 @@
+# Scoring rubric for the AI judge. The LLM never sets the score: it only reports
+# evidence-backed findings, and dac/ai_judge_elastic.py turns findings into points.
+prompt_version: "1.1.0"
+pass_score: 80
+
+categories:
+  ecs_field_accuracy: { weight: 35, label: "ECS Field Accuracy" }
+  query_performance:  { weight: 30, label: "EQL/KQL Performance" }
+  evasion_fp_hygiene: { weight: 35, label: "Evasion & FP Hygiene" }
+
+# Points removed from a finding's category per finding (category floors at 0).
+deductions: { critical: 20, major: 10, minor: 4, info: 0 }
+
+# Any critical finding (any category, including integrity-gate failures such as a query that
+# errors in Elasticsearch) caps the total at this value: a broken rule can't pass on style points.
+critical_cap: 79
+
+# Kinds where the linter is exhaustive. If the linter already reported a kind for a field,
+# an LLM finding of the same kind on the same field is a duplicate and is dropped.
+deterministic_kinds:
+  - unknown_field
+  - keyword_suffix
+  - text_field
+  - optional_field
+  - leading_wildcard
+  - unbounded_sequence
+  - missing_join_key
+  - any_category
+  - broad_index
+  - schedule_gap
+  - case_sensitivity
+  - renamed_binary
+  - windash
+  - duplicate_alerts
+  - weak_exclusion
+  - fp_docs
+  - missing_scoping

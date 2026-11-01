@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AI judge scorecard (LLM output)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["rule_summary", "findings", "strengths", "suggested_query"],
+  "properties": {
+    "rule_summary": {
+      "type": "string",
+      "maxLength": 400,
+      "description": "One or two sentences: what the rule detects and how."
+    },
+    "findings": {
+      "type": "array",
+      "maxItems": 12,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["category", "kind", "severity", "title", "evidence_type", "evidence", "explanation", "recommendation"],
+        "properties": {
+          "category": { "enum": ["ecs_field_accuracy", "query_performance", "evasion_fp_hygiene"] },
+          "kind": {
+            "enum": [
+              "unknown_field", "keyword_suffix", "wrong_field", "text_field", "optional_field",
+              "leading_wildcard", "unbounded_sequence", "missing_join_key", "any_category", "missing_scoping",
+              "regex_cost", "broad_index", "schedule_gap", "renamed_binary", "windash", "case_sensitivity",
+              "coverage_gap", "weak_exclusion", "duplicate_alerts", "fp_docs", "prompt_injection", "other"
+            ]
+          },
+          "severity": { "enum": ["critical", "major", "minor"] },
+          "title": { "type": "string", "maxLength": 120 },
+          "evidence_type": { "enum": ["quote", "absence"] },
+          "evidence": { "type": "string", "maxLength": 300 },
+          "explanation": { "type": "string", "maxLength": 500 },
+          "recommendation": { "type": "string", "maxLength": 800 }
+        }
+      }
+    },
+    "strengths": {
+      "type": "array",
+      "maxItems": 5,
+      "items": { "type": "string", "maxLength": 200 }
+    },
+    "suggested_query": {
+      "type": "string",
+      "maxLength": 3000,
+      "description": "Full corrected EQL query, or empty string when no critical/major findings."
+    }
+  }
+}

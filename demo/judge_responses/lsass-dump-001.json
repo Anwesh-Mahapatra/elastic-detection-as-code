@@ -1,0 +1,50 @@
+{
+  "rule_summary": "Two-step EQL sequence: a ProcDump process whose command line contains -ma, followed within a day by any file event whose name contains lsass and ends in .dmp, excluding users named admin*.",
+  "findings": [
+    {
+      "category": "evasion_fp_hygiene",
+      "kind": "other",
+      "severity": "critical",
+      "title": "Detection hinges on the attacker-chosen dump file name",
+      "evidence_type": "quote",
+      "evidence": "file.name : \"*lsass*.dmp\"",
+      "explanation": "ProcDump and comsvcs write the dump to whatever path the operator types. `procdump -ma lsass.exe C:\\temp\\x.bin` never produces a file named *lsass*.dmp, so the second stage never matches and the whole sequence stays silent.",
+      "recommendation": "Alert on the dumping process itself (target + dump switch) and drop the file stage, or keep a file stage only as enrichment joined on process.entity_id."
+    },
+    {
+      "category": "evasion_fp_hygiene",
+      "kind": "coverage_gap",
+      "severity": "major",
+      "title": "comsvcs.dll MiniDump (Atomic T1003.001 #2) is not covered",
+      "evidence_type": "absence",
+      "evidence": "comsvcs",
+      "explanation": "The rule name promises LSASS credential dumping, but only ProcDump is modelled. rundll32 + comsvcs.dll MiniDump is built into Windows and is the most common living-off-the-land variant.",
+      "recommendation": "Add: (?process.pe.original_file_name : \"RUNDLL32.EXE\" or process.name : \"rundll32.exe\") and process.command_line : \"*comsvcs*\" and process.command_line : (\"*MiniDump*\", \"*#24*\")"
+    },
+    {
+      "category": "evasion_fp_hygiene",
+      "kind": "coverage_gap",
+      "severity": "major",
+      "title": "ProcDump MiniPlus (-mp) dumps are not covered",
+      "evidence_type": "absence",
+      "evidence": "-mp",
+      "explanation": "-mp (MiniPlus) captures enough of LSASS for offline credential extraction and is a documented alternative to -ma.",
+      "recommendation": "process.args : (\"-ma\", \"/ma\", \"–ma\", \"—ma\", \"―ma\", \"-mp\", \"/mp\", \"–mp\", \"—mp\", \"―mp\")"
+    },
+    {
+      "category": "ecs_field_accuracy",
+      "kind": "keyword_suffix",
+      "severity": "critical",
+      "title": "Drop the .keyword suffix on process.name",
+      "evidence_type": "quote",
+      "evidence": "process.name.keyword",
+      "explanation": "ECS maps process.name as keyword; there is no .keyword sub-field.",
+      "recommendation": "process.name : \"procdump.exe\""
+    }
+  ],
+  "strengths": [
+    "Maps to the right ATT&CK tactic (TA0006 Credential Access)",
+    "Targets ProcDump's full-memory switch, the most common LSASS dump flag"
+  ],
+  "suggested_query": "process where host.os.type == \"windows\" and event.type == \"start\" and\n(\n  (\n    (?process.pe.original_file_name : \"procdump\" or process.name : (\"procdump.exe\", \"procdump64.exe\")) and\n    process.args : (\"-ma\", \"/ma\", \"–ma\", \"—ma\", \"―ma\", \"-mp\", \"/mp\", \"–mp\", \"—mp\", \"―mp\") and\n    process.command_line : \"*lsass*\"\n  ) or\n  (\n    (?process.pe.original_file_name : \"RUNDLL32.EXE\" or process.name : \"rundll32.exe\") and\n    process.command_line : \"*comsvcs*\" and process.command_line : (\"*MiniDump*\", \"*#24*\")\n  )\n)"
+}
