@@ -1,0 +1,530 @@
+[
+  {
+    "@timestamp": "2026-10-28T10:01:00.000Z",
+    "event": {
+      "id": "atk-001",
+      "kind": "event",
+      "category": [
+        "process"
+      ],
+      "type": [
+        "start"
+      ],
+      "action": "start",
+      "dataset": "endpoint.events.process",
+      "module": "endpoint",
+      "ingested": "2026-10-28T10:01:00.450Z"
+    },
+    "agent": {
+      "type": "endpoint",
+      "version": "9.5.5"
+    },
+    "host": {
+      "id": "4f2a9c3e-7d1b-4e8a-9b6c-2d5e8f1a3c7b",
+      "name": "WS-FIN-042",
+      "os": {
+        "type": "windows",
+        "family": "windows",
+        "name": "Windows 11 Pro",
+        "platform": "windows",
+        "version": "24H2"
+      }
+    },
+    "ecs": {
+      "version": "9.5.0"
+    },
+    "data_stream": {
+      "type": "logs",
+      "dataset": "endpoint.events.process",
+      "namespace": "default"
+    },
+    "process": {
+      "pid": 6412,
+      "entity_id": "ZW50aXR5LWF0ay0wMDE=",
+      "name": "procdump.exe",
+      "executable": "C:\\AtomicRedTeam\\ExternalPayloads\\procdump.exe",
+      "command_line": "\"C:\\AtomicRedTeam\\ExternalPayloads\\procdump.exe\" -accepteula -ma lsass.exe C:\\Windows\\Temp\\lsass_dump.dmp",
+      "args": [
+        "C:\\AtomicRedTeam\\ExternalPayloads\\procdump.exe",
+        "-accepteula",
+        "-ma",
+        "lsass.exe",
+        "C:\\Windows\\Temp\\lsass_dump.dmp"
+      ],
+      "args_count": 5,
+      "working_directory": "C:\\Windows\\system32\\",
+      "pe": {
+        "original_file_name": "procdump",
+        "company": "Sysinternals - www.sysinternals.com",
+        "product": "ProcDump"
+      },
+      "code_signature": {
+        "exists": true,
+        "subject_name": "Microsoft Corporation",
+        "trusted": true,
+        "status": "trusted"
+      },
+      "parent": {
+        "pid": 6380,
+        "entity_id": "ZW50aXR5LWNtZC0wMDE=",
+        "name": "cmd.exe",
+        "executable": "C:\\Windows\\System32\\cmd.exe",
+        "command_line": "\"C:\\Windows\\system32\\cmd.exe\" /c \"C:\\AtomicRedTeam\\ExternalPayloads\\procdump.exe\" -accepteula -ma lsass.exe C:\\Windows\\Temp\\lsass_dump.dmp"
+      }
+    },
+    "user": {
+      "name": "Administrator",
+      "domain": "CORP",
+      "id": "S-1-5-21-3623811015-3361044348-30300820-500"
+    }
+  },
+  {
+    "@timestamp": "2026-10-28T10:01:02.000Z",
+    "event": {
+      "id": "atk-001-file",
+      "kind": "event",
+      "category": [
+        "file"
+      ],
+      "type": [
+        "creation"
+      ],
+      "action": "creation",
+      "dataset": "endpoint.events.file",
+      "module": "endpoint",
+      "ingested": "2026-10-28T10:01:02.450Z"
+    },
+    "agent": {
+      "type": "endpoint",
+      "version": "9.5.5"
+    },
+    "host": {
+      "id": "4f2a9c3e-7d1b-4e8a-9b6c-2d5e8f1a3c7b",
+      "name": "WS-FIN-042",
+      "os": {
+        "type": "windows",
+        "family": "windows",
+        "name": "Windows 11 Pro",
+        "platform": "windows",
+        "version": "24H2"
+      }
+    },
+    "ecs": {
+      "version": "9.5.0"
+    },
+    "data_stream": {
+      "type": "logs",
+      "dataset": "endpoint.events.file",
+      "namespace": "default"
+    },
+    "file": {
+      "path": "C:\\Windows\\Temp\\lsass_dump.dmp",
+      "name": "lsass_dump.dmp",
+      "extension": "dmp",
+      "directory": "C:\\Windows\\Temp"
+    },
+    "process": {
+      "pid": 6412,
+      "entity_id": "ZW50aXR5LWF0ay0wMDE=",
+      "name": "procdump.exe",
+      "executable": "C:\\AtomicRedTeam\\ExternalPayloads\\procdump.exe"
+    },
+    "user": {
+      "name": "Administrator",
+      "domain": "CORP",
+      "id": "S-1-5-21-3623811015-3361044348-30300820-500"
+    }
+  },
+  {
+    "@timestamp": "2026-10-28T10:01:03.000Z",
+    "event": {
+      "id": "atk-001-end",
+      "kind": "event",
+      "category": [
+        "process"
+      ],
+      "type": [
+        "end"
+      ],
+      "action": "end",
+      "dataset": "endpoint.events.process",
+      "module": "endpoint",
+      "ingested": "2026-10-28T10:01:03.450Z"
+    },
+    "agent": {
+      "type": "endpoint",
+      "version": "9.5.5"
+    },
+    "host": {
+      "id": "4f2a9c3e-7d1b-4e8a-9b6c-2d5e8f1a3c7b",
+      "name": "WS-FIN-042",
+      "os": {
+        "type": "windows",
+        "family": "windows",
+        "name": "Windows 11 Pro",
+        "platform": "windows",
+        "version": "24H2"
+      }
+    },
+    "ecs": {
+      "version": "9.5.0"
+    },
+    "data_stream": {
+      "type": "logs",
+      "dataset": "endpoint.events.process",
+      "namespace": "default"
+    },
+    "process": {
+      "pid": 6412,
+      "entity_id": "ZW50aXR5LWF0ay0wMDE=",
+      "name": "procdump.exe",
+      "executable": "C:\\AtomicRedTeam\\ExternalPayloads\\procdump.exe",
+      "command_line": "\"C:\\AtomicRedTeam\\ExternalPayloads\\procdump.exe\" -accepteula -ma lsass.exe C:\\Windows\\Temp\\lsass_dump.dmp",
+      "args": [
+        "C:\\AtomicRedTeam\\ExternalPayloads\\procdump.exe",
+        "-accepteula",
+        "-ma",
+        "lsass.exe",
+        "C:\\Windows\\Temp\\lsass_dump.dmp"
+      ],
+      "args_count": 5,
+      "working_directory": "C:\\Windows\\system32\\",
+      "pe": {
+        "original_file_name": "procdump",
+        "company": "Sysinternals - www.sysinternals.com",
+        "product": "ProcDump"
+      },
+      "code_signature": {
+        "exists": true,
+        "subject_name": "Microsoft Corporation",
+        "trusted": true,
+        "status": "trusted"
+      },
+      "parent": {
+        "pid": 6380,
+        "entity_id": "ZW50aXR5LWNtZC0wMDE=",
+        "name": "cmd.exe",
+        "executable": "C:\\Windows\\System32\\cmd.exe",
+        "command_line": "\"C:\\Windows\\system32\\cmd.exe\" /c \"C:\\AtomicRedTeam\\ExternalPayloads\\procdump.exe\" -accepteula -ma lsass.exe C:\\Windows\\Temp\\lsass_dump.dmp"
+      }
+    },
+    "user": {
+      "name": "Administrator",
+      "domain": "CORP",
+      "id": "S-1-5-21-3623811015-3361044348-30300820-500"
+    }
+  },
+  {
+    "@timestamp": "2026-10-28T10:05:00.000Z",
+    "event": {
+      "id": "atk-002",
+      "kind": "event",
+      "category": [
+        "process"
+      ],
+      "type": [
+        "start"
+      ],
+      "action": "start",
+      "dataset": "endpoint.events.process",
+      "module": "endpoint",
+      "ingested": "2026-10-28T10:05:00.450Z"
+    },
+    "agent": {
+      "type": "endpoint",
+      "version": "9.5.5"
+    },
+    "host": {
+      "id": "4f2a9c3e-7d1b-4e8a-9b6c-2d5e8f1a3c7b",
+      "name": "WS-FIN-042",
+      "os": {
+        "type": "windows",
+        "family": "windows",
+        "name": "Windows 11 Pro",
+        "platform": "windows",
+        "version": "24H2"
+      }
+    },
+    "ecs": {
+      "version": "9.5.0"
+    },
+    "data_stream": {
+      "type": "logs",
+      "dataset": "endpoint.events.process",
+      "namespace": "default"
+    },
+    "process": {
+      "pid": 7120,
+      "entity_id": "ZW50aXR5LWF0ay0wMDI=",
+      "name": "rundll32.exe",
+      "executable": "C:\\Windows\\System32\\rundll32.exe",
+      "command_line": "\"C:\\Windows\\System32\\rundll32.exe\" C:\\windows\\System32\\comsvcs.dll, MiniDump 724 C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\lsass-comsvcs.dmp full",
+      "args": [
+        "C:\\Windows\\System32\\rundll32.exe",
+        "C:\\windows\\System32\\comsvcs.dll,",
+        "MiniDump",
+        "724",
+        "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\lsass-comsvcs.dmp",
+        "full"
+      ],
+      "args_count": 6,
+      "working_directory": "C:\\Windows\\system32\\",
+      "pe": {
+        "original_file_name": "RUNDLL32.EXE"
+      },
+      "code_signature": {
+        "exists": true,
+        "subject_name": "Microsoft Corporation",
+        "trusted": true,
+        "status": "trusted"
+      },
+      "parent": {
+        "pid": 7056,
+        "entity_id": "ZW50aXR5LXBzLTAwMg==",
+        "name": "powershell.exe",
+        "executable": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "command_line": "\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" & {C:\\Windows\\System32\\rundll32.exe C:\\windows\\System32\\comsvcs.dll, MiniDump (Get-Process lsass).id $env:TEMP\\lsass-comsvcs.dmp full}"
+      }
+    },
+    "user": {
+      "name": "Administrator",
+      "domain": "CORP",
+      "id": "S-1-5-21-3623811015-3361044348-30300820-500"
+    }
+  },
+  {
+    "@timestamp": "2026-10-28T10:09:00.000Z",
+    "event": {
+      "id": "atk-003",
+      "kind": "event",
+      "category": [
+        "process"
+      ],
+      "type": [
+        "start"
+      ],
+      "action": "start",
+      "dataset": "endpoint.events.process",
+      "module": "endpoint",
+      "ingested": "2026-10-28T10:09:00.450Z"
+    },
+    "agent": {
+      "type": "endpoint",
+      "version": "9.5.5"
+    },
+    "host": {
+      "id": "4f2a9c3e-7d1b-4e8a-9b6c-2d5e8f1a3c7b",
+      "name": "WS-FIN-042",
+      "os": {
+        "type": "windows",
+        "family": "windows",
+        "name": "Windows 11 Pro",
+        "platform": "windows",
+        "version": "24H2"
+      }
+    },
+    "ecs": {
+      "version": "9.5.0"
+    },
+    "data_stream": {
+      "type": "logs",
+      "dataset": "endpoint.events.process",
+      "namespace": "default"
+    },
+    "process": {
+      "pid": 8840,
+      "entity_id": "ZW50aXR5LWF0ay0wMDM=",
+      "name": "wermgr_helper.exe",
+      "executable": "C:\\Users\\Public\\Music\\wermgr_helper.exe",
+      "command_line": "C:\\Users\\Public\\Music\\wermgr_helper.exe /accepteula /ma LSASS.EXE C:\\Users\\Public\\Music\\wer.tmp",
+      "args": [
+        "C:\\Users\\Public\\Music\\wermgr_helper.exe",
+        "/accepteula",
+        "/ma",
+        "LSASS.EXE",
+        "C:\\Users\\Public\\Music\\wer.tmp"
+      ],
+      "args_count": 5,
+      "working_directory": "C:\\Windows\\system32\\",
+      "pe": {
+        "original_file_name": "procdump",
+        "company": "Sysinternals - www.sysinternals.com",
+        "product": "ProcDump"
+      },
+      "code_signature": {
+        "exists": true,
+        "subject_name": "Microsoft Corporation",
+        "trusted": true,
+        "status": "trusted"
+      },
+      "parent": {
+        "pid": 2212,
+        "entity_id": "ZW50aXR5LXdtaS0wMDM=",
+        "name": "WmiPrvSE.exe",
+        "executable": "C:\\Windows\\System32\\wbem\\WmiPrvSE.exe",
+        "command_line": "C:\\Windows\\system32\\wbem\\wmiprvse.exe -secured -Embedding"
+      }
+    },
+    "user": {
+      "name": "Administrator",
+      "domain": "CORP",
+      "id": "S-1-5-21-3623811015-3361044348-30300820-500"
+    }
+  },
+  {
+    "@timestamp": "2026-10-28T10:13:00.000Z",
+    "event": {
+      "id": "atk-004",
+      "kind": "event",
+      "category": [
+        "process"
+      ],
+      "type": [
+        "start"
+      ],
+      "action": "start",
+      "dataset": "endpoint.events.process",
+      "module": "endpoint",
+      "ingested": "2026-10-28T10:13:00.450Z"
+    },
+    "agent": {
+      "type": "endpoint",
+      "version": "9.5.5"
+    },
+    "host": {
+      "id": "4f2a9c3e-7d1b-4e8a-9b6c-2d5e8f1a3c7b",
+      "name": "WS-FIN-042",
+      "os": {
+        "type": "windows",
+        "family": "windows",
+        "name": "Windows 11 Pro",
+        "platform": "windows",
+        "version": "24H2"
+      }
+    },
+    "ecs": {
+      "version": "9.5.0"
+    },
+    "data_stream": {
+      "type": "logs",
+      "dataset": "endpoint.events.process",
+      "namespace": "default"
+    },
+    "process": {
+      "pid": 9016,
+      "entity_id": "ZW50aXR5LWF0ay0wMDQ=",
+      "name": "rundll32.exe",
+      "executable": "C:\\Windows\\System32\\rundll32.exe",
+      "command_line": "C:\\Windows\\System32\\rundll32.exe C:\\Windows\\System32\\comsvcs.dll,#24 724 C:\\ProgramData\\x.bin full",
+      "args": [
+        "C:\\Windows\\System32\\rundll32.exe",
+        "C:\\Windows\\System32\\comsvcs.dll,#24",
+        "724",
+        "C:\\ProgramData\\x.bin",
+        "full"
+      ],
+      "args_count": 5,
+      "working_directory": "C:\\Windows\\system32\\",
+      "pe": {
+        "original_file_name": "RUNDLL32.EXE"
+      },
+      "code_signature": {
+        "exists": true,
+        "subject_name": "Microsoft Corporation",
+        "trusted": true,
+        "status": "trusted"
+      },
+      "parent": {
+        "pid": 8996,
+        "entity_id": "ZW50aXR5LWNtZC0wMDQ=",
+        "name": "cmd.exe",
+        "executable": "C:\\Windows\\System32\\cmd.exe",
+        "command_line": "\"C:\\Windows\\system32\\cmd.exe\" /c C:\\Windows\\System32\\rundll32.exe C:\\Windows\\System32\\comsvcs.dll,#24 724 C:\\ProgramData\\x.bin full"
+      }
+    },
+    "user": {
+      "name": "Administrator",
+      "domain": "CORP",
+      "id": "S-1-5-21-3623811015-3361044348-30300820-500"
+    }
+  },
+  {
+    "@timestamp": "2026-10-28T10:17:00.000Z",
+    "event": {
+      "id": "atk-005",
+      "kind": "event",
+      "category": [
+        "process"
+      ],
+      "type": [
+        "start"
+      ],
+      "action": "start",
+      "dataset": "endpoint.events.process",
+      "module": "endpoint",
+      "ingested": "2026-10-28T10:17:00.450Z"
+    },
+    "agent": {
+      "type": "endpoint",
+      "version": "9.5.5"
+    },
+    "host": {
+      "id": "4f2a9c3e-7d1b-4e8a-9b6c-2d5e8f1a3c7b",
+      "name": "WS-FIN-042",
+      "os": {
+        "type": "windows",
+        "family": "windows",
+        "name": "Windows 11 Pro",
+        "platform": "windows",
+        "version": "24H2"
+      }
+    },
+    "ecs": {
+      "version": "9.5.0"
+    },
+    "data_stream": {
+      "type": "logs",
+      "dataset": "endpoint.events.process",
+      "namespace": "default"
+    },
+    "process": {
+      "pid": 9304,
+      "entity_id": "ZW50aXR5LWF0ay0wMDU=",
+      "name": "ProcDump64.exe",
+      "executable": "C:\\Tools\\ProcDump64.exe",
+      "command_line": "ProcDump64.exe -accepteula -ma lsass C:\\Tools\\out.dmp",
+      "args": [
+        "ProcDump64.exe",
+        "-accepteula",
+        "-ma",
+        "lsass",
+        "C:\\Tools\\out.dmp"
+      ],
+      "args_count": 5,
+      "working_directory": "C:\\Windows\\system32\\",
+      "pe": {
+        "original_file_name": "procdump",
+        "company": "Sysinternals - www.sysinternals.com",
+        "product": "ProcDump"
+      },
+      "code_signature": {
+        "exists": true,
+        "subject_name": "Microsoft Corporation",
+        "trusted": true,
+        "status": "trusted"
+      },
+      "parent": {
+        "pid": 9280,
+        "entity_id": "ZW50aXR5LWNtZC0wMDU=",
+        "name": "cmd.exe",
+        "executable": "C:\\Windows\\System32\\cmd.exe",
+        "command_line": "\"C:\\Windows\\system32\\cmd.exe\""
+      }
+    },
+    "user": {
+      "name": "Administrator",
+      "domain": "CORP",
+      "id": "S-1-5-21-3623811015-3361044348-30300820-500"
+    }
+  }
+]

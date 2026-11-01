@@ -1,0 +1,41 @@
+title: LSASS Memory Dump via ProcDump (Renamed Binary and Windash Aware)
+id: fbb60261-7ec0-413d-a603-9fcd452770fc
+status: test
+description: |
+    Detects Sysinternals ProcDump writing a full, mini or MiniPlus dump of LSASS (or of the
+    LSASS-hosted KeyIso / SamSs services). Matches renamed copies through the PE OriginalFileName
+    and every dash variant of the dump switches via the windash modifier.
+references:
+    - https://learn.microsoft.com/en-us/sysinternals/downloads/procdump
+    - https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1003.001/T1003.001.md
+    - https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_procdump_lsass.yml
+author: Anwesh Mahapatra (adapted from SigmaHQ rule 5afee48e-67dd-4e03-a783-f74259dcf998 by Florian Roth)
+date: 2026-10-30
+tags:
+    - attack.credential-access
+    - attack.t1003.001
+    - attack.t1036.003
+logsource:
+    category: process_creation
+    product: windows
+detection:
+    selection_binary:
+        - Image|endswith:
+              - '\procdump.exe'
+              - '\procdump64.exe'
+              - '\procdump64a.exe'
+        - OriginalFileName: 'procdump'
+    selection_flags:
+        CommandLine|contains|windash:
+            - ' -ma '
+            - ' -mm '
+            - ' -mp '
+    selection_target:
+        CommandLine|contains:
+            - 'lsass'
+            - ' keyiso'
+            - ' samss'
+    condition: all of selection_*
+falsepositives:
+    - Vendor or Microsoft support troubleshooting that explicitly dumps LSASS (rare; handle with a scoped exception on the parent workflow, not on process.name)
+level: high

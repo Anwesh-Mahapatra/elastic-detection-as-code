@@ -1,0 +1,35 @@
+# Repo-local pySigma pipeline for the EQL target, applied AFTER the stock `ecs_windows`
+# pipeline (EQL-only: the "?" optional-field syntax below is not valid Lucene).
+# Reproduce by hand with:
+#   sigma convert -t eql -p ecs_windows -p config/sigma_eql_pipeline.yml <rule.yml>
+name: dac-eql-hardening
+priority: 100
+transformations:
+  # ecs_windows maps Image/ParentImage/TargetFilename to "*.caseless" multi-fields.
+  # Those exist only in Elastic Defend mappings (not in ECS, not in Sysmon/winlogbeat
+  # data), so EQL fails with "Unknown column" there. EQL like~ is already
+  # case-insensitive, so the plain ECS field is correct and portable.
+  - id: drop_caseless_multifields
+    type: field_name_mapping
+    mapping:
+      process.executable.caseless: process.executable
+      process.parent.executable.caseless: process.parent.executable
+      file.path.caseless: file.path
+      file.target_path.caseless: file.target_path
+      dll.path.caseless: dll.path
+      registry.path.caseless: registry.path
+postprocessing:
+  # pySigma emits "any where ...", which makes EQL scan every event category.
+  # Pin process_creation rules to process *start* events on Windows hosts.
+  - type: replace
+    pattern: '^any where (.*)$'
+    replacement: 'process where host.os.type == "windows" and event.type == "start" and (\1)'
+    rule_conditions:
+      - type: logsource
+        category: process_creation
+        product: windows
+  # PE / code-signature fields are missing from some sources (e.g. Security 4688 events).
+  # EQL errors on fields no index maps, unless the field is marked optional with "?".
+  - type: replace
+    pattern: '(?<![\w.?])(process\.pe\.|process\.code_signature\.|process\.parent\.code_signature\.)'
+    replacement: '?\1'

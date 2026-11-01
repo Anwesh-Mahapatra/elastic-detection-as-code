@@ -1,0 +1,12 @@
+# Fields that are NOT in core ECS but are legitimately produced by Elastic integrations.
+# Every entry weakens the ECS gate, so each one needs a reason and should stay narrow.
+# Patterns use shell-style globs (fnmatch).
+
+- pattern: "*.Ext.*"
+  why: Elastic Defend endpoint extensions (process.Ext.ancestry, file.Ext.header_bytes, ...)
+- pattern: "winlog.*"
+  why: Raw Windows event fields from the Windows / System integrations and Winlogbeat
+- pattern: "powershell.*"
+  why: Windows PowerShell integration (script block text, file paths)
+- pattern: "Effective_process.*"
+  why: Elastic Defend effective-process fields on Windows events

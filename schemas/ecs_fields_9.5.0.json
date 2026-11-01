@@ -1,0 +1,8208 @@
+{
+"ecs_version": "9.5.0",
+"source": "https://raw.githubusercontent.com/elastic/ecs/v9.5.0/generated/ecs/ecs_flat.yml",
+"fields": {
+"@timestamp": {
+"type": "date"
+},
+"agent.build.original": {
+"type": "keyword"
+},
+"agent.ephemeral_id": {
+"type": "keyword"
+},
+"agent.id": {
+"type": "keyword"
+},
+"agent.name": {
+"type": "keyword"
+},
+"agent.type": {
+"type": "keyword"
+},
+"agent.version": {
+"type": "keyword"
+},
+"client.address": {
+"type": "keyword"
+},
+"client.as.number": {
+"type": "long"
+},
+"client.as.organization.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"client.bytes": {
+"type": "long"
+},
+"client.domain": {
+"type": "keyword"
+},
+"client.geo.city_name": {
+"type": "keyword"
+},
+"client.geo.continent_code": {
+"type": "keyword"
+},
+"client.geo.continent_name": {
+"type": "keyword"
+},
+"client.geo.country_iso_code": {
+"type": "keyword"
+},
+"client.geo.country_name": {
+"type": "keyword"
+},
+"client.geo.location": {
+"type": "geo_point"
+},
+"client.geo.name": {
+"type": "keyword"
+},
+"client.geo.postal_code": {
+"type": "keyword"
+},
+"client.geo.region_iso_code": {
+"type": "keyword"
+},
+"client.geo.region_name": {
+"type": "keyword"
+},
+"client.geo.timezone": {
+"type": "keyword"
+},
+"client.ip": {
+"type": "ip"
+},
+"client.mac": {
+"type": "keyword"
+},
+"client.nat.ip": {
+"type": "ip"
+},
+"client.nat.port": {
+"type": "long"
+},
+"client.packets": {
+"type": "long"
+},
+"client.port": {
+"type": "long"
+},
+"client.registered_domain": {
+"type": "keyword"
+},
+"client.subdomain": {
+"type": "keyword"
+},
+"client.top_level_domain": {
+"type": "keyword"
+},
+"client.user.domain": {
+"type": "keyword"
+},
+"client.user.email": {
+"type": "keyword"
+},
+"client.user.full_name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"client.user.group.domain": {
+"type": "keyword"
+},
+"client.user.group.id": {
+"type": "keyword"
+},
+"client.user.group.name": {
+"type": "keyword"
+},
+"client.user.hash": {
+"type": "keyword"
+},
+"client.user.id": {
+"type": "keyword"
+},
+"client.user.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"client.user.roles": {
+"type": "keyword"
+},
+"cloud.account.id": {
+"type": "keyword"
+},
+"cloud.account.name": {
+"type": "keyword"
+},
+"cloud.availability_zone": {
+"type": "keyword"
+},
+"cloud.entity.attributes.known_redirects": {
+"type": "keyword"
+},
+"cloud.entity.attributes.managed": {
+"type": "boolean"
+},
+"cloud.entity.attributes.mfa_enabled": {
+"type": "boolean"
+},
+"cloud.entity.attributes.oauth_consent_restriction": {
+"type": "keyword"
+},
+"cloud.entity.attributes.permissions": {
+"type": "keyword"
+},
+"cloud.entity.attributes.storage_class": {
+"type": "keyword"
+},
+"cloud.entity.behavior": {
+"type": "object"
+},
+"cloud.entity.display_name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"cloud.entity.id": {
+"type": "keyword"
+},
+"cloud.entity.last_seen_timestamp": {
+"type": "date"
+},
+"cloud.entity.lifecycle.last_activity": {
+"type": "date"
+},
+"cloud.entity.metrics": {
+"type": "object"
+},
+"cloud.entity.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"cloud.entity.raw": {
+"type": "object"
+},
+"cloud.entity.reference": {
+"type": "keyword"
+},
+"cloud.entity.relationships.administers.entity.id": {
+"type": "keyword"
+},
+"cloud.entity.relationships.administers.host.id": {
+"type": "keyword"
+},
+"cloud.entity.relationships.administers.host.name": {
+"type": "keyword"
+},
+"cloud.entity.relationships.administers.service.id": {
+"type": "keyword"
+},
+"cloud.entity.relationships.administers.service.name": {
+"type": "keyword"
+},
+"cloud.entity.relationships.administers.user.domain": {
+"type": "keyword"
+},
+"cloud.entity.relationships.administers.user.email": {
+"type": "keyword"
+},
+"cloud.entity.relationships.administers.user.id": {
+"type": "keyword"
+},
+"cloud.entity.relationships.administers.user.name": {
+"type": "keyword"
+},
+"cloud.entity.relationships.depends_on.entity.id": {
+"type": "keyword"
+},
+"cloud.entity.relationships.depends_on.host.id": {
+"type": "keyword"
+},
+"cloud.entity.relationships.depends_on.host.name": {
+"type": "keyword"
+},
+"cloud.entity.relationships.depends_on.service.id": {
+"type": "keyword"
+},
+"cloud.entity.relationships.depends_on.service.name": {
+"type": "keyword"
+},
+"cloud.entity.relationships.depends_on.user.domain": {
+"type": "keyword"
+},
+"cloud.entity.relationships.depends_on.user.email": {
+"type": "keyword"
+},
+"cloud.entity.relationships.depends_on.user.id": {
+"type": "keyword"
+},
+"cloud.entity.relationships.depends_on.user.name": {
+"type": "keyword"
+},
+"cloud.entity.relationships.owns.entity.id": {
+"type": "keyword"
+},
+"cloud.entity.relationships.owns.host.id": {
+"type": "keyword"
+},
+"cloud.entity.relationships.owns.host.name": {
+"type": "keyword"
+},
+"cloud.entity.relationships.owns.service.id": {
+"type": "keyword"
+},
+"cloud.entity.relationships.owns.service.name": {
+"type": "keyword"
+},
+"cloud.entity.relationships.owns.user.domain": {
+"type": "keyword"
+},
+"cloud.entity.relationships.owns.user.email": {
+"type": "keyword"
+},
+"cloud.entity.relationships.owns.user.id": {
+"type": "keyword"
+},
+"cloud.entity.relationships.owns.user.name": {
+"type": "keyword"
+},
+"cloud.entity.relationships.supervises.entity.id": {
+"type": "keyword"
+},
+"cloud.entity.relationships.supervises.host.id": {
+"type": "keyword"
+},
+"cloud.entity.relationships.supervises.host.name": {
+"type": "keyword"
+},
+"cloud.entity.relationships.supervises.service.id": {
+"type": "keyword"
+},
+"cloud.entity.relationships.supervises.service.name": {
+"type": "keyword"
+},
+"cloud.entity.relationships.supervises.user.domain": {
+"type": "keyword"
+},
+"cloud.entity.relationships.supervises.user.email": {
+"type": "keyword"
+},
+"cloud.entity.relationships.supervises.user.id": {
+"type": "keyword"
+},
+"cloud.entity.relationships.supervises.user.name": {
+"type": "keyword"
+},
+"cloud.entity.source": {
+"type": "keyword"
+},
+"cloud.entity.sub_type": {
+"type": "keyword"
+},
+"cloud.entity.type": {
+"type": "keyword"
+},
+"cloud.instance.id": {
+"type": "keyword"
+},
+"cloud.instance.name": {
+"type": "keyword"
+},
+"cloud.machine.type": {
+"type": "keyword"
+},
+"cloud.origin.account.id": {
+"type": "keyword"
+},
+"cloud.origin.account.name": {
+"type": "keyword"
+},
+"cloud.origin.availability_zone": {
+"type": "keyword"
+},
+"cloud.origin.entity.attributes.known_redirects": {
+"type": "keyword"
+},
+"cloud.origin.entity.attributes.managed": {
+"type": "boolean"
+},
+"cloud.origin.entity.attributes.mfa_enabled": {
+"type": "boolean"
+},
+"cloud.origin.entity.attributes.oauth_consent_restriction": {
+"type": "keyword"
+},
+"cloud.origin.entity.attributes.permissions": {
+"type": "keyword"
+},
+"cloud.origin.entity.attributes.storage_class": {
+"type": "keyword"
+},
+"cloud.origin.entity.behavior": {
+"type": "object"
+},
+"cloud.origin.entity.display_name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"cloud.origin.entity.id": {
+"type": "keyword"
+},
+"cloud.origin.entity.last_seen_timestamp": {
+"type": "date"
+},
+"cloud.origin.entity.lifecycle.last_activity": {
+"type": "date"
+},
+"cloud.origin.entity.metrics": {
+"type": "object"
+},
+"cloud.origin.entity.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"cloud.origin.entity.raw": {
+"type": "object"
+},
+"cloud.origin.entity.reference": {
+"type": "keyword"
+},
+"cloud.origin.entity.relationships.administers.entity.id": {
+"type": "keyword"
+},
+"cloud.origin.entity.relationships.administers.host.id": {
+"type": "keyword"
+},
+"cloud.origin.entity.relationships.administers.host.name": {
+"type": "keyword"
+},
+"cloud.origin.entity.relationships.administers.service.id": {
+"type": "keyword"
+},
+"cloud.origin.entity.relationships.administers.service.name": {
+"type": "keyword"
+},
+"cloud.origin.entity.relationships.administers.user.domain": {
+"type": "keyword"
+},
+"cloud.origin.entity.relationships.administers.user.email": {
+"type": "keyword"
+},
+"cloud.origin.entity.relationships.administers.user.id": {
+"type": "keyword"
+},
+"cloud.origin.entity.relationships.administers.user.name": {
+"type": "keyword"
+},
+"cloud.origin.entity.relationships.depends_on.entity.id": {
+"type": "keyword"
+},
+"cloud.origin.entity.relationships.depends_on.host.id": {
+"type": "keyword"
+},
+"cloud.origin.entity.relationships.depends_on.host.name": {
+"type": "keyword"
+},
+"cloud.origin.entity.relationships.depends_on.service.id": {
+"type": "keyword"
+},
+"cloud.origin.entity.relationships.depends_on.service.name": {
+"type": "keyword"
+},
+"cloud.origin.entity.relationships.depends_on.user.domain": {
+"type": "keyword"
+},
+"cloud.origin.entity.relationships.depends_on.user.email": {
+"type": "keyword"
+},
+"cloud.origin.entity.relationships.depends_on.user.id": {
+"type": "keyword"
+},
+"cloud.origin.entity.relationships.depends_on.user.name": {
+"type": "keyword"
+},
+"cloud.origin.entity.relationships.owns.entity.id": {
+"type": "keyword"
+},
+"cloud.origin.entity.relationships.owns.host.id": {
+"type": "keyword"
+},
+"cloud.origin.entity.relationships.owns.host.name": {
+"type": "keyword"
+},
+"cloud.origin.entity.relationships.owns.service.id": {
+"type": "keyword"
+},
+"cloud.origin.entity.relationships.owns.service.name": {
+"type": "keyword"
+},
+"cloud.origin.entity.relationships.owns.user.domain": {
+"type": "keyword"
+},
+"cloud.origin.entity.relationships.owns.user.email": {
+"type": "keyword"
+},
+"cloud.origin.entity.relationships.owns.user.id": {
+"type": "keyword"
+},
+"cloud.origin.entity.relationships.owns.user.name": {
+"type": "keyword"
+},
+"cloud.origin.entity.relationships.supervises.entity.id": {
+"type": "keyword"
+},
+"cloud.origin.entity.relationships.supervises.host.id": {
+"type": "keyword"
+},
+"cloud.origin.entity.relationships.supervises.host.name": {
+"type": "keyword"
+},
+"cloud.origin.entity.relationships.supervises.service.id": {
+"type": "keyword"
+},
+"cloud.origin.entity.relationships.supervises.service.name": {
+"type": "keyword"
+},
+"cloud.origin.entity.relationships.supervises.user.domain": {
+"type": "keyword"
+},
+"cloud.origin.entity.relationships.supervises.user.email": {
+"type": "keyword"
+},
+"cloud.origin.entity.relationships.supervises.user.id": {
+"type": "keyword"
+},
+"cloud.origin.entity.relationships.supervises.user.name": {
+"type": "keyword"
+},
+"cloud.origin.entity.source": {
+"type": "keyword"
+},
+"cloud.origin.entity.sub_type": {
+"type": "keyword"
+},
+"cloud.origin.entity.type": {
+"type": "keyword"
+},
+"cloud.origin.instance.id": {
+"type": "keyword"
+},
+"cloud.origin.instance.name": {
+"type": "keyword"
+},
+"cloud.origin.machine.type": {
+"type": "keyword"
+},
+"cloud.origin.project.id": {
+"type": "keyword"
+},
+"cloud.origin.project.name": {
+"type": "keyword"
+},
+"cloud.origin.provider": {
+"type": "keyword"
+},
+"cloud.origin.region": {
+"type": "keyword"
+},
+"cloud.origin.service.name": {
+"type": "keyword"
+},
+"cloud.project.id": {
+"type": "keyword"
+},
+"cloud.project.name": {
+"type": "keyword"
+},
+"cloud.provider": {
+"type": "keyword"
+},
+"cloud.region": {
+"type": "keyword"
+},
+"cloud.service.name": {
+"type": "keyword"
+},
+"cloud.target.account.id": {
+"type": "keyword"
+},
+"cloud.target.account.name": {
+"type": "keyword"
+},
+"cloud.target.availability_zone": {
+"type": "keyword"
+},
+"cloud.target.entity.attributes.known_redirects": {
+"type": "keyword"
+},
+"cloud.target.entity.attributes.managed": {
+"type": "boolean"
+},
+"cloud.target.entity.attributes.mfa_enabled": {
+"type": "boolean"
+},
+"cloud.target.entity.attributes.oauth_consent_restriction": {
+"type": "keyword"
+},
+"cloud.target.entity.attributes.permissions": {
+"type": "keyword"
+},
+"cloud.target.entity.attributes.storage_class": {
+"type": "keyword"
+},
+"cloud.target.entity.behavior": {
+"type": "object"
+},
+"cloud.target.entity.display_name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"cloud.target.entity.id": {
+"type": "keyword"
+},
+"cloud.target.entity.last_seen_timestamp": {
+"type": "date"
+},
+"cloud.target.entity.lifecycle.last_activity": {
+"type": "date"
+},
+"cloud.target.entity.metrics": {
+"type": "object"
+},
+"cloud.target.entity.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"cloud.target.entity.raw": {
+"type": "object"
+},
+"cloud.target.entity.reference": {
+"type": "keyword"
+},
+"cloud.target.entity.relationships.administers.entity.id": {
+"type": "keyword"
+},
+"cloud.target.entity.relationships.administers.host.id": {
+"type": "keyword"
+},
+"cloud.target.entity.relationships.administers.host.name": {
+"type": "keyword"
+},
+"cloud.target.entity.relationships.administers.service.id": {
+"type": "keyword"
+},
+"cloud.target.entity.relationships.administers.service.name": {
+"type": "keyword"
+},
+"cloud.target.entity.relationships.administers.user.domain": {
+"type": "keyword"
+},
+"cloud.target.entity.relationships.administers.user.email": {
+"type": "keyword"
+},
+"cloud.target.entity.relationships.administers.user.id": {
+"type": "keyword"
+},
+"cloud.target.entity.relationships.administers.user.name": {
+"type": "keyword"
+},
+"cloud.target.entity.relationships.depends_on.entity.id": {
+"type": "keyword"
+},
+"cloud.target.entity.relationships.depends_on.host.id": {
+"type": "keyword"
+},
+"cloud.target.entity.relationships.depends_on.host.name": {
+"type": "keyword"
+},
+"cloud.target.entity.relationships.depends_on.service.id": {
+"type": "keyword"
+},
+"cloud.target.entity.relationships.depends_on.service.name": {
+"type": "keyword"
+},
+"cloud.target.entity.relationships.depends_on.user.domain": {
+"type": "keyword"
+},
+"cloud.target.entity.relationships.depends_on.user.email": {
+"type": "keyword"
+},
+"cloud.target.entity.relationships.depends_on.user.id": {
+"type": "keyword"
+},
+"cloud.target.entity.relationships.depends_on.user.name": {
+"type": "keyword"
+},
+"cloud.target.entity.relationships.owns.entity.id": {
+"type": "keyword"
+},
+"cloud.target.entity.relationships.owns.host.id": {
+"type": "keyword"
+},
+"cloud.target.entity.relationships.owns.host.name": {
+"type": "keyword"
+},
+"cloud.target.entity.relationships.owns.service.id": {
+"type": "keyword"
+},
+"cloud.target.entity.relationships.owns.service.name": {
+"type": "keyword"
+},
+"cloud.target.entity.relationships.owns.user.domain": {
+"type": "keyword"
+},
+"cloud.target.entity.relationships.owns.user.email": {
+"type": "keyword"
+},
+"cloud.target.entity.relationships.owns.user.id": {
+"type": "keyword"
+},
+"cloud.target.entity.relationships.owns.user.name": {
+"type": "keyword"
+},
+"cloud.target.entity.relationships.supervises.entity.id": {
+"type": "keyword"
+},
+"cloud.target.entity.relationships.supervises.host.id": {
+"type": "keyword"
+},
+"cloud.target.entity.relationships.supervises.host.name": {
+"type": "keyword"
+},
+"cloud.target.entity.relationships.supervises.service.id": {
+"type": "keyword"
+},
+"cloud.target.entity.relationships.supervises.service.name": {
+"type": "keyword"
+},
+"cloud.target.entity.relationships.supervises.user.domain": {
+"type": "keyword"
+},
+"cloud.target.entity.relationships.supervises.user.email": {
+"type": "keyword"
+},
+"cloud.target.entity.relationships.supervises.user.id": {
+"type": "keyword"
+},
+"cloud.target.entity.relationships.supervises.user.name": {
+"type": "keyword"
+},
+"cloud.target.entity.source": {
+"type": "keyword"
+},
+"cloud.target.entity.sub_type": {
+"type": "keyword"
+},
+"cloud.target.entity.type": {
+"type": "keyword"
+},
+"cloud.target.instance.id": {
+"type": "keyword"
+},
+"cloud.target.instance.name": {
+"type": "keyword"
+},
+"cloud.target.machine.type": {
+"type": "keyword"
+},
+"cloud.target.project.id": {
+"type": "keyword"
+},
+"cloud.target.project.name": {
+"type": "keyword"
+},
+"cloud.target.provider": {
+"type": "keyword"
+},
+"cloud.target.region": {
+"type": "keyword"
+},
+"cloud.target.service.name": {
+"type": "keyword"
+},
+"container.cpu.usage": {
+"type": "scaled_float"
+},
+"container.disk.read.bytes": {
+"type": "long"
+},
+"container.disk.write.bytes": {
+"type": "long"
+},
+"container.id": {
+"type": "keyword"
+},
+"container.image.hash.all": {
+"type": "keyword"
+},
+"container.image.name": {
+"type": "keyword"
+},
+"container.image.tag": {
+"type": "keyword"
+},
+"container.labels": {
+"type": "object"
+},
+"container.memory.usage": {
+"type": "scaled_float"
+},
+"container.name": {
+"type": "keyword"
+},
+"container.network.egress.bytes": {
+"type": "long"
+},
+"container.network.ingress.bytes": {
+"type": "long"
+},
+"container.runtime": {
+"type": "keyword"
+},
+"container.security_context.privileged": {
+"type": "boolean"
+},
+"data_stream.dataset": {
+"type": "constant_keyword"
+},
+"data_stream.namespace": {
+"type": "constant_keyword"
+},
+"data_stream.type": {
+"type": "constant_keyword"
+},
+"destination.address": {
+"type": "keyword"
+},
+"destination.as.number": {
+"type": "long"
+},
+"destination.as.organization.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"destination.bytes": {
+"type": "long"
+},
+"destination.domain": {
+"type": "keyword"
+},
+"destination.geo.city_name": {
+"type": "keyword"
+},
+"destination.geo.continent_code": {
+"type": "keyword"
+},
+"destination.geo.continent_name": {
+"type": "keyword"
+},
+"destination.geo.country_iso_code": {
+"type": "keyword"
+},
+"destination.geo.country_name": {
+"type": "keyword"
+},
+"destination.geo.location": {
+"type": "geo_point"
+},
+"destination.geo.name": {
+"type": "keyword"
+},
+"destination.geo.postal_code": {
+"type": "keyword"
+},
+"destination.geo.region_iso_code": {
+"type": "keyword"
+},
+"destination.geo.region_name": {
+"type": "keyword"
+},
+"destination.geo.timezone": {
+"type": "keyword"
+},
+"destination.ip": {
+"type": "ip"
+},
+"destination.mac": {
+"type": "keyword"
+},
+"destination.nat.ip": {
+"type": "ip"
+},
+"destination.nat.port": {
+"type": "long"
+},
+"destination.packets": {
+"type": "long"
+},
+"destination.port": {
+"type": "long"
+},
+"destination.registered_domain": {
+"type": "keyword"
+},
+"destination.subdomain": {
+"type": "keyword"
+},
+"destination.top_level_domain": {
+"type": "keyword"
+},
+"destination.user.domain": {
+"type": "keyword"
+},
+"destination.user.email": {
+"type": "keyword"
+},
+"destination.user.full_name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"destination.user.group.domain": {
+"type": "keyword"
+},
+"destination.user.group.id": {
+"type": "keyword"
+},
+"destination.user.group.name": {
+"type": "keyword"
+},
+"destination.user.hash": {
+"type": "keyword"
+},
+"destination.user.id": {
+"type": "keyword"
+},
+"destination.user.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"destination.user.roles": {
+"type": "keyword"
+},
+"device.id": {
+"type": "keyword"
+},
+"device.manufacturer": {
+"type": "keyword"
+},
+"device.model.identifier": {
+"type": "keyword"
+},
+"device.model.name": {
+"type": "keyword"
+},
+"device.product.id": {
+"type": "keyword"
+},
+"device.product.name": {
+"type": "keyword"
+},
+"device.serial_number": {
+"type": "keyword"
+},
+"device.type": {
+"type": "keyword"
+},
+"device.vendor.id": {
+"type": "keyword"
+},
+"device.vendor.name": {
+"type": "keyword"
+},
+"dll.code_signature.digest_algorithm": {
+"type": "keyword"
+},
+"dll.code_signature.exists": {
+"type": "boolean"
+},
+"dll.code_signature.flags": {
+"type": "keyword"
+},
+"dll.code_signature.signing_id": {
+"type": "keyword"
+},
+"dll.code_signature.status": {
+"type": "keyword"
+},
+"dll.code_signature.subject_name": {
+"type": "keyword"
+},
+"dll.code_signature.team_id": {
+"type": "keyword"
+},
+"dll.code_signature.thumbprint_sha256": {
+"type": "keyword"
+},
+"dll.code_signature.timestamp": {
+"type": "date"
+},
+"dll.code_signature.trusted": {
+"type": "boolean"
+},
+"dll.code_signature.valid": {
+"type": "boolean"
+},
+"dll.hash.cdhash": {
+"type": "keyword"
+},
+"dll.hash.md5": {
+"type": "keyword"
+},
+"dll.hash.sha1": {
+"type": "keyword"
+},
+"dll.hash.sha256": {
+"type": "keyword"
+},
+"dll.hash.sha384": {
+"type": "keyword"
+},
+"dll.hash.sha512": {
+"type": "keyword"
+},
+"dll.hash.ssdeep": {
+"type": "keyword"
+},
+"dll.hash.tlsh": {
+"type": "keyword"
+},
+"dll.name": {
+"type": "keyword"
+},
+"dll.origin_referrer_url": {
+"type": "keyword"
+},
+"dll.origin_url": {
+"type": "keyword"
+},
+"dll.path": {
+"type": "keyword"
+},
+"dll.pe.architecture": {
+"type": "keyword"
+},
+"dll.pe.company": {
+"type": "keyword"
+},
+"dll.pe.description": {
+"type": "keyword"
+},
+"dll.pe.file_version": {
+"type": "keyword"
+},
+"dll.pe.go_import_hash": {
+"type": "keyword"
+},
+"dll.pe.go_imports": {
+"type": "flattened"
+},
+"dll.pe.go_imports_names_entropy": {
+"type": "long"
+},
+"dll.pe.go_imports_names_var_entropy": {
+"type": "long"
+},
+"dll.pe.go_stripped": {
+"type": "boolean"
+},
+"dll.pe.imphash": {
+"type": "keyword"
+},
+"dll.pe.import_hash": {
+"type": "keyword"
+},
+"dll.pe.imports": {
+"type": "flattened"
+},
+"dll.pe.imports_names_entropy": {
+"type": "long"
+},
+"dll.pe.imports_names_var_entropy": {
+"type": "long"
+},
+"dll.pe.original_file_name": {
+"type": "keyword"
+},
+"dll.pe.pehash": {
+"type": "keyword"
+},
+"dll.pe.product": {
+"type": "keyword"
+},
+"dll.pe.sections": {
+"type": "nested"
+},
+"dll.pe.sections.entropy": {
+"type": "long"
+},
+"dll.pe.sections.name": {
+"type": "keyword"
+},
+"dll.pe.sections.physical_size": {
+"type": "long"
+},
+"dll.pe.sections.var_entropy": {
+"type": "long"
+},
+"dll.pe.sections.virtual_size": {
+"type": "long"
+},
+"dns.answers": {
+"type": "object"
+},
+"dns.answers.class": {
+"type": "keyword"
+},
+"dns.answers.data": {
+"type": "keyword"
+},
+"dns.answers.name": {
+"type": "keyword"
+},
+"dns.answers.ttl": {
+"type": "long"
+},
+"dns.answers.type": {
+"type": "keyword"
+},
+"dns.header_flags": {
+"type": "keyword"
+},
+"dns.id": {
+"type": "keyword"
+},
+"dns.op_code": {
+"type": "keyword"
+},
+"dns.question.class": {
+"type": "keyword"
+},
+"dns.question.name": {
+"type": "keyword"
+},
+"dns.question.registered_domain": {
+"type": "keyword"
+},
+"dns.question.subdomain": {
+"type": "keyword"
+},
+"dns.question.top_level_domain": {
+"type": "keyword"
+},
+"dns.question.type": {
+"type": "keyword"
+},
+"dns.resolved_ip": {
+"type": "ip"
+},
+"dns.response_code": {
+"type": "keyword"
+},
+"dns.type": {
+"type": "keyword"
+},
+"ecs.version": {
+"type": "keyword"
+},
+"email.attachments": {
+"type": "nested"
+},
+"email.attachments.file.extension": {
+"type": "keyword"
+},
+"email.attachments.file.hash.cdhash": {
+"type": "keyword"
+},
+"email.attachments.file.hash.md5": {
+"type": "keyword"
+},
+"email.attachments.file.hash.sha1": {
+"type": "keyword"
+},
+"email.attachments.file.hash.sha256": {
+"type": "keyword"
+},
+"email.attachments.file.hash.sha384": {
+"type": "keyword"
+},
+"email.attachments.file.hash.sha512": {
+"type": "keyword"
+},
+"email.attachments.file.hash.ssdeep": {
+"type": "keyword"
+},
+"email.attachments.file.hash.tlsh": {
+"type": "keyword"
+},
+"email.attachments.file.mime_type": {
+"type": "keyword"
+},
+"email.attachments.file.name": {
+"type": "keyword"
+},
+"email.attachments.file.size": {
+"type": "long"
+},
+"email.bcc.address": {
+"type": "keyword"
+},
+"email.cc.address": {
+"type": "keyword"
+},
+"email.content_type": {
+"type": "keyword"
+},
+"email.delivery_timestamp": {
+"type": "date"
+},
+"email.direction": {
+"type": "keyword"
+},
+"email.from.address": {
+"type": "keyword"
+},
+"email.local_id": {
+"type": "keyword"
+},
+"email.message_id": {
+"type": "wildcard"
+},
+"email.origination_timestamp": {
+"type": "date"
+},
+"email.reply_to.address": {
+"type": "keyword"
+},
+"email.sender.address": {
+"type": "keyword"
+},
+"email.subject": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"email.to.address": {
+"type": "keyword"
+},
+"email.x_mailer": {
+"type": "keyword"
+},
+"entity.attributes.known_redirects": {
+"type": "keyword"
+},
+"entity.attributes.managed": {
+"type": "boolean"
+},
+"entity.attributes.mfa_enabled": {
+"type": "boolean"
+},
+"entity.attributes.oauth_consent_restriction": {
+"type": "keyword"
+},
+"entity.attributes.permissions": {
+"type": "keyword"
+},
+"entity.attributes.storage_class": {
+"type": "keyword"
+},
+"entity.behavior": {
+"type": "object"
+},
+"entity.display_name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"entity.id": {
+"type": "keyword"
+},
+"entity.last_seen_timestamp": {
+"type": "date"
+},
+"entity.lifecycle.last_activity": {
+"type": "date"
+},
+"entity.metrics": {
+"type": "object"
+},
+"entity.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"entity.raw": {
+"type": "object"
+},
+"entity.reference": {
+"type": "keyword"
+},
+"entity.relationships.administers.entity.id": {
+"type": "keyword"
+},
+"entity.relationships.administers.host.id": {
+"type": "keyword"
+},
+"entity.relationships.administers.host.name": {
+"type": "keyword"
+},
+"entity.relationships.administers.service.id": {
+"type": "keyword"
+},
+"entity.relationships.administers.service.name": {
+"type": "keyword"
+},
+"entity.relationships.administers.user.domain": {
+"type": "keyword"
+},
+"entity.relationships.administers.user.email": {
+"type": "keyword"
+},
+"entity.relationships.administers.user.id": {
+"type": "keyword"
+},
+"entity.relationships.administers.user.name": {
+"type": "keyword"
+},
+"entity.relationships.depends_on.entity.id": {
+"type": "keyword"
+},
+"entity.relationships.depends_on.host.id": {
+"type": "keyword"
+},
+"entity.relationships.depends_on.host.name": {
+"type": "keyword"
+},
+"entity.relationships.depends_on.service.id": {
+"type": "keyword"
+},
+"entity.relationships.depends_on.service.name": {
+"type": "keyword"
+},
+"entity.relationships.depends_on.user.domain": {
+"type": "keyword"
+},
+"entity.relationships.depends_on.user.email": {
+"type": "keyword"
+},
+"entity.relationships.depends_on.user.id": {
+"type": "keyword"
+},
+"entity.relationships.depends_on.user.name": {
+"type": "keyword"
+},
+"entity.relationships.owns.entity.id": {
+"type": "keyword"
+},
+"entity.relationships.owns.host.id": {
+"type": "keyword"
+},
+"entity.relationships.owns.host.name": {
+"type": "keyword"
+},
+"entity.relationships.owns.service.id": {
+"type": "keyword"
+},
+"entity.relationships.owns.service.name": {
+"type": "keyword"
+},
+"entity.relationships.owns.user.domain": {
+"type": "keyword"
+},
+"entity.relationships.owns.user.email": {
+"type": "keyword"
+},
+"entity.relationships.owns.user.id": {
+"type": "keyword"
+},
+"entity.relationships.owns.user.name": {
+"type": "keyword"
+},
+"entity.relationships.supervises.entity.id": {
+"type": "keyword"
+},
+"entity.relationships.supervises.host.id": {
+"type": "keyword"
+},
+"entity.relationships.supervises.host.name": {
+"type": "keyword"
+},
+"entity.relationships.supervises.service.id": {
+"type": "keyword"
+},
+"entity.relationships.supervises.service.name": {
+"type": "keyword"
+},
+"entity.relationships.supervises.user.domain": {
+"type": "keyword"
+},
+"entity.relationships.supervises.user.email": {
+"type": "keyword"
+},
+"entity.relationships.supervises.user.id": {
+"type": "keyword"
+},
+"entity.relationships.supervises.user.name": {
+"type": "keyword"
+},
+"entity.source": {
+"type": "keyword"
+},
+"entity.sub_type": {
+"type": "keyword"
+},
+"entity.target.attributes.known_redirects": {
+"type": "keyword"
+},
+"entity.target.attributes.managed": {
+"type": "boolean"
+},
+"entity.target.attributes.mfa_enabled": {
+"type": "boolean"
+},
+"entity.target.attributes.oauth_consent_restriction": {
+"type": "keyword"
+},
+"entity.target.attributes.permissions": {
+"type": "keyword"
+},
+"entity.target.attributes.storage_class": {
+"type": "keyword"
+},
+"entity.target.behavior": {
+"type": "object"
+},
+"entity.target.display_name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"entity.target.id": {
+"type": "keyword"
+},
+"entity.target.last_seen_timestamp": {
+"type": "date"
+},
+"entity.target.lifecycle.last_activity": {
+"type": "date"
+},
+"entity.target.metrics": {
+"type": "object"
+},
+"entity.target.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"entity.target.raw": {
+"type": "object"
+},
+"entity.target.reference": {
+"type": "keyword"
+},
+"entity.target.relationships.administers.entity.id": {
+"type": "keyword"
+},
+"entity.target.relationships.administers.host.id": {
+"type": "keyword"
+},
+"entity.target.relationships.administers.host.name": {
+"type": "keyword"
+},
+"entity.target.relationships.administers.service.id": {
+"type": "keyword"
+},
+"entity.target.relationships.administers.service.name": {
+"type": "keyword"
+},
+"entity.target.relationships.administers.user.domain": {
+"type": "keyword"
+},
+"entity.target.relationships.administers.user.email": {
+"type": "keyword"
+},
+"entity.target.relationships.administers.user.id": {
+"type": "keyword"
+},
+"entity.target.relationships.administers.user.name": {
+"type": "keyword"
+},
+"entity.target.relationships.depends_on.entity.id": {
+"type": "keyword"
+},
+"entity.target.relationships.depends_on.host.id": {
+"type": "keyword"
+},
+"entity.target.relationships.depends_on.host.name": {
+"type": "keyword"
+},
+"entity.target.relationships.depends_on.service.id": {
+"type": "keyword"
+},
+"entity.target.relationships.depends_on.service.name": {
+"type": "keyword"
+},
+"entity.target.relationships.depends_on.user.domain": {
+"type": "keyword"
+},
+"entity.target.relationships.depends_on.user.email": {
+"type": "keyword"
+},
+"entity.target.relationships.depends_on.user.id": {
+"type": "keyword"
+},
+"entity.target.relationships.depends_on.user.name": {
+"type": "keyword"
+},
+"entity.target.relationships.owns.entity.id": {
+"type": "keyword"
+},
+"entity.target.relationships.owns.host.id": {
+"type": "keyword"
+},
+"entity.target.relationships.owns.host.name": {
+"type": "keyword"
+},
+"entity.target.relationships.owns.service.id": {
+"type": "keyword"
+},
+"entity.target.relationships.owns.service.name": {
+"type": "keyword"
+},
+"entity.target.relationships.owns.user.domain": {
+"type": "keyword"
+},
+"entity.target.relationships.owns.user.email": {
+"type": "keyword"
+},
+"entity.target.relationships.owns.user.id": {
+"type": "keyword"
+},
+"entity.target.relationships.owns.user.name": {
+"type": "keyword"
+},
+"entity.target.relationships.supervises.entity.id": {
+"type": "keyword"
+},
+"entity.target.relationships.supervises.host.id": {
+"type": "keyword"
+},
+"entity.target.relationships.supervises.host.name": {
+"type": "keyword"
+},
+"entity.target.relationships.supervises.service.id": {
+"type": "keyword"
+},
+"entity.target.relationships.supervises.service.name": {
+"type": "keyword"
+},
+"entity.target.relationships.supervises.user.domain": {
+"type": "keyword"
+},
+"entity.target.relationships.supervises.user.email": {
+"type": "keyword"
+},
+"entity.target.relationships.supervises.user.id": {
+"type": "keyword"
+},
+"entity.target.relationships.supervises.user.name": {
+"type": "keyword"
+},
+"entity.target.source": {
+"type": "keyword"
+},
+"entity.target.sub_type": {
+"type": "keyword"
+},
+"entity.target.type": {
+"type": "keyword"
+},
+"entity.type": {
+"type": "keyword"
+},
+"error.code": {
+"type": "keyword"
+},
+"error.id": {
+"type": "keyword"
+},
+"error.message": {
+"type": "match_only_text"
+},
+"error.stack_trace": {
+"type": "wildcard",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"error.type": {
+"type": "keyword"
+},
+"event.action": {
+"type": "keyword"
+},
+"event.agent_id_status": {
+"type": "keyword"
+},
+"event.category": {
+"type": "keyword"
+},
+"event.code": {
+"type": "keyword"
+},
+"event.created": {
+"type": "date"
+},
+"event.dataset": {
+"type": "keyword"
+},
+"event.duration": {
+"type": "long"
+},
+"event.end": {
+"type": "date"
+},
+"event.hash": {
+"type": "keyword"
+},
+"event.id": {
+"type": "keyword"
+},
+"event.ingested": {
+"type": "date"
+},
+"event.kind": {
+"type": "keyword"
+},
+"event.module": {
+"type": "keyword"
+},
+"event.original": {
+"type": "keyword"
+},
+"event.outcome": {
+"type": "keyword"
+},
+"event.provider": {
+"type": "keyword"
+},
+"event.reason": {
+"type": "keyword"
+},
+"event.reference": {
+"type": "keyword"
+},
+"event.risk_score": {
+"type": "float"
+},
+"event.risk_score_norm": {
+"type": "float"
+},
+"event.sequence": {
+"type": "long"
+},
+"event.severity": {
+"type": "long"
+},
+"event.start": {
+"type": "date"
+},
+"event.timezone": {
+"type": "keyword"
+},
+"event.type": {
+"type": "keyword"
+},
+"event.url": {
+"type": "keyword"
+},
+"faas.coldstart": {
+"type": "boolean"
+},
+"faas.execution": {
+"type": "keyword"
+},
+"faas.id": {
+"type": "keyword"
+},
+"faas.name": {
+"type": "keyword"
+},
+"faas.trigger.request_id": {
+"type": "keyword"
+},
+"faas.trigger.type": {
+"type": "keyword"
+},
+"faas.version": {
+"type": "keyword"
+},
+"file.accessed": {
+"type": "date"
+},
+"file.attributes": {
+"type": "keyword"
+},
+"file.code_signature.digest_algorithm": {
+"type": "keyword"
+},
+"file.code_signature.exists": {
+"type": "boolean"
+},
+"file.code_signature.flags": {
+"type": "keyword"
+},
+"file.code_signature.signing_id": {
+"type": "keyword"
+},
+"file.code_signature.status": {
+"type": "keyword"
+},
+"file.code_signature.subject_name": {
+"type": "keyword"
+},
+"file.code_signature.team_id": {
+"type": "keyword"
+},
+"file.code_signature.thumbprint_sha256": {
+"type": "keyword"
+},
+"file.code_signature.timestamp": {
+"type": "date"
+},
+"file.code_signature.trusted": {
+"type": "boolean"
+},
+"file.code_signature.valid": {
+"type": "boolean"
+},
+"file.created": {
+"type": "date"
+},
+"file.ctime": {
+"type": "date"
+},
+"file.device": {
+"type": "keyword"
+},
+"file.directory": {
+"type": "keyword"
+},
+"file.drive_letter": {
+"type": "keyword"
+},
+"file.elf.architecture": {
+"type": "keyword"
+},
+"file.elf.byte_order": {
+"type": "keyword"
+},
+"file.elf.cpu_type": {
+"type": "keyword"
+},
+"file.elf.creation_date": {
+"type": "date"
+},
+"file.elf.exports": {
+"type": "flattened"
+},
+"file.elf.go_import_hash": {
+"type": "keyword"
+},
+"file.elf.go_imports": {
+"type": "flattened"
+},
+"file.elf.go_imports_names_entropy": {
+"type": "long"
+},
+"file.elf.go_imports_names_var_entropy": {
+"type": "long"
+},
+"file.elf.go_stripped": {
+"type": "boolean"
+},
+"file.elf.header.abi_version": {
+"type": "keyword"
+},
+"file.elf.header.class": {
+"type": "keyword"
+},
+"file.elf.header.data": {
+"type": "keyword"
+},
+"file.elf.header.entrypoint": {
+"type": "long"
+},
+"file.elf.header.object_version": {
+"type": "keyword"
+},
+"file.elf.header.os_abi": {
+"type": "keyword"
+},
+"file.elf.header.type": {
+"type": "keyword"
+},
+"file.elf.header.version": {
+"type": "keyword"
+},
+"file.elf.import_hash": {
+"type": "keyword"
+},
+"file.elf.imports": {
+"type": "flattened"
+},
+"file.elf.imports_names_entropy": {
+"type": "long"
+},
+"file.elf.imports_names_var_entropy": {
+"type": "long"
+},
+"file.elf.sections": {
+"type": "nested"
+},
+"file.elf.sections.chi2": {
+"type": "long"
+},
+"file.elf.sections.entropy": {
+"type": "long"
+},
+"file.elf.sections.flags": {
+"type": "keyword"
+},
+"file.elf.sections.name": {
+"type": "keyword"
+},
+"file.elf.sections.physical_offset": {
+"type": "keyword"
+},
+"file.elf.sections.physical_size": {
+"type": "long"
+},
+"file.elf.sections.type": {
+"type": "keyword"
+},
+"file.elf.sections.var_entropy": {
+"type": "long"
+},
+"file.elf.sections.virtual_address": {
+"type": "long"
+},
+"file.elf.sections.virtual_size": {
+"type": "long"
+},
+"file.elf.segments": {
+"type": "nested"
+},
+"file.elf.segments.sections": {
+"type": "keyword"
+},
+"file.elf.segments.type": {
+"type": "keyword"
+},
+"file.elf.shared_libraries": {
+"type": "keyword"
+},
+"file.elf.telfhash": {
+"type": "keyword"
+},
+"file.extension": {
+"type": "keyword"
+},
+"file.fork_name": {
+"type": "keyword"
+},
+"file.gid": {
+"type": "keyword"
+},
+"file.group": {
+"type": "keyword"
+},
+"file.hash.cdhash": {
+"type": "keyword"
+},
+"file.hash.md5": {
+"type": "keyword"
+},
+"file.hash.sha1": {
+"type": "keyword"
+},
+"file.hash.sha256": {
+"type": "keyword"
+},
+"file.hash.sha384": {
+"type": "keyword"
+},
+"file.hash.sha512": {
+"type": "keyword"
+},
+"file.hash.ssdeep": {
+"type": "keyword"
+},
+"file.hash.tlsh": {
+"type": "keyword"
+},
+"file.inode": {
+"type": "keyword"
+},
+"file.macho.go_import_hash": {
+"type": "keyword"
+},
+"file.macho.go_imports": {
+"type": "flattened"
+},
+"file.macho.go_imports_names_entropy": {
+"type": "long"
+},
+"file.macho.go_imports_names_var_entropy": {
+"type": "long"
+},
+"file.macho.go_stripped": {
+"type": "boolean"
+},
+"file.macho.import_hash": {
+"type": "keyword"
+},
+"file.macho.imports": {
+"type": "flattened"
+},
+"file.macho.imports_names_entropy": {
+"type": "long"
+},
+"file.macho.imports_names_var_entropy": {
+"type": "long"
+},
+"file.macho.sections": {
+"type": "nested"
+},
+"file.macho.sections.entropy": {
+"type": "long"
+},
+"file.macho.sections.name": {
+"type": "keyword"
+},
+"file.macho.sections.physical_size": {
+"type": "long"
+},
+"file.macho.sections.var_entropy": {
+"type": "long"
+},
+"file.macho.sections.virtual_size": {
+"type": "long"
+},
+"file.macho.symhash": {
+"type": "keyword"
+},
+"file.mime_type": {
+"type": "keyword"
+},
+"file.mode": {
+"type": "keyword"
+},
+"file.mtime": {
+"type": "date"
+},
+"file.name": {
+"type": "keyword"
+},
+"file.origin_referrer_url": {
+"type": "keyword"
+},
+"file.origin_url": {
+"type": "keyword"
+},
+"file.owner": {
+"type": "keyword"
+},
+"file.path": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"file.pe.architecture": {
+"type": "keyword"
+},
+"file.pe.company": {
+"type": "keyword"
+},
+"file.pe.description": {
+"type": "keyword"
+},
+"file.pe.file_version": {
+"type": "keyword"
+},
+"file.pe.go_import_hash": {
+"type": "keyword"
+},
+"file.pe.go_imports": {
+"type": "flattened"
+},
+"file.pe.go_imports_names_entropy": {
+"type": "long"
+},
+"file.pe.go_imports_names_var_entropy": {
+"type": "long"
+},
+"file.pe.go_stripped": {
+"type": "boolean"
+},
+"file.pe.imphash": {
+"type": "keyword"
+},
+"file.pe.import_hash": {
+"type": "keyword"
+},
+"file.pe.imports": {
+"type": "flattened"
+},
+"file.pe.imports_names_entropy": {
+"type": "long"
+},
+"file.pe.imports_names_var_entropy": {
+"type": "long"
+},
+"file.pe.original_file_name": {
+"type": "keyword"
+},
+"file.pe.pehash": {
+"type": "keyword"
+},
+"file.pe.product": {
+"type": "keyword"
+},
+"file.pe.sections": {
+"type": "nested"
+},
+"file.pe.sections.entropy": {
+"type": "long"
+},
+"file.pe.sections.name": {
+"type": "keyword"
+},
+"file.pe.sections.physical_size": {
+"type": "long"
+},
+"file.pe.sections.var_entropy": {
+"type": "long"
+},
+"file.pe.sections.virtual_size": {
+"type": "long"
+},
+"file.size": {
+"type": "long"
+},
+"file.target_path": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"file.type": {
+"type": "keyword"
+},
+"file.uid": {
+"type": "keyword"
+},
+"file.x509.alternative_names": {
+"type": "keyword"
+},
+"file.x509.issuer.common_name": {
+"type": "keyword"
+},
+"file.x509.issuer.country": {
+"type": "keyword"
+},
+"file.x509.issuer.distinguished_name": {
+"type": "keyword"
+},
+"file.x509.issuer.locality": {
+"type": "keyword"
+},
+"file.x509.issuer.organization": {
+"type": "keyword"
+},
+"file.x509.issuer.organizational_unit": {
+"type": "keyword"
+},
+"file.x509.issuer.state_or_province": {
+"type": "keyword"
+},
+"file.x509.not_after": {
+"type": "date"
+},
+"file.x509.not_before": {
+"type": "date"
+},
+"file.x509.public_key_algorithm": {
+"type": "keyword"
+},
+"file.x509.public_key_curve": {
+"type": "keyword"
+},
+"file.x509.public_key_exponent": {
+"type": "long"
+},
+"file.x509.public_key_size": {
+"type": "long"
+},
+"file.x509.serial_number": {
+"type": "keyword"
+},
+"file.x509.signature_algorithm": {
+"type": "keyword"
+},
+"file.x509.subject.common_name": {
+"type": "keyword"
+},
+"file.x509.subject.country": {
+"type": "keyword"
+},
+"file.x509.subject.distinguished_name": {
+"type": "keyword"
+},
+"file.x509.subject.locality": {
+"type": "keyword"
+},
+"file.x509.subject.organization": {
+"type": "keyword"
+},
+"file.x509.subject.organizational_unit": {
+"type": "keyword"
+},
+"file.x509.subject.state_or_province": {
+"type": "keyword"
+},
+"file.x509.version_number": {
+"type": "keyword"
+},
+"gen_ai.agent.description": {
+"type": "keyword"
+},
+"gen_ai.agent.id": {
+"type": "keyword"
+},
+"gen_ai.agent.name": {
+"type": "keyword"
+},
+"gen_ai.input.messages": {
+"type": "flattened"
+},
+"gen_ai.operation.name": {
+"type": "keyword"
+},
+"gen_ai.output.messages": {
+"type": "flattened"
+},
+"gen_ai.output.type": {
+"type": "keyword"
+},
+"gen_ai.provider.name": {
+"type": "keyword"
+},
+"gen_ai.request.choice.count": {
+"type": "long"
+},
+"gen_ai.request.encoding_formats": {
+"type": "nested"
+},
+"gen_ai.request.frequency_penalty": {
+"type": "double"
+},
+"gen_ai.request.max_tokens": {
+"type": "long"
+},
+"gen_ai.request.model": {
+"type": "keyword"
+},
+"gen_ai.request.presence_penalty": {
+"type": "double"
+},
+"gen_ai.request.seed": {
+"type": "long"
+},
+"gen_ai.request.stop_sequences": {
+"type": "nested"
+},
+"gen_ai.request.temperature": {
+"type": "double"
+},
+"gen_ai.request.top_k": {
+"type": "double"
+},
+"gen_ai.request.top_p": {
+"type": "double"
+},
+"gen_ai.response.finish_reasons": {
+"type": "nested"
+},
+"gen_ai.response.id": {
+"type": "keyword"
+},
+"gen_ai.response.model": {
+"type": "keyword"
+},
+"gen_ai.system_instructions": {
+"type": "flattened"
+},
+"gen_ai.token.type": {
+"type": "keyword"
+},
+"gen_ai.tool.call.arguments": {
+"type": "flattened"
+},
+"gen_ai.tool.call.id": {
+"type": "keyword"
+},
+"gen_ai.tool.call.result": {
+"type": "flattened"
+},
+"gen_ai.tool.definitions": {
+"type": "flattened"
+},
+"gen_ai.tool.name": {
+"type": "keyword"
+},
+"gen_ai.tool.type": {
+"type": "keyword"
+},
+"gen_ai.usage.input_tokens": {
+"type": "long"
+},
+"gen_ai.usage.output_tokens": {
+"type": "long"
+},
+"group.domain": {
+"type": "keyword"
+},
+"group.id": {
+"type": "keyword"
+},
+"group.name": {
+"type": "keyword"
+},
+"host.architecture": {
+"type": "keyword"
+},
+"host.boot.id": {
+"type": "keyword"
+},
+"host.cpu.usage": {
+"type": "scaled_float"
+},
+"host.disk.read.bytes": {
+"type": "long"
+},
+"host.disk.write.bytes": {
+"type": "long"
+},
+"host.domain": {
+"type": "keyword"
+},
+"host.entity.attributes.known_redirects": {
+"type": "keyword"
+},
+"host.entity.attributes.managed": {
+"type": "boolean"
+},
+"host.entity.attributes.mfa_enabled": {
+"type": "boolean"
+},
+"host.entity.attributes.oauth_consent_restriction": {
+"type": "keyword"
+},
+"host.entity.attributes.permissions": {
+"type": "keyword"
+},
+"host.entity.attributes.storage_class": {
+"type": "keyword"
+},
+"host.entity.behavior": {
+"type": "object"
+},
+"host.entity.display_name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"host.entity.id": {
+"type": "keyword"
+},
+"host.entity.last_seen_timestamp": {
+"type": "date"
+},
+"host.entity.lifecycle.last_activity": {
+"type": "date"
+},
+"host.entity.metrics": {
+"type": "object"
+},
+"host.entity.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"host.entity.raw": {
+"type": "object"
+},
+"host.entity.reference": {
+"type": "keyword"
+},
+"host.entity.relationships.administers.entity.id": {
+"type": "keyword"
+},
+"host.entity.relationships.administers.host.id": {
+"type": "keyword"
+},
+"host.entity.relationships.administers.host.name": {
+"type": "keyword"
+},
+"host.entity.relationships.administers.service.id": {
+"type": "keyword"
+},
+"host.entity.relationships.administers.service.name": {
+"type": "keyword"
+},
+"host.entity.relationships.administers.user.domain": {
+"type": "keyword"
+},
+"host.entity.relationships.administers.user.email": {
+"type": "keyword"
+},
+"host.entity.relationships.administers.user.id": {
+"type": "keyword"
+},
+"host.entity.relationships.administers.user.name": {
+"type": "keyword"
+},
+"host.entity.relationships.depends_on.entity.id": {
+"type": "keyword"
+},
+"host.entity.relationships.depends_on.host.id": {
+"type": "keyword"
+},
+"host.entity.relationships.depends_on.host.name": {
+"type": "keyword"
+},
+"host.entity.relationships.depends_on.service.id": {
+"type": "keyword"
+},
+"host.entity.relationships.depends_on.service.name": {
+"type": "keyword"
+},
+"host.entity.relationships.depends_on.user.domain": {
+"type": "keyword"
+},
+"host.entity.relationships.depends_on.user.email": {
+"type": "keyword"
+},
+"host.entity.relationships.depends_on.user.id": {
+"type": "keyword"
+},
+"host.entity.relationships.depends_on.user.name": {
+"type": "keyword"
+},
+"host.entity.relationships.owns.entity.id": {
+"type": "keyword"
+},
+"host.entity.relationships.owns.host.id": {
+"type": "keyword"
+},
+"host.entity.relationships.owns.host.name": {
+"type": "keyword"
+},
+"host.entity.relationships.owns.service.id": {
+"type": "keyword"
+},
+"host.entity.relationships.owns.service.name": {
+"type": "keyword"
+},
+"host.entity.relationships.owns.user.domain": {
+"type": "keyword"
+},
+"host.entity.relationships.owns.user.email": {
+"type": "keyword"
+},
+"host.entity.relationships.owns.user.id": {
+"type": "keyword"
+},
+"host.entity.relationships.owns.user.name": {
+"type": "keyword"
+},
+"host.entity.relationships.supervises.entity.id": {
+"type": "keyword"
+},
+"host.entity.relationships.supervises.host.id": {
+"type": "keyword"
+},
+"host.entity.relationships.supervises.host.name": {
+"type": "keyword"
+},
+"host.entity.relationships.supervises.service.id": {
+"type": "keyword"
+},
+"host.entity.relationships.supervises.service.name": {
+"type": "keyword"
+},
+"host.entity.relationships.supervises.user.domain": {
+"type": "keyword"
+},
+"host.entity.relationships.supervises.user.email": {
+"type": "keyword"
+},
+"host.entity.relationships.supervises.user.id": {
+"type": "keyword"
+},
+"host.entity.relationships.supervises.user.name": {
+"type": "keyword"
+},
+"host.entity.source": {
+"type": "keyword"
+},
+"host.entity.sub_type": {
+"type": "keyword"
+},
+"host.entity.type": {
+"type": "keyword"
+},
+"host.geo.city_name": {
+"type": "keyword"
+},
+"host.geo.continent_code": {
+"type": "keyword"
+},
+"host.geo.continent_name": {
+"type": "keyword"
+},
+"host.geo.country_iso_code": {
+"type": "keyword"
+},
+"host.geo.country_name": {
+"type": "keyword"
+},
+"host.geo.location": {
+"type": "geo_point"
+},
+"host.geo.name": {
+"type": "keyword"
+},
+"host.geo.postal_code": {
+"type": "keyword"
+},
+"host.geo.region_iso_code": {
+"type": "keyword"
+},
+"host.geo.region_name": {
+"type": "keyword"
+},
+"host.geo.timezone": {
+"type": "keyword"
+},
+"host.hostname": {
+"type": "keyword"
+},
+"host.id": {
+"type": "keyword"
+},
+"host.ip": {
+"type": "ip"
+},
+"host.mac": {
+"type": "keyword"
+},
+"host.name": {
+"type": "keyword"
+},
+"host.network.egress.bytes": {
+"type": "long"
+},
+"host.network.egress.packets": {
+"type": "long"
+},
+"host.network.ingress.bytes": {
+"type": "long"
+},
+"host.network.ingress.packets": {
+"type": "long"
+},
+"host.os.family": {
+"type": "keyword"
+},
+"host.os.full": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"host.os.kernel": {
+"type": "keyword"
+},
+"host.os.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"host.os.platform": {
+"type": "keyword"
+},
+"host.os.type": {
+"type": "keyword"
+},
+"host.os.version": {
+"type": "keyword"
+},
+"host.pid_ns_ino": {
+"type": "keyword"
+},
+"host.risk.calculated_level": {
+"type": "keyword"
+},
+"host.risk.calculated_score": {
+"type": "float"
+},
+"host.risk.calculated_score_norm": {
+"type": "float"
+},
+"host.risk.static_level": {
+"type": "keyword"
+},
+"host.risk.static_score": {
+"type": "float"
+},
+"host.risk.static_score_norm": {
+"type": "float"
+},
+"host.tags": {
+"type": "keyword"
+},
+"host.target.architecture": {
+"type": "keyword"
+},
+"host.target.boot.id": {
+"type": "keyword"
+},
+"host.target.cpu.usage": {
+"type": "scaled_float"
+},
+"host.target.disk.read.bytes": {
+"type": "long"
+},
+"host.target.disk.write.bytes": {
+"type": "long"
+},
+"host.target.domain": {
+"type": "keyword"
+},
+"host.target.entity.attributes.known_redirects": {
+"type": "keyword"
+},
+"host.target.entity.attributes.managed": {
+"type": "boolean"
+},
+"host.target.entity.attributes.mfa_enabled": {
+"type": "boolean"
+},
+"host.target.entity.attributes.oauth_consent_restriction": {
+"type": "keyword"
+},
+"host.target.entity.attributes.permissions": {
+"type": "keyword"
+},
+"host.target.entity.attributes.storage_class": {
+"type": "keyword"
+},
+"host.target.entity.behavior": {
+"type": "object"
+},
+"host.target.entity.display_name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"host.target.entity.id": {
+"type": "keyword"
+},
+"host.target.entity.last_seen_timestamp": {
+"type": "date"
+},
+"host.target.entity.lifecycle.last_activity": {
+"type": "date"
+},
+"host.target.entity.metrics": {
+"type": "object"
+},
+"host.target.entity.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"host.target.entity.raw": {
+"type": "object"
+},
+"host.target.entity.reference": {
+"type": "keyword"
+},
+"host.target.entity.relationships.administers.entity.id": {
+"type": "keyword"
+},
+"host.target.entity.relationships.administers.host.id": {
+"type": "keyword"
+},
+"host.target.entity.relationships.administers.host.name": {
+"type": "keyword"
+},
+"host.target.entity.relationships.administers.service.id": {
+"type": "keyword"
+},
+"host.target.entity.relationships.administers.service.name": {
+"type": "keyword"
+},
+"host.target.entity.relationships.administers.user.domain": {
+"type": "keyword"
+},
+"host.target.entity.relationships.administers.user.email": {
+"type": "keyword"
+},
+"host.target.entity.relationships.administers.user.id": {
+"type": "keyword"
+},
+"host.target.entity.relationships.administers.user.name": {
+"type": "keyword"
+},
+"host.target.entity.relationships.depends_on.entity.id": {
+"type": "keyword"
+},
+"host.target.entity.relationships.depends_on.host.id": {
+"type": "keyword"
+},
+"host.target.entity.relationships.depends_on.host.name": {
+"type": "keyword"
+},
+"host.target.entity.relationships.depends_on.service.id": {
+"type": "keyword"
+},
+"host.target.entity.relationships.depends_on.service.name": {
+"type": "keyword"
+},
+"host.target.entity.relationships.depends_on.user.domain": {
+"type": "keyword"
+},
+"host.target.entity.relationships.depends_on.user.email": {
+"type": "keyword"
+},
+"host.target.entity.relationships.depends_on.user.id": {
+"type": "keyword"
+},
+"host.target.entity.relationships.depends_on.user.name": {
+"type": "keyword"
+},
+"host.target.entity.relationships.owns.entity.id": {
+"type": "keyword"
+},
+"host.target.entity.relationships.owns.host.id": {
+"type": "keyword"
+},
+"host.target.entity.relationships.owns.host.name": {
+"type": "keyword"
+},
+"host.target.entity.relationships.owns.service.id": {
+"type": "keyword"
+},
+"host.target.entity.relationships.owns.service.name": {
+"type": "keyword"
+},
+"host.target.entity.relationships.owns.user.domain": {
+"type": "keyword"
+},
+"host.target.entity.relationships.owns.user.email": {
+"type": "keyword"
+},
+"host.target.entity.relationships.owns.user.id": {
+"type": "keyword"
+},
+"host.target.entity.relationships.owns.user.name": {
+"type": "keyword"
+},
+"host.target.entity.relationships.supervises.entity.id": {
+"type": "keyword"
+},
+"host.target.entity.relationships.supervises.host.id": {
+"type": "keyword"
+},
+"host.target.entity.relationships.supervises.host.name": {
+"type": "keyword"
+},
+"host.target.entity.relationships.supervises.service.id": {
+"type": "keyword"
+},
+"host.target.entity.relationships.supervises.service.name": {
+"type": "keyword"
+},
+"host.target.entity.relationships.supervises.user.domain": {
+"type": "keyword"
+},
+"host.target.entity.relationships.supervises.user.email": {
+"type": "keyword"
+},
+"host.target.entity.relationships.supervises.user.id": {
+"type": "keyword"
+},
+"host.target.entity.relationships.supervises.user.name": {
+"type": "keyword"
+},
+"host.target.entity.source": {
+"type": "keyword"
+},
+"host.target.entity.sub_type": {
+"type": "keyword"
+},
+"host.target.entity.type": {
+"type": "keyword"
+},
+"host.target.geo.city_name": {
+"type": "keyword"
+},
+"host.target.geo.continent_code": {
+"type": "keyword"
+},
+"host.target.geo.continent_name": {
+"type": "keyword"
+},
+"host.target.geo.country_iso_code": {
+"type": "keyword"
+},
+"host.target.geo.country_name": {
+"type": "keyword"
+},
+"host.target.geo.location": {
+"type": "geo_point"
+},
+"host.target.geo.name": {
+"type": "keyword"
+},
+"host.target.geo.postal_code": {
+"type": "keyword"
+},
+"host.target.geo.region_iso_code": {
+"type": "keyword"
+},
+"host.target.geo.region_name": {
+"type": "keyword"
+},
+"host.target.geo.timezone": {
+"type": "keyword"
+},
+"host.target.hostname": {
+"type": "keyword"
+},
+"host.target.id": {
+"type": "keyword"
+},
+"host.target.ip": {
+"type": "ip"
+},
+"host.target.mac": {
+"type": "keyword"
+},
+"host.target.name": {
+"type": "keyword"
+},
+"host.target.network.egress.bytes": {
+"type": "long"
+},
+"host.target.network.egress.packets": {
+"type": "long"
+},
+"host.target.network.ingress.bytes": {
+"type": "long"
+},
+"host.target.network.ingress.packets": {
+"type": "long"
+},
+"host.target.os.family": {
+"type": "keyword"
+},
+"host.target.os.full": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"host.target.os.kernel": {
+"type": "keyword"
+},
+"host.target.os.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"host.target.os.platform": {
+"type": "keyword"
+},
+"host.target.os.type": {
+"type": "keyword"
+},
+"host.target.os.version": {
+"type": "keyword"
+},
+"host.target.pid_ns_ino": {
+"type": "keyword"
+},
+"host.target.risk.calculated_level": {
+"type": "keyword"
+},
+"host.target.risk.calculated_score": {
+"type": "float"
+},
+"host.target.risk.calculated_score_norm": {
+"type": "float"
+},
+"host.target.risk.static_level": {
+"type": "keyword"
+},
+"host.target.risk.static_score": {
+"type": "float"
+},
+"host.target.risk.static_score_norm": {
+"type": "float"
+},
+"host.target.tags": {
+"type": "keyword"
+},
+"host.target.type": {
+"type": "keyword"
+},
+"host.target.uptime": {
+"type": "long"
+},
+"host.type": {
+"type": "keyword"
+},
+"host.uptime": {
+"type": "long"
+},
+"http.request.body.bytes": {
+"type": "long"
+},
+"http.request.body.content": {
+"type": "wildcard",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"http.request.bytes": {
+"type": "long"
+},
+"http.request.id": {
+"type": "keyword"
+},
+"http.request.method": {
+"type": "keyword"
+},
+"http.request.mime_type": {
+"type": "keyword"
+},
+"http.request.referrer": {
+"type": "keyword"
+},
+"http.response.body.bytes": {
+"type": "long"
+},
+"http.response.body.content": {
+"type": "wildcard",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"http.response.bytes": {
+"type": "long"
+},
+"http.response.mime_type": {
+"type": "keyword"
+},
+"http.response.status_code": {
+"type": "long"
+},
+"http.version": {
+"type": "keyword"
+},
+"labels": {
+"type": "object"
+},
+"log.file.path": {
+"type": "keyword"
+},
+"log.level": {
+"type": "keyword"
+},
+"log.logger": {
+"type": "keyword"
+},
+"log.origin.file.line": {
+"type": "long"
+},
+"log.origin.file.name": {
+"type": "keyword"
+},
+"log.origin.function": {
+"type": "keyword"
+},
+"log.syslog": {
+"type": "object"
+},
+"log.syslog.appname": {
+"type": "keyword"
+},
+"log.syslog.facility.code": {
+"type": "long"
+},
+"log.syslog.facility.name": {
+"type": "keyword"
+},
+"log.syslog.hostname": {
+"type": "keyword"
+},
+"log.syslog.msgid": {
+"type": "keyword"
+},
+"log.syslog.priority": {
+"type": "long"
+},
+"log.syslog.procid": {
+"type": "keyword"
+},
+"log.syslog.severity.code": {
+"type": "long"
+},
+"log.syslog.severity.name": {
+"type": "keyword"
+},
+"log.syslog.structured_data": {
+"type": "flattened"
+},
+"log.syslog.version": {
+"type": "keyword"
+},
+"message": {
+"type": "match_only_text"
+},
+"network.application": {
+"type": "keyword"
+},
+"network.bytes": {
+"type": "long"
+},
+"network.community_id": {
+"type": "keyword"
+},
+"network.direction": {
+"type": "keyword"
+},
+"network.forwarded_ip": {
+"type": "ip"
+},
+"network.iana_number": {
+"type": "keyword"
+},
+"network.inner": {
+"type": "object"
+},
+"network.inner.vlan.id": {
+"type": "keyword"
+},
+"network.inner.vlan.name": {
+"type": "keyword"
+},
+"network.name": {
+"type": "keyword"
+},
+"network.packets": {
+"type": "long"
+},
+"network.protocol": {
+"type": "keyword"
+},
+"network.transport": {
+"type": "keyword"
+},
+"network.type": {
+"type": "keyword"
+},
+"network.vlan.id": {
+"type": "keyword"
+},
+"network.vlan.name": {
+"type": "keyword"
+},
+"observer.egress": {
+"type": "object"
+},
+"observer.egress.interface.alias": {
+"type": "keyword"
+},
+"observer.egress.interface.id": {
+"type": "keyword"
+},
+"observer.egress.interface.name": {
+"type": "keyword"
+},
+"observer.egress.vlan.id": {
+"type": "keyword"
+},
+"observer.egress.vlan.name": {
+"type": "keyword"
+},
+"observer.egress.zone": {
+"type": "keyword"
+},
+"observer.geo.city_name": {
+"type": "keyword"
+},
+"observer.geo.continent_code": {
+"type": "keyword"
+},
+"observer.geo.continent_name": {
+"type": "keyword"
+},
+"observer.geo.country_iso_code": {
+"type": "keyword"
+},
+"observer.geo.country_name": {
+"type": "keyword"
+},
+"observer.geo.location": {
+"type": "geo_point"
+},
+"observer.geo.name": {
+"type": "keyword"
+},
+"observer.geo.postal_code": {
+"type": "keyword"
+},
+"observer.geo.region_iso_code": {
+"type": "keyword"
+},
+"observer.geo.region_name": {
+"type": "keyword"
+},
+"observer.geo.timezone": {
+"type": "keyword"
+},
+"observer.hostname": {
+"type": "keyword"
+},
+"observer.ingress": {
+"type": "object"
+},
+"observer.ingress.interface.alias": {
+"type": "keyword"
+},
+"observer.ingress.interface.id": {
+"type": "keyword"
+},
+"observer.ingress.interface.name": {
+"type": "keyword"
+},
+"observer.ingress.vlan.id": {
+"type": "keyword"
+},
+"observer.ingress.vlan.name": {
+"type": "keyword"
+},
+"observer.ingress.zone": {
+"type": "keyword"
+},
+"observer.ip": {
+"type": "ip"
+},
+"observer.mac": {
+"type": "keyword"
+},
+"observer.name": {
+"type": "keyword"
+},
+"observer.os.family": {
+"type": "keyword"
+},
+"observer.os.full": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"observer.os.kernel": {
+"type": "keyword"
+},
+"observer.os.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"observer.os.platform": {
+"type": "keyword"
+},
+"observer.os.type": {
+"type": "keyword"
+},
+"observer.os.version": {
+"type": "keyword"
+},
+"observer.product": {
+"type": "keyword"
+},
+"observer.serial_number": {
+"type": "keyword"
+},
+"observer.type": {
+"type": "keyword"
+},
+"observer.vendor": {
+"type": "keyword"
+},
+"observer.version": {
+"type": "keyword"
+},
+"orchestrator.api_version": {
+"type": "keyword"
+},
+"orchestrator.cluster.id": {
+"type": "keyword"
+},
+"orchestrator.cluster.name": {
+"type": "keyword"
+},
+"orchestrator.cluster.url": {
+"type": "keyword"
+},
+"orchestrator.cluster.version": {
+"type": "keyword"
+},
+"orchestrator.entity.attributes.known_redirects": {
+"type": "keyword"
+},
+"orchestrator.entity.attributes.managed": {
+"type": "boolean"
+},
+"orchestrator.entity.attributes.mfa_enabled": {
+"type": "boolean"
+},
+"orchestrator.entity.attributes.oauth_consent_restriction": {
+"type": "keyword"
+},
+"orchestrator.entity.attributes.permissions": {
+"type": "keyword"
+},
+"orchestrator.entity.attributes.storage_class": {
+"type": "keyword"
+},
+"orchestrator.entity.behavior": {
+"type": "object"
+},
+"orchestrator.entity.display_name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"orchestrator.entity.id": {
+"type": "keyword"
+},
+"orchestrator.entity.last_seen_timestamp": {
+"type": "date"
+},
+"orchestrator.entity.lifecycle.last_activity": {
+"type": "date"
+},
+"orchestrator.entity.metrics": {
+"type": "object"
+},
+"orchestrator.entity.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"orchestrator.entity.raw": {
+"type": "object"
+},
+"orchestrator.entity.reference": {
+"type": "keyword"
+},
+"orchestrator.entity.relationships.administers.entity.id": {
+"type": "keyword"
+},
+"orchestrator.entity.relationships.administers.host.id": {
+"type": "keyword"
+},
+"orchestrator.entity.relationships.administers.host.name": {
+"type": "keyword"
+},
+"orchestrator.entity.relationships.administers.service.id": {
+"type": "keyword"
+},
+"orchestrator.entity.relationships.administers.service.name": {
+"type": "keyword"
+},
+"orchestrator.entity.relationships.administers.user.domain": {
+"type": "keyword"
+},
+"orchestrator.entity.relationships.administers.user.email": {
+"type": "keyword"
+},
+"orchestrator.entity.relationships.administers.user.id": {
+"type": "keyword"
+},
+"orchestrator.entity.relationships.administers.user.name": {
+"type": "keyword"
+},
+"orchestrator.entity.relationships.depends_on.entity.id": {
+"type": "keyword"
+},
+"orchestrator.entity.relationships.depends_on.host.id": {
+"type": "keyword"
+},
+"orchestrator.entity.relationships.depends_on.host.name": {
+"type": "keyword"
+},
+"orchestrator.entity.relationships.depends_on.service.id": {
+"type": "keyword"
+},
+"orchestrator.entity.relationships.depends_on.service.name": {
+"type": "keyword"
+},
+"orchestrator.entity.relationships.depends_on.user.domain": {
+"type": "keyword"
+},
+"orchestrator.entity.relationships.depends_on.user.email": {
+"type": "keyword"
+},
+"orchestrator.entity.relationships.depends_on.user.id": {
+"type": "keyword"
+},
+"orchestrator.entity.relationships.depends_on.user.name": {
+"type": "keyword"
+},
+"orchestrator.entity.relationships.owns.entity.id": {
+"type": "keyword"
+},
+"orchestrator.entity.relationships.owns.host.id": {
+"type": "keyword"
+},
+"orchestrator.entity.relationships.owns.host.name": {
+"type": "keyword"
+},
+"orchestrator.entity.relationships.owns.service.id": {
+"type": "keyword"
+},
+"orchestrator.entity.relationships.owns.service.name": {
+"type": "keyword"
+},
+"orchestrator.entity.relationships.owns.user.domain": {
+"type": "keyword"
+},
+"orchestrator.entity.relationships.owns.user.email": {
+"type": "keyword"
+},
+"orchestrator.entity.relationships.owns.user.id": {
+"type": "keyword"
+},
+"orchestrator.entity.relationships.owns.user.name": {
+"type": "keyword"
+},
+"orchestrator.entity.relationships.supervises.entity.id": {
+"type": "keyword"
+},
+"orchestrator.entity.relationships.supervises.host.id": {
+"type": "keyword"
+},
+"orchestrator.entity.relationships.supervises.host.name": {
+"type": "keyword"
+},
+"orchestrator.entity.relationships.supervises.service.id": {
+"type": "keyword"
+},
+"orchestrator.entity.relationships.supervises.service.name": {
+"type": "keyword"
+},
+"orchestrator.entity.relationships.supervises.user.domain": {
+"type": "keyword"
+},
+"orchestrator.entity.relationships.supervises.user.email": {
+"type": "keyword"
+},
+"orchestrator.entity.relationships.supervises.user.id": {
+"type": "keyword"
+},
+"orchestrator.entity.relationships.supervises.user.name": {
+"type": "keyword"
+},
+"orchestrator.entity.source": {
+"type": "keyword"
+},
+"orchestrator.entity.sub_type": {
+"type": "keyword"
+},
+"orchestrator.entity.type": {
+"type": "keyword"
+},
+"orchestrator.namespace": {
+"type": "keyword"
+},
+"orchestrator.organization": {
+"type": "keyword"
+},
+"orchestrator.resource.annotation": {
+"type": "keyword"
+},
+"orchestrator.resource.id": {
+"type": "keyword"
+},
+"orchestrator.resource.ip": {
+"type": "ip"
+},
+"orchestrator.resource.label": {
+"type": "keyword"
+},
+"orchestrator.resource.name": {
+"type": "keyword"
+},
+"orchestrator.resource.parent.type": {
+"type": "keyword"
+},
+"orchestrator.resource.type": {
+"type": "keyword"
+},
+"orchestrator.type": {
+"type": "keyword"
+},
+"organization.id": {
+"type": "keyword"
+},
+"organization.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"package.architecture": {
+"type": "keyword"
+},
+"package.build_version": {
+"type": "keyword"
+},
+"package.checksum": {
+"type": "keyword"
+},
+"package.description": {
+"type": "keyword"
+},
+"package.install_scope": {
+"type": "keyword"
+},
+"package.installed": {
+"type": "date"
+},
+"package.license": {
+"type": "keyword"
+},
+"package.name": {
+"type": "keyword"
+},
+"package.path": {
+"type": "keyword"
+},
+"package.reference": {
+"type": "keyword"
+},
+"package.size": {
+"type": "long"
+},
+"package.type": {
+"type": "keyword"
+},
+"package.version": {
+"type": "keyword"
+},
+"process.args": {
+"type": "keyword"
+},
+"process.args_count": {
+"type": "long"
+},
+"process.code_signature.digest_algorithm": {
+"type": "keyword"
+},
+"process.code_signature.exists": {
+"type": "boolean"
+},
+"process.code_signature.flags": {
+"type": "keyword"
+},
+"process.code_signature.signing_id": {
+"type": "keyword"
+},
+"process.code_signature.status": {
+"type": "keyword"
+},
+"process.code_signature.subject_name": {
+"type": "keyword"
+},
+"process.code_signature.team_id": {
+"type": "keyword"
+},
+"process.code_signature.thumbprint_sha256": {
+"type": "keyword"
+},
+"process.code_signature.timestamp": {
+"type": "date"
+},
+"process.code_signature.trusted": {
+"type": "boolean"
+},
+"process.code_signature.valid": {
+"type": "boolean"
+},
+"process.command_line": {
+"type": "wildcard",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"process.elf.architecture": {
+"type": "keyword"
+},
+"process.elf.byte_order": {
+"type": "keyword"
+},
+"process.elf.cpu_type": {
+"type": "keyword"
+},
+"process.elf.creation_date": {
+"type": "date"
+},
+"process.elf.exports": {
+"type": "flattened"
+},
+"process.elf.go_import_hash": {
+"type": "keyword"
+},
+"process.elf.go_imports": {
+"type": "flattened"
+},
+"process.elf.go_imports_names_entropy": {
+"type": "long"
+},
+"process.elf.go_imports_names_var_entropy": {
+"type": "long"
+},
+"process.elf.go_stripped": {
+"type": "boolean"
+},
+"process.elf.header.abi_version": {
+"type": "keyword"
+},
+"process.elf.header.class": {
+"type": "keyword"
+},
+"process.elf.header.data": {
+"type": "keyword"
+},
+"process.elf.header.entrypoint": {
+"type": "long"
+},
+"process.elf.header.object_version": {
+"type": "keyword"
+},
+"process.elf.header.os_abi": {
+"type": "keyword"
+},
+"process.elf.header.type": {
+"type": "keyword"
+},
+"process.elf.header.version": {
+"type": "keyword"
+},
+"process.elf.import_hash": {
+"type": "keyword"
+},
+"process.elf.imports": {
+"type": "flattened"
+},
+"process.elf.imports_names_entropy": {
+"type": "long"
+},
+"process.elf.imports_names_var_entropy": {
+"type": "long"
+},
+"process.elf.sections": {
+"type": "nested"
+},
+"process.elf.sections.chi2": {
+"type": "long"
+},
+"process.elf.sections.entropy": {
+"type": "long"
+},
+"process.elf.sections.flags": {
+"type": "keyword"
+},
+"process.elf.sections.name": {
+"type": "keyword"
+},
+"process.elf.sections.physical_offset": {
+"type": "keyword"
+},
+"process.elf.sections.physical_size": {
+"type": "long"
+},
+"process.elf.sections.type": {
+"type": "keyword"
+},
+"process.elf.sections.var_entropy": {
+"type": "long"
+},
+"process.elf.sections.virtual_address": {
+"type": "long"
+},
+"process.elf.sections.virtual_size": {
+"type": "long"
+},
+"process.elf.segments": {
+"type": "nested"
+},
+"process.elf.segments.sections": {
+"type": "keyword"
+},
+"process.elf.segments.type": {
+"type": "keyword"
+},
+"process.elf.shared_libraries": {
+"type": "keyword"
+},
+"process.elf.telfhash": {
+"type": "keyword"
+},
+"process.end": {
+"type": "date"
+},
+"process.entity_id": {
+"type": "keyword"
+},
+"process.entry_leader.args": {
+"type": "keyword"
+},
+"process.entry_leader.args_count": {
+"type": "long"
+},
+"process.entry_leader.attested_groups.name": {
+"type": "keyword"
+},
+"process.entry_leader.attested_user.id": {
+"type": "keyword"
+},
+"process.entry_leader.attested_user.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"process.entry_leader.command_line": {
+"type": "wildcard",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"process.entry_leader.entity_id": {
+"type": "keyword"
+},
+"process.entry_leader.entry_meta.source.ip": {
+"type": "ip"
+},
+"process.entry_leader.entry_meta.type": {
+"type": "keyword"
+},
+"process.entry_leader.executable": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"process.entry_leader.group.id": {
+"type": "keyword"
+},
+"process.entry_leader.group.name": {
+"type": "keyword"
+},
+"process.entry_leader.interactive": {
+"type": "boolean"
+},
+"process.entry_leader.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"process.entry_leader.parent.entity_id": {
+"type": "keyword"
+},
+"process.entry_leader.parent.pid": {
+"type": "long"
+},
+"process.entry_leader.parent.session_leader.entity_id": {
+"type": "keyword"
+},
+"process.entry_leader.parent.session_leader.pid": {
+"type": "long"
+},
+"process.entry_leader.parent.session_leader.start": {
+"type": "date"
+},
+"process.entry_leader.parent.session_leader.vpid": {
+"type": "long"
+},
+"process.entry_leader.parent.start": {
+"type": "date"
+},
+"process.entry_leader.parent.vpid": {
+"type": "long"
+},
+"process.entry_leader.pid": {
+"type": "long"
+},
+"process.entry_leader.real_group.id": {
+"type": "keyword"
+},
+"process.entry_leader.real_group.name": {
+"type": "keyword"
+},
+"process.entry_leader.real_user.id": {
+"type": "keyword"
+},
+"process.entry_leader.real_user.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"process.entry_leader.same_as_process": {
+"type": "boolean"
+},
+"process.entry_leader.saved_group.id": {
+"type": "keyword"
+},
+"process.entry_leader.saved_group.name": {
+"type": "keyword"
+},
+"process.entry_leader.saved_user.id": {
+"type": "keyword"
+},
+"process.entry_leader.saved_user.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"process.entry_leader.start": {
+"type": "date"
+},
+"process.entry_leader.supplemental_groups.id": {
+"type": "keyword"
+},
+"process.entry_leader.supplemental_groups.name": {
+"type": "keyword"
+},
+"process.entry_leader.tty": {
+"type": "object"
+},
+"process.entry_leader.tty.char_device.major": {
+"type": "long"
+},
+"process.entry_leader.tty.char_device.minor": {
+"type": "long"
+},
+"process.entry_leader.user.id": {
+"type": "keyword"
+},
+"process.entry_leader.user.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"process.entry_leader.vpid": {
+"type": "long"
+},
+"process.entry_leader.working_directory": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"process.env_vars": {
+"type": "keyword"
+},
+"process.executable": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"process.exit_code": {
+"type": "long"
+},
+"process.group.id": {
+"type": "keyword"
+},
+"process.group.name": {
+"type": "keyword"
+},
+"process.group_leader.args": {
+"type": "keyword"
+},
+"process.group_leader.args_count": {
+"type": "long"
+},
+"process.group_leader.command_line": {
+"type": "wildcard",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"process.group_leader.entity_id": {
+"type": "keyword"
+},
+"process.group_leader.executable": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"process.group_leader.group.id": {
+"type": "keyword"
+},
+"process.group_leader.group.name": {
+"type": "keyword"
+},
+"process.group_leader.interactive": {
+"type": "boolean"
+},
+"process.group_leader.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"process.group_leader.pid": {
+"type": "long"
+},
+"process.group_leader.real_group.id": {
+"type": "keyword"
+},
+"process.group_leader.real_group.name": {
+"type": "keyword"
+},
+"process.group_leader.real_user.id": {
+"type": "keyword"
+},
+"process.group_leader.real_user.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"process.group_leader.same_as_process": {
+"type": "boolean"
+},
+"process.group_leader.saved_group.id": {
+"type": "keyword"
+},
+"process.group_leader.saved_group.name": {
+"type": "keyword"
+},
+"process.group_leader.saved_user.id": {
+"type": "keyword"
+},
+"process.group_leader.saved_user.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"process.group_leader.start": {
+"type": "date"
+},
+"process.group_leader.supplemental_groups.id": {
+"type": "keyword"
+},
+"process.group_leader.supplemental_groups.name": {
+"type": "keyword"
+},
+"process.group_leader.tty": {
+"type": "object"
+},
+"process.group_leader.tty.char_device.major": {
+"type": "long"
+},
+"process.group_leader.tty.char_device.minor": {
+"type": "long"
+},
+"process.group_leader.user.id": {
+"type": "keyword"
+},
+"process.group_leader.user.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"process.group_leader.vpid": {
+"type": "long"
+},
+"process.group_leader.working_directory": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"process.hash.cdhash": {
+"type": "keyword"
+},
+"process.hash.md5": {
+"type": "keyword"
+},
+"process.hash.sha1": {
+"type": "keyword"
+},
+"process.hash.sha256": {
+"type": "keyword"
+},
+"process.hash.sha384": {
+"type": "keyword"
+},
+"process.hash.sha512": {
+"type": "keyword"
+},
+"process.hash.ssdeep": {
+"type": "keyword"
+},
+"process.hash.tlsh": {
+"type": "keyword"
+},
+"process.interactive": {
+"type": "boolean"
+},
+"process.io": {
+"type": "object"
+},
+"process.io.bytes_skipped": {
+"type": "object"
+},
+"process.io.bytes_skipped.length": {
+"type": "long"
+},
+"process.io.bytes_skipped.offset": {
+"type": "long"
+},
+"process.io.max_bytes_per_process_exceeded": {
+"type": "boolean"
+},
+"process.io.text": {
+"type": "wildcard"
+},
+"process.io.total_bytes_captured": {
+"type": "long"
+},
+"process.io.total_bytes_skipped": {
+"type": "long"
+},
+"process.io.type": {
+"type": "keyword"
+},
+"process.macho.go_import_hash": {
+"type": "keyword"
+},
+"process.macho.go_imports": {
+"type": "flattened"
+},
+"process.macho.go_imports_names_entropy": {
+"type": "long"
+},
+"process.macho.go_imports_names_var_entropy": {
+"type": "long"
+},
+"process.macho.go_stripped": {
+"type": "boolean"
+},
+"process.macho.import_hash": {
+"type": "keyword"
+},
+"process.macho.imports": {
+"type": "flattened"
+},
+"process.macho.imports_names_entropy": {
+"type": "long"
+},
+"process.macho.imports_names_var_entropy": {
+"type": "long"
+},
+"process.macho.sections": {
+"type": "nested"
+},
+"process.macho.sections.entropy": {
+"type": "long"
+},
+"process.macho.sections.name": {
+"type": "keyword"
+},
+"process.macho.sections.physical_size": {
+"type": "long"
+},
+"process.macho.sections.var_entropy": {
+"type": "long"
+},
+"process.macho.sections.virtual_size": {
+"type": "long"
+},
+"process.macho.symhash": {
+"type": "keyword"
+},
+"process.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"process.parent.args": {
+"type": "keyword"
+},
+"process.parent.args_count": {
+"type": "long"
+},
+"process.parent.code_signature.digest_algorithm": {
+"type": "keyword"
+},
+"process.parent.code_signature.exists": {
+"type": "boolean"
+},
+"process.parent.code_signature.flags": {
+"type": "keyword"
+},
+"process.parent.code_signature.signing_id": {
+"type": "keyword"
+},
+"process.parent.code_signature.status": {
+"type": "keyword"
+},
+"process.parent.code_signature.subject_name": {
+"type": "keyword"
+},
+"process.parent.code_signature.team_id": {
+"type": "keyword"
+},
+"process.parent.code_signature.thumbprint_sha256": {
+"type": "keyword"
+},
+"process.parent.code_signature.timestamp": {
+"type": "date"
+},
+"process.parent.code_signature.trusted": {
+"type": "boolean"
+},
+"process.parent.code_signature.valid": {
+"type": "boolean"
+},
+"process.parent.command_line": {
+"type": "wildcard",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"process.parent.elf.architecture": {
+"type": "keyword"
+},
+"process.parent.elf.byte_order": {
+"type": "keyword"
+},
+"process.parent.elf.cpu_type": {
+"type": "keyword"
+},
+"process.parent.elf.creation_date": {
+"type": "date"
+},
+"process.parent.elf.exports": {
+"type": "flattened"
+},
+"process.parent.elf.go_import_hash": {
+"type": "keyword"
+},
+"process.parent.elf.go_imports": {
+"type": "flattened"
+},
+"process.parent.elf.go_imports_names_entropy": {
+"type": "long"
+},
+"process.parent.elf.go_imports_names_var_entropy": {
+"type": "long"
+},
+"process.parent.elf.go_stripped": {
+"type": "boolean"
+},
+"process.parent.elf.header.abi_version": {
+"type": "keyword"
+},
+"process.parent.elf.header.class": {
+"type": "keyword"
+},
+"process.parent.elf.header.data": {
+"type": "keyword"
+},
+"process.parent.elf.header.entrypoint": {
+"type": "long"
+},
+"process.parent.elf.header.object_version": {
+"type": "keyword"
+},
+"process.parent.elf.header.os_abi": {
+"type": "keyword"
+},
+"process.parent.elf.header.type": {
+"type": "keyword"
+},
+"process.parent.elf.header.version": {
+"type": "keyword"
+},
+"process.parent.elf.import_hash": {
+"type": "keyword"
+},
+"process.parent.elf.imports": {
+"type": "flattened"
+},
+"process.parent.elf.imports_names_entropy": {
+"type": "long"
+},
+"process.parent.elf.imports_names_var_entropy": {
+"type": "long"
+},
+"process.parent.elf.sections": {
+"type": "nested"
+},
+"process.parent.elf.sections.chi2": {
+"type": "long"
+},
+"process.parent.elf.sections.entropy": {
+"type": "long"
+},
+"process.parent.elf.sections.flags": {
+"type": "keyword"
+},
+"process.parent.elf.sections.name": {
+"type": "keyword"
+},
+"process.parent.elf.sections.physical_offset": {
+"type": "keyword"
+},
+"process.parent.elf.sections.physical_size": {
+"type": "long"
+},
+"process.parent.elf.sections.type": {
+"type": "keyword"
+},
+"process.parent.elf.sections.var_entropy": {
+"type": "long"
+},
+"process.parent.elf.sections.virtual_address": {
+"type": "long"
+},
+"process.parent.elf.sections.virtual_size": {
+"type": "long"
+},
+"process.parent.elf.segments": {
+"type": "nested"
+},
+"process.parent.elf.segments.sections": {
+"type": "keyword"
+},
+"process.parent.elf.segments.type": {
+"type": "keyword"
+},
+"process.parent.elf.shared_libraries": {
+"type": "keyword"
+},
+"process.parent.elf.telfhash": {
+"type": "keyword"
+},
+"process.parent.end": {
+"type": "date"
+},
+"process.parent.entity_id": {
+"type": "keyword"
+},
+"process.parent.executable": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"process.parent.exit_code": {
+"type": "long"
+},
+"process.parent.group.id": {
+"type": "keyword"
+},
+"process.parent.group.name": {
+"type": "keyword"
+},
+"process.parent.group_leader.entity_id": {
+"type": "keyword"
+},
+"process.parent.group_leader.pid": {
+"type": "long"
+},
+"process.parent.group_leader.start": {
+"type": "date"
+},
+"process.parent.group_leader.vpid": {
+"type": "long"
+},
+"process.parent.hash.cdhash": {
+"type": "keyword"
+},
+"process.parent.hash.md5": {
+"type": "keyword"
+},
+"process.parent.hash.sha1": {
+"type": "keyword"
+},
+"process.parent.hash.sha256": {
+"type": "keyword"
+},
+"process.parent.hash.sha384": {
+"type": "keyword"
+},
+"process.parent.hash.sha512": {
+"type": "keyword"
+},
+"process.parent.hash.ssdeep": {
+"type": "keyword"
+},
+"process.parent.hash.tlsh": {
+"type": "keyword"
+},
+"process.parent.interactive": {
+"type": "boolean"
+},
+"process.parent.macho.go_import_hash": {
+"type": "keyword"
+},
+"process.parent.macho.go_imports": {
+"type": "flattened"
+},
+"process.parent.macho.go_imports_names_entropy": {
+"type": "long"
+},
+"process.parent.macho.go_imports_names_var_entropy": {
+"type": "long"
+},
+"process.parent.macho.go_stripped": {
+"type": "boolean"
+},
+"process.parent.macho.import_hash": {
+"type": "keyword"
+},
+"process.parent.macho.imports": {
+"type": "flattened"
+},
+"process.parent.macho.imports_names_entropy": {
+"type": "long"
+},
+"process.parent.macho.imports_names_var_entropy": {
+"type": "long"
+},
+"process.parent.macho.sections": {
+"type": "nested"
+},
+"process.parent.macho.sections.entropy": {
+"type": "long"
+},
+"process.parent.macho.sections.name": {
+"type": "keyword"
+},
+"process.parent.macho.sections.physical_size": {
+"type": "long"
+},
+"process.parent.macho.sections.var_entropy": {
+"type": "long"
+},
+"process.parent.macho.sections.virtual_size": {
+"type": "long"
+},
+"process.parent.macho.symhash": {
+"type": "keyword"
+},
+"process.parent.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"process.parent.pe.architecture": {
+"type": "keyword"
+},
+"process.parent.pe.company": {
+"type": "keyword"
+},
+"process.parent.pe.description": {
+"type": "keyword"
+},
+"process.parent.pe.file_version": {
+"type": "keyword"
+},
+"process.parent.pe.go_import_hash": {
+"type": "keyword"
+},
+"process.parent.pe.go_imports": {
+"type": "flattened"
+},
+"process.parent.pe.go_imports_names_entropy": {
+"type": "long"
+},
+"process.parent.pe.go_imports_names_var_entropy": {
+"type": "long"
+},
+"process.parent.pe.go_stripped": {
+"type": "boolean"
+},
+"process.parent.pe.imphash": {
+"type": "keyword"
+},
+"process.parent.pe.import_hash": {
+"type": "keyword"
+},
+"process.parent.pe.imports": {
+"type": "flattened"
+},
+"process.parent.pe.imports_names_entropy": {
+"type": "long"
+},
+"process.parent.pe.imports_names_var_entropy": {
+"type": "long"
+},
+"process.parent.pe.original_file_name": {
+"type": "keyword"
+},
+"process.parent.pe.pehash": {
+"type": "keyword"
+},
+"process.parent.pe.product": {
+"type": "keyword"
+},
+"process.parent.pe.sections": {
+"type": "nested"
+},
+"process.parent.pe.sections.entropy": {
+"type": "long"
+},
+"process.parent.pe.sections.name": {
+"type": "keyword"
+},
+"process.parent.pe.sections.physical_size": {
+"type": "long"
+},
+"process.parent.pe.sections.var_entropy": {
+"type": "long"
+},
+"process.parent.pe.sections.virtual_size": {
+"type": "long"
+},
+"process.parent.pid": {
+"type": "long"
+},
+"process.parent.real_group.id": {
+"type": "keyword"
+},
+"process.parent.real_group.name": {
+"type": "keyword"
+},
+"process.parent.real_user.id": {
+"type": "keyword"
+},
+"process.parent.real_user.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"process.parent.saved_group.id": {
+"type": "keyword"
+},
+"process.parent.saved_group.name": {
+"type": "keyword"
+},
+"process.parent.saved_user.id": {
+"type": "keyword"
+},
+"process.parent.saved_user.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"process.parent.start": {
+"type": "date"
+},
+"process.parent.supplemental_groups.id": {
+"type": "keyword"
+},
+"process.parent.supplemental_groups.name": {
+"type": "keyword"
+},
+"process.parent.thread.capabilities.effective": {
+"type": "keyword"
+},
+"process.parent.thread.capabilities.permitted": {
+"type": "keyword"
+},
+"process.parent.thread.id": {
+"type": "long"
+},
+"process.parent.thread.name": {
+"type": "keyword"
+},
+"process.parent.title": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"process.parent.tty": {
+"type": "object"
+},
+"process.parent.tty.char_device.major": {
+"type": "long"
+},
+"process.parent.tty.char_device.minor": {
+"type": "long"
+},
+"process.parent.uptime": {
+"type": "long"
+},
+"process.parent.user.id": {
+"type": "keyword"
+},
+"process.parent.user.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"process.parent.vpid": {
+"type": "long"
+},
+"process.parent.working_directory": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"process.pe.architecture": {
+"type": "keyword"
+},
+"process.pe.company": {
+"type": "keyword"
+},
+"process.pe.description": {
+"type": "keyword"
+},
+"process.pe.file_version": {
+"type": "keyword"
+},
+"process.pe.go_import_hash": {
+"type": "keyword"
+},
+"process.pe.go_imports": {
+"type": "flattened"
+},
+"process.pe.go_imports_names_entropy": {
+"type": "long"
+},
+"process.pe.go_imports_names_var_entropy": {
+"type": "long"
+},
+"process.pe.go_stripped": {
+"type": "boolean"
+},
+"process.pe.imphash": {
+"type": "keyword"
+},
+"process.pe.import_hash": {
+"type": "keyword"
+},
+"process.pe.imports": {
+"type": "flattened"
+},
+"process.pe.imports_names_entropy": {
+"type": "long"
+},
+"process.pe.imports_names_var_entropy": {
+"type": "long"
+},
+"process.pe.original_file_name": {
+"type": "keyword"
+},
+"process.pe.pehash": {
+"type": "keyword"
+},
+"process.pe.product": {
+"type": "keyword"
+},
+"process.pe.sections": {
+"type": "nested"
+},
+"process.pe.sections.entropy": {
+"type": "long"
+},
+"process.pe.sections.name": {
+"type": "keyword"
+},
+"process.pe.sections.physical_size": {
+"type": "long"
+},
+"process.pe.sections.var_entropy": {
+"type": "long"
+},
+"process.pe.sections.virtual_size": {
+"type": "long"
+},
+"process.pid": {
+"type": "long"
+},
+"process.previous.args": {
+"type": "keyword"
+},
+"process.previous.args_count": {
+"type": "long"
+},
+"process.previous.executable": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"process.real_group.id": {
+"type": "keyword"
+},
+"process.real_group.name": {
+"type": "keyword"
+},
+"process.real_user.id": {
+"type": "keyword"
+},
+"process.real_user.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"process.saved_group.id": {
+"type": "keyword"
+},
+"process.saved_group.name": {
+"type": "keyword"
+},
+"process.saved_user.id": {
+"type": "keyword"
+},
+"process.saved_user.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"process.session_leader.args": {
+"type": "keyword"
+},
+"process.session_leader.args_count": {
+"type": "long"
+},
+"process.session_leader.command_line": {
+"type": "wildcard",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"process.session_leader.entity_id": {
+"type": "keyword"
+},
+"process.session_leader.executable": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"process.session_leader.group.id": {
+"type": "keyword"
+},
+"process.session_leader.group.name": {
+"type": "keyword"
+},
+"process.session_leader.interactive": {
+"type": "boolean"
+},
+"process.session_leader.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"process.session_leader.parent.entity_id": {
+"type": "keyword"
+},
+"process.session_leader.parent.pid": {
+"type": "long"
+},
+"process.session_leader.parent.session_leader.entity_id": {
+"type": "keyword"
+},
+"process.session_leader.parent.session_leader.pid": {
+"type": "long"
+},
+"process.session_leader.parent.session_leader.start": {
+"type": "date"
+},
+"process.session_leader.parent.session_leader.vpid": {
+"type": "long"
+},
+"process.session_leader.parent.start": {
+"type": "date"
+},
+"process.session_leader.parent.vpid": {
+"type": "long"
+},
+"process.session_leader.pid": {
+"type": "long"
+},
+"process.session_leader.real_group.id": {
+"type": "keyword"
+},
+"process.session_leader.real_group.name": {
+"type": "keyword"
+},
+"process.session_leader.real_user.id": {
+"type": "keyword"
+},
+"process.session_leader.real_user.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"process.session_leader.same_as_process": {
+"type": "boolean"
+},
+"process.session_leader.saved_group.id": {
+"type": "keyword"
+},
+"process.session_leader.saved_group.name": {
+"type": "keyword"
+},
+"process.session_leader.saved_user.id": {
+"type": "keyword"
+},
+"process.session_leader.saved_user.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"process.session_leader.start": {
+"type": "date"
+},
+"process.session_leader.supplemental_groups.id": {
+"type": "keyword"
+},
+"process.session_leader.supplemental_groups.name": {
+"type": "keyword"
+},
+"process.session_leader.tty": {
+"type": "object"
+},
+"process.session_leader.tty.char_device.major": {
+"type": "long"
+},
+"process.session_leader.tty.char_device.minor": {
+"type": "long"
+},
+"process.session_leader.user.id": {
+"type": "keyword"
+},
+"process.session_leader.user.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"process.session_leader.vpid": {
+"type": "long"
+},
+"process.session_leader.working_directory": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"process.start": {
+"type": "date"
+},
+"process.supplemental_groups.id": {
+"type": "keyword"
+},
+"process.supplemental_groups.name": {
+"type": "keyword"
+},
+"process.thread.capabilities.effective": {
+"type": "keyword"
+},
+"process.thread.capabilities.permitted": {
+"type": "keyword"
+},
+"process.thread.id": {
+"type": "long"
+},
+"process.thread.name": {
+"type": "keyword"
+},
+"process.title": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"process.tty": {
+"type": "object"
+},
+"process.tty.char_device.major": {
+"type": "long"
+},
+"process.tty.char_device.minor": {
+"type": "long"
+},
+"process.tty.columns": {
+"type": "long"
+},
+"process.tty.rows": {
+"type": "long"
+},
+"process.uptime": {
+"type": "long"
+},
+"process.user.id": {
+"type": "keyword"
+},
+"process.user.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"process.vpid": {
+"type": "long"
+},
+"process.working_directory": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"registry.data.bytes": {
+"type": "keyword"
+},
+"registry.data.strings": {
+"type": "wildcard"
+},
+"registry.data.type": {
+"type": "keyword"
+},
+"registry.hive": {
+"type": "keyword"
+},
+"registry.key": {
+"type": "keyword"
+},
+"registry.path": {
+"type": "keyword"
+},
+"registry.value": {
+"type": "keyword"
+},
+"related.hash": {
+"type": "keyword"
+},
+"related.hosts": {
+"type": "keyword"
+},
+"related.ip": {
+"type": "ip"
+},
+"related.user": {
+"type": "keyword"
+},
+"rule.author": {
+"type": "keyword"
+},
+"rule.category": {
+"type": "keyword"
+},
+"rule.description": {
+"type": "keyword"
+},
+"rule.id": {
+"type": "keyword"
+},
+"rule.license": {
+"type": "keyword"
+},
+"rule.name": {
+"type": "keyword"
+},
+"rule.reference": {
+"type": "keyword"
+},
+"rule.ruleset": {
+"type": "keyword"
+},
+"rule.uuid": {
+"type": "keyword"
+},
+"rule.version": {
+"type": "keyword"
+},
+"server.address": {
+"type": "keyword"
+},
+"server.as.number": {
+"type": "long"
+},
+"server.as.organization.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"server.bytes": {
+"type": "long"
+},
+"server.domain": {
+"type": "keyword"
+},
+"server.geo.city_name": {
+"type": "keyword"
+},
+"server.geo.continent_code": {
+"type": "keyword"
+},
+"server.geo.continent_name": {
+"type": "keyword"
+},
+"server.geo.country_iso_code": {
+"type": "keyword"
+},
+"server.geo.country_name": {
+"type": "keyword"
+},
+"server.geo.location": {
+"type": "geo_point"
+},
+"server.geo.name": {
+"type": "keyword"
+},
+"server.geo.postal_code": {
+"type": "keyword"
+},
+"server.geo.region_iso_code": {
+"type": "keyword"
+},
+"server.geo.region_name": {
+"type": "keyword"
+},
+"server.geo.timezone": {
+"type": "keyword"
+},
+"server.ip": {
+"type": "ip"
+},
+"server.mac": {
+"type": "keyword"
+},
+"server.nat.ip": {
+"type": "ip"
+},
+"server.nat.port": {
+"type": "long"
+},
+"server.packets": {
+"type": "long"
+},
+"server.port": {
+"type": "long"
+},
+"server.registered_domain": {
+"type": "keyword"
+},
+"server.subdomain": {
+"type": "keyword"
+},
+"server.top_level_domain": {
+"type": "keyword"
+},
+"server.user.domain": {
+"type": "keyword"
+},
+"server.user.email": {
+"type": "keyword"
+},
+"server.user.full_name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"server.user.group.domain": {
+"type": "keyword"
+},
+"server.user.group.id": {
+"type": "keyword"
+},
+"server.user.group.name": {
+"type": "keyword"
+},
+"server.user.hash": {
+"type": "keyword"
+},
+"server.user.id": {
+"type": "keyword"
+},
+"server.user.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"server.user.roles": {
+"type": "keyword"
+},
+"service.address": {
+"type": "keyword"
+},
+"service.entity.attributes.known_redirects": {
+"type": "keyword"
+},
+"service.entity.attributes.managed": {
+"type": "boolean"
+},
+"service.entity.attributes.mfa_enabled": {
+"type": "boolean"
+},
+"service.entity.attributes.oauth_consent_restriction": {
+"type": "keyword"
+},
+"service.entity.attributes.permissions": {
+"type": "keyword"
+},
+"service.entity.attributes.storage_class": {
+"type": "keyword"
+},
+"service.entity.behavior": {
+"type": "object"
+},
+"service.entity.display_name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"service.entity.id": {
+"type": "keyword"
+},
+"service.entity.last_seen_timestamp": {
+"type": "date"
+},
+"service.entity.lifecycle.last_activity": {
+"type": "date"
+},
+"service.entity.metrics": {
+"type": "object"
+},
+"service.entity.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"service.entity.raw": {
+"type": "object"
+},
+"service.entity.reference": {
+"type": "keyword"
+},
+"service.entity.relationships.administers.entity.id": {
+"type": "keyword"
+},
+"service.entity.relationships.administers.host.id": {
+"type": "keyword"
+},
+"service.entity.relationships.administers.host.name": {
+"type": "keyword"
+},
+"service.entity.relationships.administers.service.id": {
+"type": "keyword"
+},
+"service.entity.relationships.administers.service.name": {
+"type": "keyword"
+},
+"service.entity.relationships.administers.user.domain": {
+"type": "keyword"
+},
+"service.entity.relationships.administers.user.email": {
+"type": "keyword"
+},
+"service.entity.relationships.administers.user.id": {
+"type": "keyword"
+},
+"service.entity.relationships.administers.user.name": {
+"type": "keyword"
+},
+"service.entity.relationships.depends_on.entity.id": {
+"type": "keyword"
+},
+"service.entity.relationships.depends_on.host.id": {
+"type": "keyword"
+},
+"service.entity.relationships.depends_on.host.name": {
+"type": "keyword"
+},
+"service.entity.relationships.depends_on.service.id": {
+"type": "keyword"
+},
+"service.entity.relationships.depends_on.service.name": {
+"type": "keyword"
+},
+"service.entity.relationships.depends_on.user.domain": {
+"type": "keyword"
+},
+"service.entity.relationships.depends_on.user.email": {
+"type": "keyword"
+},
+"service.entity.relationships.depends_on.user.id": {
+"type": "keyword"
+},
+"service.entity.relationships.depends_on.user.name": {
+"type": "keyword"
+},
+"service.entity.relationships.owns.entity.id": {
+"type": "keyword"
+},
+"service.entity.relationships.owns.host.id": {
+"type": "keyword"
+},
+"service.entity.relationships.owns.host.name": {
+"type": "keyword"
+},
+"service.entity.relationships.owns.service.id": {
+"type": "keyword"
+},
+"service.entity.relationships.owns.service.name": {
+"type": "keyword"
+},
+"service.entity.relationships.owns.user.domain": {
+"type": "keyword"
+},
+"service.entity.relationships.owns.user.email": {
+"type": "keyword"
+},
+"service.entity.relationships.owns.user.id": {
+"type": "keyword"
+},
+"service.entity.relationships.owns.user.name": {
+"type": "keyword"
+},
+"service.entity.relationships.supervises.entity.id": {
+"type": "keyword"
+},
+"service.entity.relationships.supervises.host.id": {
+"type": "keyword"
+},
+"service.entity.relationships.supervises.host.name": {
+"type": "keyword"
+},
+"service.entity.relationships.supervises.service.id": {
+"type": "keyword"
+},
+"service.entity.relationships.supervises.service.name": {
+"type": "keyword"
+},
+"service.entity.relationships.supervises.user.domain": {
+"type": "keyword"
+},
+"service.entity.relationships.supervises.user.email": {
+"type": "keyword"
+},
+"service.entity.relationships.supervises.user.id": {
+"type": "keyword"
+},
+"service.entity.relationships.supervises.user.name": {
+"type": "keyword"
+},
+"service.entity.source": {
+"type": "keyword"
+},
+"service.entity.sub_type": {
+"type": "keyword"
+},
+"service.entity.type": {
+"type": "keyword"
+},
+"service.environment": {
+"type": "keyword"
+},
+"service.ephemeral_id": {
+"type": "keyword"
+},
+"service.id": {
+"type": "keyword"
+},
+"service.name": {
+"type": "keyword"
+},
+"service.node.name": {
+"type": "keyword"
+},
+"service.node.role": {
+"type": "keyword"
+},
+"service.node.roles": {
+"type": "keyword"
+},
+"service.origin.address": {
+"type": "keyword"
+},
+"service.origin.entity.attributes.known_redirects": {
+"type": "keyword"
+},
+"service.origin.entity.attributes.managed": {
+"type": "boolean"
+},
+"service.origin.entity.attributes.mfa_enabled": {
+"type": "boolean"
+},
+"service.origin.entity.attributes.oauth_consent_restriction": {
+"type": "keyword"
+},
+"service.origin.entity.attributes.permissions": {
+"type": "keyword"
+},
+"service.origin.entity.attributes.storage_class": {
+"type": "keyword"
+},
+"service.origin.entity.behavior": {
+"type": "object"
+},
+"service.origin.entity.display_name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"service.origin.entity.id": {
+"type": "keyword"
+},
+"service.origin.entity.last_seen_timestamp": {
+"type": "date"
+},
+"service.origin.entity.lifecycle.last_activity": {
+"type": "date"
+},
+"service.origin.entity.metrics": {
+"type": "object"
+},
+"service.origin.entity.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"service.origin.entity.raw": {
+"type": "object"
+},
+"service.origin.entity.reference": {
+"type": "keyword"
+},
+"service.origin.entity.relationships.administers.entity.id": {
+"type": "keyword"
+},
+"service.origin.entity.relationships.administers.host.id": {
+"type": "keyword"
+},
+"service.origin.entity.relationships.administers.host.name": {
+"type": "keyword"
+},
+"service.origin.entity.relationships.administers.service.id": {
+"type": "keyword"
+},
+"service.origin.entity.relationships.administers.service.name": {
+"type": "keyword"
+},
+"service.origin.entity.relationships.administers.user.domain": {
+"type": "keyword"
+},
+"service.origin.entity.relationships.administers.user.email": {
+"type": "keyword"
+},
+"service.origin.entity.relationships.administers.user.id": {
+"type": "keyword"
+},
+"service.origin.entity.relationships.administers.user.name": {
+"type": "keyword"
+},
+"service.origin.entity.relationships.depends_on.entity.id": {
+"type": "keyword"
+},
+"service.origin.entity.relationships.depends_on.host.id": {
+"type": "keyword"
+},
+"service.origin.entity.relationships.depends_on.host.name": {
+"type": "keyword"
+},
+"service.origin.entity.relationships.depends_on.service.id": {
+"type": "keyword"
+},
+"service.origin.entity.relationships.depends_on.service.name": {
+"type": "keyword"
+},
+"service.origin.entity.relationships.depends_on.user.domain": {
+"type": "keyword"
+},
+"service.origin.entity.relationships.depends_on.user.email": {
+"type": "keyword"
+},
+"service.origin.entity.relationships.depends_on.user.id": {
+"type": "keyword"
+},
+"service.origin.entity.relationships.depends_on.user.name": {
+"type": "keyword"
+},
+"service.origin.entity.relationships.owns.entity.id": {
+"type": "keyword"
+},
+"service.origin.entity.relationships.owns.host.id": {
+"type": "keyword"
+},
+"service.origin.entity.relationships.owns.host.name": {
+"type": "keyword"
+},
+"service.origin.entity.relationships.owns.service.id": {
+"type": "keyword"
+},
+"service.origin.entity.relationships.owns.service.name": {
+"type": "keyword"
+},
+"service.origin.entity.relationships.owns.user.domain": {
+"type": "keyword"
+},
+"service.origin.entity.relationships.owns.user.email": {
+"type": "keyword"
+},
+"service.origin.entity.relationships.owns.user.id": {
+"type": "keyword"
+},
+"service.origin.entity.relationships.owns.user.name": {
+"type": "keyword"
+},
+"service.origin.entity.relationships.supervises.entity.id": {
+"type": "keyword"
+},
+"service.origin.entity.relationships.supervises.host.id": {
+"type": "keyword"
+},
+"service.origin.entity.relationships.supervises.host.name": {
+"type": "keyword"
+},
+"service.origin.entity.relationships.supervises.service.id": {
+"type": "keyword"
+},
+"service.origin.entity.relationships.supervises.service.name": {
+"type": "keyword"
+},
+"service.origin.entity.relationships.supervises.user.domain": {
+"type": "keyword"
+},
+"service.origin.entity.relationships.supervises.user.email": {
+"type": "keyword"
+},
+"service.origin.entity.relationships.supervises.user.id": {
+"type": "keyword"
+},
+"service.origin.entity.relationships.supervises.user.name": {
+"type": "keyword"
+},
+"service.origin.entity.source": {
+"type": "keyword"
+},
+"service.origin.entity.sub_type": {
+"type": "keyword"
+},
+"service.origin.entity.type": {
+"type": "keyword"
+},
+"service.origin.environment": {
+"type": "keyword"
+},
+"service.origin.ephemeral_id": {
+"type": "keyword"
+},
+"service.origin.id": {
+"type": "keyword"
+},
+"service.origin.name": {
+"type": "keyword"
+},
+"service.origin.node.name": {
+"type": "keyword"
+},
+"service.origin.node.role": {
+"type": "keyword"
+},
+"service.origin.node.roles": {
+"type": "keyword"
+},
+"service.origin.state": {
+"type": "keyword"
+},
+"service.origin.type": {
+"type": "keyword"
+},
+"service.origin.version": {
+"type": "keyword"
+},
+"service.state": {
+"type": "keyword"
+},
+"service.target.address": {
+"type": "keyword"
+},
+"service.target.entity.attributes.known_redirects": {
+"type": "keyword"
+},
+"service.target.entity.attributes.managed": {
+"type": "boolean"
+},
+"service.target.entity.attributes.mfa_enabled": {
+"type": "boolean"
+},
+"service.target.entity.attributes.oauth_consent_restriction": {
+"type": "keyword"
+},
+"service.target.entity.attributes.permissions": {
+"type": "keyword"
+},
+"service.target.entity.attributes.storage_class": {
+"type": "keyword"
+},
+"service.target.entity.behavior": {
+"type": "object"
+},
+"service.target.entity.display_name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"service.target.entity.id": {
+"type": "keyword"
+},
+"service.target.entity.last_seen_timestamp": {
+"type": "date"
+},
+"service.target.entity.lifecycle.last_activity": {
+"type": "date"
+},
+"service.target.entity.metrics": {
+"type": "object"
+},
+"service.target.entity.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"service.target.entity.raw": {
+"type": "object"
+},
+"service.target.entity.reference": {
+"type": "keyword"
+},
+"service.target.entity.relationships.administers.entity.id": {
+"type": "keyword"
+},
+"service.target.entity.relationships.administers.host.id": {
+"type": "keyword"
+},
+"service.target.entity.relationships.administers.host.name": {
+"type": "keyword"
+},
+"service.target.entity.relationships.administers.service.id": {
+"type": "keyword"
+},
+"service.target.entity.relationships.administers.service.name": {
+"type": "keyword"
+},
+"service.target.entity.relationships.administers.user.domain": {
+"type": "keyword"
+},
+"service.target.entity.relationships.administers.user.email": {
+"type": "keyword"
+},
+"service.target.entity.relationships.administers.user.id": {
+"type": "keyword"
+},
+"service.target.entity.relationships.administers.user.name": {
+"type": "keyword"
+},
+"service.target.entity.relationships.depends_on.entity.id": {
+"type": "keyword"
+},
+"service.target.entity.relationships.depends_on.host.id": {
+"type": "keyword"
+},
+"service.target.entity.relationships.depends_on.host.name": {
+"type": "keyword"
+},
+"service.target.entity.relationships.depends_on.service.id": {
+"type": "keyword"
+},
+"service.target.entity.relationships.depends_on.service.name": {
+"type": "keyword"
+},
+"service.target.entity.relationships.depends_on.user.domain": {
+"type": "keyword"
+},
+"service.target.entity.relationships.depends_on.user.email": {
+"type": "keyword"
+},
+"service.target.entity.relationships.depends_on.user.id": {
+"type": "keyword"
+},
+"service.target.entity.relationships.depends_on.user.name": {
+"type": "keyword"
+},
+"service.target.entity.relationships.owns.entity.id": {
+"type": "keyword"
+},
+"service.target.entity.relationships.owns.host.id": {
+"type": "keyword"
+},
+"service.target.entity.relationships.owns.host.name": {
+"type": "keyword"
+},
+"service.target.entity.relationships.owns.service.id": {
+"type": "keyword"
+},
+"service.target.entity.relationships.owns.service.name": {
+"type": "keyword"
+},
+"service.target.entity.relationships.owns.user.domain": {
+"type": "keyword"
+},
+"service.target.entity.relationships.owns.user.email": {
+"type": "keyword"
+},
+"service.target.entity.relationships.owns.user.id": {
+"type": "keyword"
+},
+"service.target.entity.relationships.owns.user.name": {
+"type": "keyword"
+},
+"service.target.entity.relationships.supervises.entity.id": {
+"type": "keyword"
+},
+"service.target.entity.relationships.supervises.host.id": {
+"type": "keyword"
+},
+"service.target.entity.relationships.supervises.host.name": {
+"type": "keyword"
+},
+"service.target.entity.relationships.supervises.service.id": {
+"type": "keyword"
+},
+"service.target.entity.relationships.supervises.service.name": {
+"type": "keyword"
+},
+"service.target.entity.relationships.supervises.user.domain": {
+"type": "keyword"
+},
+"service.target.entity.relationships.supervises.user.email": {
+"type": "keyword"
+},
+"service.target.entity.relationships.supervises.user.id": {
+"type": "keyword"
+},
+"service.target.entity.relationships.supervises.user.name": {
+"type": "keyword"
+},
+"service.target.entity.source": {
+"type": "keyword"
+},
+"service.target.entity.sub_type": {
+"type": "keyword"
+},
+"service.target.entity.type": {
+"type": "keyword"
+},
+"service.target.environment": {
+"type": "keyword"
+},
+"service.target.ephemeral_id": {
+"type": "keyword"
+},
+"service.target.id": {
+"type": "keyword"
+},
+"service.target.name": {
+"type": "keyword"
+},
+"service.target.node.name": {
+"type": "keyword"
+},
+"service.target.node.role": {
+"type": "keyword"
+},
+"service.target.node.roles": {
+"type": "keyword"
+},
+"service.target.state": {
+"type": "keyword"
+},
+"service.target.type": {
+"type": "keyword"
+},
+"service.target.version": {
+"type": "keyword"
+},
+"service.type": {
+"type": "keyword"
+},
+"service.version": {
+"type": "keyword"
+},
+"source.address": {
+"type": "keyword"
+},
+"source.as.number": {
+"type": "long"
+},
+"source.as.organization.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"source.bytes": {
+"type": "long"
+},
+"source.domain": {
+"type": "keyword"
+},
+"source.geo.city_name": {
+"type": "keyword"
+},
+"source.geo.continent_code": {
+"type": "keyword"
+},
+"source.geo.continent_name": {
+"type": "keyword"
+},
+"source.geo.country_iso_code": {
+"type": "keyword"
+},
+"source.geo.country_name": {
+"type": "keyword"
+},
+"source.geo.location": {
+"type": "geo_point"
+},
+"source.geo.name": {
+"type": "keyword"
+},
+"source.geo.postal_code": {
+"type": "keyword"
+},
+"source.geo.region_iso_code": {
+"type": "keyword"
+},
+"source.geo.region_name": {
+"type": "keyword"
+},
+"source.geo.timezone": {
+"type": "keyword"
+},
+"source.ip": {
+"type": "ip"
+},
+"source.mac": {
+"type": "keyword"
+},
+"source.nat.ip": {
+"type": "ip"
+},
+"source.nat.port": {
+"type": "long"
+},
+"source.packets": {
+"type": "long"
+},
+"source.port": {
+"type": "long"
+},
+"source.registered_domain": {
+"type": "keyword"
+},
+"source.subdomain": {
+"type": "keyword"
+},
+"source.top_level_domain": {
+"type": "keyword"
+},
+"source.user.domain": {
+"type": "keyword"
+},
+"source.user.email": {
+"type": "keyword"
+},
+"source.user.full_name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"source.user.group.domain": {
+"type": "keyword"
+},
+"source.user.group.id": {
+"type": "keyword"
+},
+"source.user.group.name": {
+"type": "keyword"
+},
+"source.user.hash": {
+"type": "keyword"
+},
+"source.user.id": {
+"type": "keyword"
+},
+"source.user.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"source.user.roles": {
+"type": "keyword"
+},
+"span.id": {
+"type": "keyword"
+},
+"tags": {
+"type": "keyword"
+},
+"threat.enrichments": {
+"type": "nested"
+},
+"threat.enrichments.indicator": {
+"type": "object"
+},
+"threat.enrichments.indicator.as.number": {
+"type": "long"
+},
+"threat.enrichments.indicator.as.organization.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"threat.enrichments.indicator.confidence": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.description": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.email.address": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.accessed": {
+"type": "date"
+},
+"threat.enrichments.indicator.file.attributes": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.code_signature.digest_algorithm": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.code_signature.exists": {
+"type": "boolean"
+},
+"threat.enrichments.indicator.file.code_signature.flags": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.code_signature.signing_id": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.code_signature.status": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.code_signature.subject_name": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.code_signature.team_id": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.code_signature.thumbprint_sha256": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.code_signature.timestamp": {
+"type": "date"
+},
+"threat.enrichments.indicator.file.code_signature.trusted": {
+"type": "boolean"
+},
+"threat.enrichments.indicator.file.code_signature.valid": {
+"type": "boolean"
+},
+"threat.enrichments.indicator.file.created": {
+"type": "date"
+},
+"threat.enrichments.indicator.file.ctime": {
+"type": "date"
+},
+"threat.enrichments.indicator.file.device": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.directory": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.drive_letter": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.elf.architecture": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.elf.byte_order": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.elf.cpu_type": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.elf.creation_date": {
+"type": "date"
+},
+"threat.enrichments.indicator.file.elf.exports": {
+"type": "flattened"
+},
+"threat.enrichments.indicator.file.elf.go_import_hash": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.elf.go_imports": {
+"type": "flattened"
+},
+"threat.enrichments.indicator.file.elf.go_imports_names_entropy": {
+"type": "long"
+},
+"threat.enrichments.indicator.file.elf.go_imports_names_var_entropy": {
+"type": "long"
+},
+"threat.enrichments.indicator.file.elf.go_stripped": {
+"type": "boolean"
+},
+"threat.enrichments.indicator.file.elf.header.abi_version": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.elf.header.class": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.elf.header.data": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.elf.header.entrypoint": {
+"type": "long"
+},
+"threat.enrichments.indicator.file.elf.header.object_version": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.elf.header.os_abi": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.elf.header.type": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.elf.header.version": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.elf.import_hash": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.elf.imports": {
+"type": "flattened"
+},
+"threat.enrichments.indicator.file.elf.imports_names_entropy": {
+"type": "long"
+},
+"threat.enrichments.indicator.file.elf.imports_names_var_entropy": {
+"type": "long"
+},
+"threat.enrichments.indicator.file.elf.sections": {
+"type": "nested"
+},
+"threat.enrichments.indicator.file.elf.sections.chi2": {
+"type": "long"
+},
+"threat.enrichments.indicator.file.elf.sections.entropy": {
+"type": "long"
+},
+"threat.enrichments.indicator.file.elf.sections.flags": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.elf.sections.name": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.elf.sections.physical_offset": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.elf.sections.physical_size": {
+"type": "long"
+},
+"threat.enrichments.indicator.file.elf.sections.type": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.elf.sections.var_entropy": {
+"type": "long"
+},
+"threat.enrichments.indicator.file.elf.sections.virtual_address": {
+"type": "long"
+},
+"threat.enrichments.indicator.file.elf.sections.virtual_size": {
+"type": "long"
+},
+"threat.enrichments.indicator.file.elf.segments": {
+"type": "nested"
+},
+"threat.enrichments.indicator.file.elf.segments.sections": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.elf.segments.type": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.elf.shared_libraries": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.elf.telfhash": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.extension": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.fork_name": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.gid": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.group": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.hash.cdhash": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.hash.md5": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.hash.sha1": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.hash.sha256": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.hash.sha384": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.hash.sha512": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.hash.ssdeep": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.hash.tlsh": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.inode": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.mime_type": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.mode": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.mtime": {
+"type": "date"
+},
+"threat.enrichments.indicator.file.name": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.origin_referrer_url": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.origin_url": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.owner": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.path": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"threat.enrichments.indicator.file.pe.architecture": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.pe.company": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.pe.description": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.pe.file_version": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.pe.go_import_hash": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.pe.go_imports": {
+"type": "flattened"
+},
+"threat.enrichments.indicator.file.pe.go_imports_names_entropy": {
+"type": "long"
+},
+"threat.enrichments.indicator.file.pe.go_imports_names_var_entropy": {
+"type": "long"
+},
+"threat.enrichments.indicator.file.pe.go_stripped": {
+"type": "boolean"
+},
+"threat.enrichments.indicator.file.pe.imphash": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.pe.import_hash": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.pe.imports": {
+"type": "flattened"
+},
+"threat.enrichments.indicator.file.pe.imports_names_entropy": {
+"type": "long"
+},
+"threat.enrichments.indicator.file.pe.imports_names_var_entropy": {
+"type": "long"
+},
+"threat.enrichments.indicator.file.pe.original_file_name": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.pe.pehash": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.pe.product": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.pe.sections": {
+"type": "nested"
+},
+"threat.enrichments.indicator.file.pe.sections.entropy": {
+"type": "long"
+},
+"threat.enrichments.indicator.file.pe.sections.name": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.pe.sections.physical_size": {
+"type": "long"
+},
+"threat.enrichments.indicator.file.pe.sections.var_entropy": {
+"type": "long"
+},
+"threat.enrichments.indicator.file.pe.sections.virtual_size": {
+"type": "long"
+},
+"threat.enrichments.indicator.file.size": {
+"type": "long"
+},
+"threat.enrichments.indicator.file.target_path": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"threat.enrichments.indicator.file.type": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.uid": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.x509.alternative_names": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.x509.issuer.common_name": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.x509.issuer.country": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.x509.issuer.distinguished_name": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.x509.issuer.locality": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.x509.issuer.organization": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.x509.issuer.organizational_unit": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.x509.issuer.state_or_province": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.x509.not_after": {
+"type": "date"
+},
+"threat.enrichments.indicator.file.x509.not_before": {
+"type": "date"
+},
+"threat.enrichments.indicator.file.x509.public_key_algorithm": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.x509.public_key_curve": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.x509.public_key_exponent": {
+"type": "long"
+},
+"threat.enrichments.indicator.file.x509.public_key_size": {
+"type": "long"
+},
+"threat.enrichments.indicator.file.x509.serial_number": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.x509.signature_algorithm": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.x509.subject.common_name": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.x509.subject.country": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.x509.subject.distinguished_name": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.x509.subject.locality": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.x509.subject.organization": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.x509.subject.organizational_unit": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.x509.subject.state_or_province": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.file.x509.version_number": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.first_seen": {
+"type": "date"
+},
+"threat.enrichments.indicator.geo.city_name": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.geo.continent_code": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.geo.continent_name": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.geo.country_iso_code": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.geo.country_name": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.geo.location": {
+"type": "geo_point"
+},
+"threat.enrichments.indicator.geo.name": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.geo.postal_code": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.geo.region_iso_code": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.geo.region_name": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.geo.timezone": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.ip": {
+"type": "ip"
+},
+"threat.enrichments.indicator.last_seen": {
+"type": "date"
+},
+"threat.enrichments.indicator.marking.tlp": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.marking.tlp_version": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.modified_at": {
+"type": "date"
+},
+"threat.enrichments.indicator.name": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.port": {
+"type": "long"
+},
+"threat.enrichments.indicator.provider": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.reference": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.registry.data.bytes": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.registry.data.strings": {
+"type": "wildcard"
+},
+"threat.enrichments.indicator.registry.data.type": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.registry.hive": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.registry.key": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.registry.path": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.registry.value": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.scanner_stats": {
+"type": "long"
+},
+"threat.enrichments.indicator.sightings": {
+"type": "long"
+},
+"threat.enrichments.indicator.type": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.url.domain": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.url.extension": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.url.fragment": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.url.full": {
+"type": "wildcard",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"threat.enrichments.indicator.url.original": {
+"type": "wildcard",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"threat.enrichments.indicator.url.password": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.url.path": {
+"type": "wildcard"
+},
+"threat.enrichments.indicator.url.port": {
+"type": "long"
+},
+"threat.enrichments.indicator.url.query": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.url.registered_domain": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.url.scheme": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.url.subdomain": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.url.top_level_domain": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.url.username": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.x509.alternative_names": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.x509.issuer.common_name": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.x509.issuer.country": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.x509.issuer.distinguished_name": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.x509.issuer.locality": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.x509.issuer.organization": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.x509.issuer.organizational_unit": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.x509.issuer.state_or_province": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.x509.not_after": {
+"type": "date"
+},
+"threat.enrichments.indicator.x509.not_before": {
+"type": "date"
+},
+"threat.enrichments.indicator.x509.public_key_algorithm": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.x509.public_key_curve": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.x509.public_key_exponent": {
+"type": "long"
+},
+"threat.enrichments.indicator.x509.public_key_size": {
+"type": "long"
+},
+"threat.enrichments.indicator.x509.serial_number": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.x509.signature_algorithm": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.x509.subject.common_name": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.x509.subject.country": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.x509.subject.distinguished_name": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.x509.subject.locality": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.x509.subject.organization": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.x509.subject.organizational_unit": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.x509.subject.state_or_province": {
+"type": "keyword"
+},
+"threat.enrichments.indicator.x509.version_number": {
+"type": "keyword"
+},
+"threat.enrichments.matched.atomic": {
+"type": "keyword"
+},
+"threat.enrichments.matched.field": {
+"type": "keyword"
+},
+"threat.enrichments.matched.id": {
+"type": "keyword"
+},
+"threat.enrichments.matched.index": {
+"type": "keyword"
+},
+"threat.enrichments.matched.occurred": {
+"type": "date"
+},
+"threat.enrichments.matched.type": {
+"type": "keyword"
+},
+"threat.feed.dashboard_id": {
+"type": "keyword"
+},
+"threat.feed.description": {
+"type": "keyword"
+},
+"threat.feed.name": {
+"type": "keyword"
+},
+"threat.feed.reference": {
+"type": "keyword"
+},
+"threat.framework": {
+"type": "keyword"
+},
+"threat.group.alias": {
+"type": "keyword"
+},
+"threat.group.id": {
+"type": "keyword"
+},
+"threat.group.name": {
+"type": "keyword"
+},
+"threat.group.reference": {
+"type": "keyword"
+},
+"threat.indicator.as.number": {
+"type": "long"
+},
+"threat.indicator.as.organization.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"threat.indicator.confidence": {
+"type": "keyword"
+},
+"threat.indicator.description": {
+"type": "keyword"
+},
+"threat.indicator.email.address": {
+"type": "keyword"
+},
+"threat.indicator.file.accessed": {
+"type": "date"
+},
+"threat.indicator.file.attributes": {
+"type": "keyword"
+},
+"threat.indicator.file.code_signature.digest_algorithm": {
+"type": "keyword"
+},
+"threat.indicator.file.code_signature.exists": {
+"type": "boolean"
+},
+"threat.indicator.file.code_signature.flags": {
+"type": "keyword"
+},
+"threat.indicator.file.code_signature.signing_id": {
+"type": "keyword"
+},
+"threat.indicator.file.code_signature.status": {
+"type": "keyword"
+},
+"threat.indicator.file.code_signature.subject_name": {
+"type": "keyword"
+},
+"threat.indicator.file.code_signature.team_id": {
+"type": "keyword"
+},
+"threat.indicator.file.code_signature.thumbprint_sha256": {
+"type": "keyword"
+},
+"threat.indicator.file.code_signature.timestamp": {
+"type": "date"
+},
+"threat.indicator.file.code_signature.trusted": {
+"type": "boolean"
+},
+"threat.indicator.file.code_signature.valid": {
+"type": "boolean"
+},
+"threat.indicator.file.created": {
+"type": "date"
+},
+"threat.indicator.file.ctime": {
+"type": "date"
+},
+"threat.indicator.file.device": {
+"type": "keyword"
+},
+"threat.indicator.file.directory": {
+"type": "keyword"
+},
+"threat.indicator.file.drive_letter": {
+"type": "keyword"
+},
+"threat.indicator.file.elf.architecture": {
+"type": "keyword"
+},
+"threat.indicator.file.elf.byte_order": {
+"type": "keyword"
+},
+"threat.indicator.file.elf.cpu_type": {
+"type": "keyword"
+},
+"threat.indicator.file.elf.creation_date": {
+"type": "date"
+},
+"threat.indicator.file.elf.exports": {
+"type": "flattened"
+},
+"threat.indicator.file.elf.go_import_hash": {
+"type": "keyword"
+},
+"threat.indicator.file.elf.go_imports": {
+"type": "flattened"
+},
+"threat.indicator.file.elf.go_imports_names_entropy": {
+"type": "long"
+},
+"threat.indicator.file.elf.go_imports_names_var_entropy": {
+"type": "long"
+},
+"threat.indicator.file.elf.go_stripped": {
+"type": "boolean"
+},
+"threat.indicator.file.elf.header.abi_version": {
+"type": "keyword"
+},
+"threat.indicator.file.elf.header.class": {
+"type": "keyword"
+},
+"threat.indicator.file.elf.header.data": {
+"type": "keyword"
+},
+"threat.indicator.file.elf.header.entrypoint": {
+"type": "long"
+},
+"threat.indicator.file.elf.header.object_version": {
+"type": "keyword"
+},
+"threat.indicator.file.elf.header.os_abi": {
+"type": "keyword"
+},
+"threat.indicator.file.elf.header.type": {
+"type": "keyword"
+},
+"threat.indicator.file.elf.header.version": {
+"type": "keyword"
+},
+"threat.indicator.file.elf.import_hash": {
+"type": "keyword"
+},
+"threat.indicator.file.elf.imports": {
+"type": "flattened"
+},
+"threat.indicator.file.elf.imports_names_entropy": {
+"type": "long"
+},
+"threat.indicator.file.elf.imports_names_var_entropy": {
+"type": "long"
+},
+"threat.indicator.file.elf.sections": {
+"type": "nested"
+},
+"threat.indicator.file.elf.sections.chi2": {
+"type": "long"
+},
+"threat.indicator.file.elf.sections.entropy": {
+"type": "long"
+},
+"threat.indicator.file.elf.sections.flags": {
+"type": "keyword"
+},
+"threat.indicator.file.elf.sections.name": {
+"type": "keyword"
+},
+"threat.indicator.file.elf.sections.physical_offset": {
+"type": "keyword"
+},
+"threat.indicator.file.elf.sections.physical_size": {
+"type": "long"
+},
+"threat.indicator.file.elf.sections.type": {
+"type": "keyword"
+},
+"threat.indicator.file.elf.sections.var_entropy": {
+"type": "long"
+},
+"threat.indicator.file.elf.sections.virtual_address": {
+"type": "long"
+},
+"threat.indicator.file.elf.sections.virtual_size": {
+"type": "long"
+},
+"threat.indicator.file.elf.segments": {
+"type": "nested"
+},
+"threat.indicator.file.elf.segments.sections": {
+"type": "keyword"
+},
+"threat.indicator.file.elf.segments.type": {
+"type": "keyword"
+},
+"threat.indicator.file.elf.shared_libraries": {
+"type": "keyword"
+},
+"threat.indicator.file.elf.telfhash": {
+"type": "keyword"
+},
+"threat.indicator.file.extension": {
+"type": "keyword"
+},
+"threat.indicator.file.fork_name": {
+"type": "keyword"
+},
+"threat.indicator.file.gid": {
+"type": "keyword"
+},
+"threat.indicator.file.group": {
+"type": "keyword"
+},
+"threat.indicator.file.hash.cdhash": {
+"type": "keyword"
+},
+"threat.indicator.file.hash.md5": {
+"type": "keyword"
+},
+"threat.indicator.file.hash.sha1": {
+"type": "keyword"
+},
+"threat.indicator.file.hash.sha256": {
+"type": "keyword"
+},
+"threat.indicator.file.hash.sha384": {
+"type": "keyword"
+},
+"threat.indicator.file.hash.sha512": {
+"type": "keyword"
+},
+"threat.indicator.file.hash.ssdeep": {
+"type": "keyword"
+},
+"threat.indicator.file.hash.tlsh": {
+"type": "keyword"
+},
+"threat.indicator.file.inode": {
+"type": "keyword"
+},
+"threat.indicator.file.mime_type": {
+"type": "keyword"
+},
+"threat.indicator.file.mode": {
+"type": "keyword"
+},
+"threat.indicator.file.mtime": {
+"type": "date"
+},
+"threat.indicator.file.name": {
+"type": "keyword"
+},
+"threat.indicator.file.origin_referrer_url": {
+"type": "keyword"
+},
+"threat.indicator.file.origin_url": {
+"type": "keyword"
+},
+"threat.indicator.file.owner": {
+"type": "keyword"
+},
+"threat.indicator.file.path": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"threat.indicator.file.pe.architecture": {
+"type": "keyword"
+},
+"threat.indicator.file.pe.company": {
+"type": "keyword"
+},
+"threat.indicator.file.pe.description": {
+"type": "keyword"
+},
+"threat.indicator.file.pe.file_version": {
+"type": "keyword"
+},
+"threat.indicator.file.pe.go_import_hash": {
+"type": "keyword"
+},
+"threat.indicator.file.pe.go_imports": {
+"type": "flattened"
+},
+"threat.indicator.file.pe.go_imports_names_entropy": {
+"type": "long"
+},
+"threat.indicator.file.pe.go_imports_names_var_entropy": {
+"type": "long"
+},
+"threat.indicator.file.pe.go_stripped": {
+"type": "boolean"
+},
+"threat.indicator.file.pe.imphash": {
+"type": "keyword"
+},
+"threat.indicator.file.pe.import_hash": {
+"type": "keyword"
+},
+"threat.indicator.file.pe.imports": {
+"type": "flattened"
+},
+"threat.indicator.file.pe.imports_names_entropy": {
+"type": "long"
+},
+"threat.indicator.file.pe.imports_names_var_entropy": {
+"type": "long"
+},
+"threat.indicator.file.pe.original_file_name": {
+"type": "keyword"
+},
+"threat.indicator.file.pe.pehash": {
+"type": "keyword"
+},
+"threat.indicator.file.pe.product": {
+"type": "keyword"
+},
+"threat.indicator.file.pe.sections": {
+"type": "nested"
+},
+"threat.indicator.file.pe.sections.entropy": {
+"type": "long"
+},
+"threat.indicator.file.pe.sections.name": {
+"type": "keyword"
+},
+"threat.indicator.file.pe.sections.physical_size": {
+"type": "long"
+},
+"threat.indicator.file.pe.sections.var_entropy": {
+"type": "long"
+},
+"threat.indicator.file.pe.sections.virtual_size": {
+"type": "long"
+},
+"threat.indicator.file.size": {
+"type": "long"
+},
+"threat.indicator.file.target_path": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"threat.indicator.file.type": {
+"type": "keyword"
+},
+"threat.indicator.file.uid": {
+"type": "keyword"
+},
+"threat.indicator.file.x509.alternative_names": {
+"type": "keyword"
+},
+"threat.indicator.file.x509.issuer.common_name": {
+"type": "keyword"
+},
+"threat.indicator.file.x509.issuer.country": {
+"type": "keyword"
+},
+"threat.indicator.file.x509.issuer.distinguished_name": {
+"type": "keyword"
+},
+"threat.indicator.file.x509.issuer.locality": {
+"type": "keyword"
+},
+"threat.indicator.file.x509.issuer.organization": {
+"type": "keyword"
+},
+"threat.indicator.file.x509.issuer.organizational_unit": {
+"type": "keyword"
+},
+"threat.indicator.file.x509.issuer.state_or_province": {
+"type": "keyword"
+},
+"threat.indicator.file.x509.not_after": {
+"type": "date"
+},
+"threat.indicator.file.x509.not_before": {
+"type": "date"
+},
+"threat.indicator.file.x509.public_key_algorithm": {
+"type": "keyword"
+},
+"threat.indicator.file.x509.public_key_curve": {
+"type": "keyword"
+},
+"threat.indicator.file.x509.public_key_exponent": {
+"type": "long"
+},
+"threat.indicator.file.x509.public_key_size": {
+"type": "long"
+},
+"threat.indicator.file.x509.serial_number": {
+"type": "keyword"
+},
+"threat.indicator.file.x509.signature_algorithm": {
+"type": "keyword"
+},
+"threat.indicator.file.x509.subject.common_name": {
+"type": "keyword"
+},
+"threat.indicator.file.x509.subject.country": {
+"type": "keyword"
+},
+"threat.indicator.file.x509.subject.distinguished_name": {
+"type": "keyword"
+},
+"threat.indicator.file.x509.subject.locality": {
+"type": "keyword"
+},
+"threat.indicator.file.x509.subject.organization": {
+"type": "keyword"
+},
+"threat.indicator.file.x509.subject.organizational_unit": {
+"type": "keyword"
+},
+"threat.indicator.file.x509.subject.state_or_province": {
+"type": "keyword"
+},
+"threat.indicator.file.x509.version_number": {
+"type": "keyword"
+},
+"threat.indicator.first_seen": {
+"type": "date"
+},
+"threat.indicator.geo.city_name": {
+"type": "keyword"
+},
+"threat.indicator.geo.continent_code": {
+"type": "keyword"
+},
+"threat.indicator.geo.continent_name": {
+"type": "keyword"
+},
+"threat.indicator.geo.country_iso_code": {
+"type": "keyword"
+},
+"threat.indicator.geo.country_name": {
+"type": "keyword"
+},
+"threat.indicator.geo.location": {
+"type": "geo_point"
+},
+"threat.indicator.geo.name": {
+"type": "keyword"
+},
+"threat.indicator.geo.postal_code": {
+"type": "keyword"
+},
+"threat.indicator.geo.region_iso_code": {
+"type": "keyword"
+},
+"threat.indicator.geo.region_name": {
+"type": "keyword"
+},
+"threat.indicator.geo.timezone": {
+"type": "keyword"
+},
+"threat.indicator.id": {
+"type": "keyword"
+},
+"threat.indicator.ip": {
+"type": "ip"
+},
+"threat.indicator.last_seen": {
+"type": "date"
+},
+"threat.indicator.marking.tlp": {
+"type": "keyword"
+},
+"threat.indicator.marking.tlp_version": {
+"type": "keyword"
+},
+"threat.indicator.modified_at": {
+"type": "date"
+},
+"threat.indicator.name": {
+"type": "keyword"
+},
+"threat.indicator.port": {
+"type": "long"
+},
+"threat.indicator.provider": {
+"type": "keyword"
+},
+"threat.indicator.reference": {
+"type": "keyword"
+},
+"threat.indicator.registry.data.bytes": {
+"type": "keyword"
+},
+"threat.indicator.registry.data.strings": {
+"type": "wildcard"
+},
+"threat.indicator.registry.data.type": {
+"type": "keyword"
+},
+"threat.indicator.registry.hive": {
+"type": "keyword"
+},
+"threat.indicator.registry.key": {
+"type": "keyword"
+},
+"threat.indicator.registry.path": {
+"type": "keyword"
+},
+"threat.indicator.registry.value": {
+"type": "keyword"
+},
+"threat.indicator.scanner_stats": {
+"type": "long"
+},
+"threat.indicator.sightings": {
+"type": "long"
+},
+"threat.indicator.type": {
+"type": "keyword"
+},
+"threat.indicator.url.domain": {
+"type": "keyword"
+},
+"threat.indicator.url.extension": {
+"type": "keyword"
+},
+"threat.indicator.url.fragment": {
+"type": "keyword"
+},
+"threat.indicator.url.full": {
+"type": "wildcard",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"threat.indicator.url.original": {
+"type": "wildcard",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"threat.indicator.url.password": {
+"type": "keyword"
+},
+"threat.indicator.url.path": {
+"type": "wildcard"
+},
+"threat.indicator.url.port": {
+"type": "long"
+},
+"threat.indicator.url.query": {
+"type": "keyword"
+},
+"threat.indicator.url.registered_domain": {
+"type": "keyword"
+},
+"threat.indicator.url.scheme": {
+"type": "keyword"
+},
+"threat.indicator.url.subdomain": {
+"type": "keyword"
+},
+"threat.indicator.url.top_level_domain": {
+"type": "keyword"
+},
+"threat.indicator.url.username": {
+"type": "keyword"
+},
+"threat.indicator.x509.alternative_names": {
+"type": "keyword"
+},
+"threat.indicator.x509.issuer.common_name": {
+"type": "keyword"
+},
+"threat.indicator.x509.issuer.country": {
+"type": "keyword"
+},
+"threat.indicator.x509.issuer.distinguished_name": {
+"type": "keyword"
+},
+"threat.indicator.x509.issuer.locality": {
+"type": "keyword"
+},
+"threat.indicator.x509.issuer.organization": {
+"type": "keyword"
+},
+"threat.indicator.x509.issuer.organizational_unit": {
+"type": "keyword"
+},
+"threat.indicator.x509.issuer.state_or_province": {
+"type": "keyword"
+},
+"threat.indicator.x509.not_after": {
+"type": "date"
+},
+"threat.indicator.x509.not_before": {
+"type": "date"
+},
+"threat.indicator.x509.public_key_algorithm": {
+"type": "keyword"
+},
+"threat.indicator.x509.public_key_curve": {
+"type": "keyword"
+},
+"threat.indicator.x509.public_key_exponent": {
+"type": "long"
+},
+"threat.indicator.x509.public_key_size": {
+"type": "long"
+},
+"threat.indicator.x509.serial_number": {
+"type": "keyword"
+},
+"threat.indicator.x509.signature_algorithm": {
+"type": "keyword"
+},
+"threat.indicator.x509.subject.common_name": {
+"type": "keyword"
+},
+"threat.indicator.x509.subject.country": {
+"type": "keyword"
+},
+"threat.indicator.x509.subject.distinguished_name": {
+"type": "keyword"
+},
+"threat.indicator.x509.subject.locality": {
+"type": "keyword"
+},
+"threat.indicator.x509.subject.organization": {
+"type": "keyword"
+},
+"threat.indicator.x509.subject.organizational_unit": {
+"type": "keyword"
+},
+"threat.indicator.x509.subject.state_or_province": {
+"type": "keyword"
+},
+"threat.indicator.x509.version_number": {
+"type": "keyword"
+},
+"threat.software.alias": {
+"type": "keyword"
+},
+"threat.software.id": {
+"type": "keyword"
+},
+"threat.software.name": {
+"type": "keyword"
+},
+"threat.software.platforms": {
+"type": "keyword"
+},
+"threat.software.reference": {
+"type": "keyword"
+},
+"threat.software.type": {
+"type": "keyword"
+},
+"threat.tactic.id": {
+"type": "keyword"
+},
+"threat.tactic.name": {
+"type": "keyword"
+},
+"threat.tactic.reference": {
+"type": "keyword"
+},
+"threat.technique.id": {
+"type": "keyword"
+},
+"threat.technique.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"threat.technique.reference": {
+"type": "keyword"
+},
+"threat.technique.subtechnique.id": {
+"type": "keyword"
+},
+"threat.technique.subtechnique.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"threat.technique.subtechnique.reference": {
+"type": "keyword"
+},
+"tls.cipher": {
+"type": "keyword"
+},
+"tls.client.certificate": {
+"type": "keyword"
+},
+"tls.client.certificate_chain": {
+"type": "keyword"
+},
+"tls.client.hash.md5": {
+"type": "keyword"
+},
+"tls.client.hash.sha1": {
+"type": "keyword"
+},
+"tls.client.hash.sha256": {
+"type": "keyword"
+},
+"tls.client.issuer": {
+"type": "keyword"
+},
+"tls.client.ja3": {
+"type": "keyword"
+},
+"tls.client.not_after": {
+"type": "date"
+},
+"tls.client.not_before": {
+"type": "date"
+},
+"tls.client.server_name": {
+"type": "keyword"
+},
+"tls.client.subject": {
+"type": "keyword"
+},
+"tls.client.supported_ciphers": {
+"type": "keyword"
+},
+"tls.client.x509.alternative_names": {
+"type": "keyword"
+},
+"tls.client.x509.issuer.common_name": {
+"type": "keyword"
+},
+"tls.client.x509.issuer.country": {
+"type": "keyword"
+},
+"tls.client.x509.issuer.distinguished_name": {
+"type": "keyword"
+},
+"tls.client.x509.issuer.locality": {
+"type": "keyword"
+},
+"tls.client.x509.issuer.organization": {
+"type": "keyword"
+},
+"tls.client.x509.issuer.organizational_unit": {
+"type": "keyword"
+},
+"tls.client.x509.issuer.state_or_province": {
+"type": "keyword"
+},
+"tls.client.x509.not_after": {
+"type": "date"
+},
+"tls.client.x509.not_before": {
+"type": "date"
+},
+"tls.client.x509.public_key_algorithm": {
+"type": "keyword"
+},
+"tls.client.x509.public_key_curve": {
+"type": "keyword"
+},
+"tls.client.x509.public_key_exponent": {
+"type": "long"
+},
+"tls.client.x509.public_key_size": {
+"type": "long"
+},
+"tls.client.x509.serial_number": {
+"type": "keyword"
+},
+"tls.client.x509.signature_algorithm": {
+"type": "keyword"
+},
+"tls.client.x509.subject.common_name": {
+"type": "keyword"
+},
+"tls.client.x509.subject.country": {
+"type": "keyword"
+},
+"tls.client.x509.subject.distinguished_name": {
+"type": "keyword"
+},
+"tls.client.x509.subject.locality": {
+"type": "keyword"
+},
+"tls.client.x509.subject.organization": {
+"type": "keyword"
+},
+"tls.client.x509.subject.organizational_unit": {
+"type": "keyword"
+},
+"tls.client.x509.subject.state_or_province": {
+"type": "keyword"
+},
+"tls.client.x509.version_number": {
+"type": "keyword"
+},
+"tls.curve": {
+"type": "keyword"
+},
+"tls.established": {
+"type": "boolean"
+},
+"tls.next_protocol": {
+"type": "keyword"
+},
+"tls.resumed": {
+"type": "boolean"
+},
+"tls.server.certificate": {
+"type": "keyword"
+},
+"tls.server.certificate_chain": {
+"type": "keyword"
+},
+"tls.server.hash.md5": {
+"type": "keyword"
+},
+"tls.server.hash.sha1": {
+"type": "keyword"
+},
+"tls.server.hash.sha256": {
+"type": "keyword"
+},
+"tls.server.issuer": {
+"type": "keyword"
+},
+"tls.server.ja3s": {
+"type": "keyword"
+},
+"tls.server.not_after": {
+"type": "date"
+},
+"tls.server.not_before": {
+"type": "date"
+},
+"tls.server.subject": {
+"type": "keyword"
+},
+"tls.server.x509.alternative_names": {
+"type": "keyword"
+},
+"tls.server.x509.issuer.common_name": {
+"type": "keyword"
+},
+"tls.server.x509.issuer.country": {
+"type": "keyword"
+},
+"tls.server.x509.issuer.distinguished_name": {
+"type": "keyword"
+},
+"tls.server.x509.issuer.locality": {
+"type": "keyword"
+},
+"tls.server.x509.issuer.organization": {
+"type": "keyword"
+},
+"tls.server.x509.issuer.organizational_unit": {
+"type": "keyword"
+},
+"tls.server.x509.issuer.state_or_province": {
+"type": "keyword"
+},
+"tls.server.x509.not_after": {
+"type": "date"
+},
+"tls.server.x509.not_before": {
+"type": "date"
+},
+"tls.server.x509.public_key_algorithm": {
+"type": "keyword"
+},
+"tls.server.x509.public_key_curve": {
+"type": "keyword"
+},
+"tls.server.x509.public_key_exponent": {
+"type": "long"
+},
+"tls.server.x509.public_key_size": {
+"type": "long"
+},
+"tls.server.x509.serial_number": {
+"type": "keyword"
+},
+"tls.server.x509.signature_algorithm": {
+"type": "keyword"
+},
+"tls.server.x509.subject.common_name": {
+"type": "keyword"
+},
+"tls.server.x509.subject.country": {
+"type": "keyword"
+},
+"tls.server.x509.subject.distinguished_name": {
+"type": "keyword"
+},
+"tls.server.x509.subject.locality": {
+"type": "keyword"
+},
+"tls.server.x509.subject.organization": {
+"type": "keyword"
+},
+"tls.server.x509.subject.organizational_unit": {
+"type": "keyword"
+},
+"tls.server.x509.subject.state_or_province": {
+"type": "keyword"
+},
+"tls.server.x509.version_number": {
+"type": "keyword"
+},
+"tls.version": {
+"type": "keyword"
+},
+"tls.version_protocol": {
+"type": "keyword"
+},
+"trace.id": {
+"type": "keyword"
+},
+"transaction.id": {
+"type": "keyword"
+},
+"url.domain": {
+"type": "keyword"
+},
+"url.extension": {
+"type": "keyword"
+},
+"url.fragment": {
+"type": "keyword"
+},
+"url.full": {
+"type": "wildcard",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"url.original": {
+"type": "wildcard",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"url.password": {
+"type": "keyword"
+},
+"url.path": {
+"type": "wildcard"
+},
+"url.port": {
+"type": "long"
+},
+"url.query": {
+"type": "keyword"
+},
+"url.registered_domain": {
+"type": "keyword"
+},
+"url.scheme": {
+"type": "keyword"
+},
+"url.subdomain": {
+"type": "keyword"
+},
+"url.top_level_domain": {
+"type": "keyword"
+},
+"url.username": {
+"type": "keyword"
+},
+"user.changes.domain": {
+"type": "keyword"
+},
+"user.changes.email": {
+"type": "keyword"
+},
+"user.changes.entity.attributes.known_redirects": {
+"type": "keyword"
+},
+"user.changes.entity.attributes.managed": {
+"type": "boolean"
+},
+"user.changes.entity.attributes.mfa_enabled": {
+"type": "boolean"
+},
+"user.changes.entity.attributes.oauth_consent_restriction": {
+"type": "keyword"
+},
+"user.changes.entity.attributes.permissions": {
+"type": "keyword"
+},
+"user.changes.entity.attributes.storage_class": {
+"type": "keyword"
+},
+"user.changes.entity.behavior": {
+"type": "object"
+},
+"user.changes.entity.display_name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"user.changes.entity.id": {
+"type": "keyword"
+},
+"user.changes.entity.last_seen_timestamp": {
+"type": "date"
+},
+"user.changes.entity.lifecycle.last_activity": {
+"type": "date"
+},
+"user.changes.entity.metrics": {
+"type": "object"
+},
+"user.changes.entity.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"user.changes.entity.raw": {
+"type": "object"
+},
+"user.changes.entity.reference": {
+"type": "keyword"
+},
+"user.changes.entity.relationships.administers.entity.id": {
+"type": "keyword"
+},
+"user.changes.entity.relationships.administers.host.id": {
+"type": "keyword"
+},
+"user.changes.entity.relationships.administers.host.name": {
+"type": "keyword"
+},
+"user.changes.entity.relationships.administers.service.id": {
+"type": "keyword"
+},
+"user.changes.entity.relationships.administers.service.name": {
+"type": "keyword"
+},
+"user.changes.entity.relationships.administers.user.domain": {
+"type": "keyword"
+},
+"user.changes.entity.relationships.administers.user.email": {
+"type": "keyword"
+},
+"user.changes.entity.relationships.administers.user.id": {
+"type": "keyword"
+},
+"user.changes.entity.relationships.administers.user.name": {
+"type": "keyword"
+},
+"user.changes.entity.relationships.depends_on.entity.id": {
+"type": "keyword"
+},
+"user.changes.entity.relationships.depends_on.host.id": {
+"type": "keyword"
+},
+"user.changes.entity.relationships.depends_on.host.name": {
+"type": "keyword"
+},
+"user.changes.entity.relationships.depends_on.service.id": {
+"type": "keyword"
+},
+"user.changes.entity.relationships.depends_on.service.name": {
+"type": "keyword"
+},
+"user.changes.entity.relationships.depends_on.user.domain": {
+"type": "keyword"
+},
+"user.changes.entity.relationships.depends_on.user.email": {
+"type": "keyword"
+},
+"user.changes.entity.relationships.depends_on.user.id": {
+"type": "keyword"
+},
+"user.changes.entity.relationships.depends_on.user.name": {
+"type": "keyword"
+},
+"user.changes.entity.relationships.owns.entity.id": {
+"type": "keyword"
+},
+"user.changes.entity.relationships.owns.host.id": {
+"type": "keyword"
+},
+"user.changes.entity.relationships.owns.host.name": {
+"type": "keyword"
+},
+"user.changes.entity.relationships.owns.service.id": {
+"type": "keyword"
+},
+"user.changes.entity.relationships.owns.service.name": {
+"type": "keyword"
+},
+"user.changes.entity.relationships.owns.user.domain": {
+"type": "keyword"
+},
+"user.changes.entity.relationships.owns.user.email": {
+"type": "keyword"
+},
+"user.changes.entity.relationships.owns.user.id": {
+"type": "keyword"
+},
+"user.changes.entity.relationships.owns.user.name": {
+"type": "keyword"
+},
+"user.changes.entity.relationships.supervises.entity.id": {
+"type": "keyword"
+},
+"user.changes.entity.relationships.supervises.host.id": {
+"type": "keyword"
+},
+"user.changes.entity.relationships.supervises.host.name": {
+"type": "keyword"
+},
+"user.changes.entity.relationships.supervises.service.id": {
+"type": "keyword"
+},
+"user.changes.entity.relationships.supervises.service.name": {
+"type": "keyword"
+},
+"user.changes.entity.relationships.supervises.user.domain": {
+"type": "keyword"
+},
+"user.changes.entity.relationships.supervises.user.email": {
+"type": "keyword"
+},
+"user.changes.entity.relationships.supervises.user.id": {
+"type": "keyword"
+},
+"user.changes.entity.relationships.supervises.user.name": {
+"type": "keyword"
+},
+"user.changes.entity.source": {
+"type": "keyword"
+},
+"user.changes.entity.sub_type": {
+"type": "keyword"
+},
+"user.changes.entity.type": {
+"type": "keyword"
+},
+"user.changes.full_name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"user.changes.group.domain": {
+"type": "keyword"
+},
+"user.changes.group.id": {
+"type": "keyword"
+},
+"user.changes.group.name": {
+"type": "keyword"
+},
+"user.changes.hash": {
+"type": "keyword"
+},
+"user.changes.id": {
+"type": "keyword"
+},
+"user.changes.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"user.changes.risk.calculated_level": {
+"type": "keyword"
+},
+"user.changes.risk.calculated_score": {
+"type": "float"
+},
+"user.changes.risk.calculated_score_norm": {
+"type": "float"
+},
+"user.changes.risk.static_level": {
+"type": "keyword"
+},
+"user.changes.risk.static_score": {
+"type": "float"
+},
+"user.changes.risk.static_score_norm": {
+"type": "float"
+},
+"user.changes.roles": {
+"type": "keyword"
+},
+"user.domain": {
+"type": "keyword"
+},
+"user.effective.domain": {
+"type": "keyword"
+},
+"user.effective.email": {
+"type": "keyword"
+},
+"user.effective.entity.attributes.known_redirects": {
+"type": "keyword"
+},
+"user.effective.entity.attributes.managed": {
+"type": "boolean"
+},
+"user.effective.entity.attributes.mfa_enabled": {
+"type": "boolean"
+},
+"user.effective.entity.attributes.oauth_consent_restriction": {
+"type": "keyword"
+},
+"user.effective.entity.attributes.permissions": {
+"type": "keyword"
+},
+"user.effective.entity.attributes.storage_class": {
+"type": "keyword"
+},
+"user.effective.entity.behavior": {
+"type": "object"
+},
+"user.effective.entity.display_name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"user.effective.entity.id": {
+"type": "keyword"
+},
+"user.effective.entity.last_seen_timestamp": {
+"type": "date"
+},
+"user.effective.entity.lifecycle.last_activity": {
+"type": "date"
+},
+"user.effective.entity.metrics": {
+"type": "object"
+},
+"user.effective.entity.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"user.effective.entity.raw": {
+"type": "object"
+},
+"user.effective.entity.reference": {
+"type": "keyword"
+},
+"user.effective.entity.relationships.administers.entity.id": {
+"type": "keyword"
+},
+"user.effective.entity.relationships.administers.host.id": {
+"type": "keyword"
+},
+"user.effective.entity.relationships.administers.host.name": {
+"type": "keyword"
+},
+"user.effective.entity.relationships.administers.service.id": {
+"type": "keyword"
+},
+"user.effective.entity.relationships.administers.service.name": {
+"type": "keyword"
+},
+"user.effective.entity.relationships.administers.user.domain": {
+"type": "keyword"
+},
+"user.effective.entity.relationships.administers.user.email": {
+"type": "keyword"
+},
+"user.effective.entity.relationships.administers.user.id": {
+"type": "keyword"
+},
+"user.effective.entity.relationships.administers.user.name": {
+"type": "keyword"
+},
+"user.effective.entity.relationships.depends_on.entity.id": {
+"type": "keyword"
+},
+"user.effective.entity.relationships.depends_on.host.id": {
+"type": "keyword"
+},
+"user.effective.entity.relationships.depends_on.host.name": {
+"type": "keyword"
+},
+"user.effective.entity.relationships.depends_on.service.id": {
+"type": "keyword"
+},
+"user.effective.entity.relationships.depends_on.service.name": {
+"type": "keyword"
+},
+"user.effective.entity.relationships.depends_on.user.domain": {
+"type": "keyword"
+},
+"user.effective.entity.relationships.depends_on.user.email": {
+"type": "keyword"
+},
+"user.effective.entity.relationships.depends_on.user.id": {
+"type": "keyword"
+},
+"user.effective.entity.relationships.depends_on.user.name": {
+"type": "keyword"
+},
+"user.effective.entity.relationships.owns.entity.id": {
+"type": "keyword"
+},
+"user.effective.entity.relationships.owns.host.id": {
+"type": "keyword"
+},
+"user.effective.entity.relationships.owns.host.name": {
+"type": "keyword"
+},
+"user.effective.entity.relationships.owns.service.id": {
+"type": "keyword"
+},
+"user.effective.entity.relationships.owns.service.name": {
+"type": "keyword"
+},
+"user.effective.entity.relationships.owns.user.domain": {
+"type": "keyword"
+},
+"user.effective.entity.relationships.owns.user.email": {
+"type": "keyword"
+},
+"user.effective.entity.relationships.owns.user.id": {
+"type": "keyword"
+},
+"user.effective.entity.relationships.owns.user.name": {
+"type": "keyword"
+},
+"user.effective.entity.relationships.supervises.entity.id": {
+"type": "keyword"
+},
+"user.effective.entity.relationships.supervises.host.id": {
+"type": "keyword"
+},
+"user.effective.entity.relationships.supervises.host.name": {
+"type": "keyword"
+},
+"user.effective.entity.relationships.supervises.service.id": {
+"type": "keyword"
+},
+"user.effective.entity.relationships.supervises.service.name": {
+"type": "keyword"
+},
+"user.effective.entity.relationships.supervises.user.domain": {
+"type": "keyword"
+},
+"user.effective.entity.relationships.supervises.user.email": {
+"type": "keyword"
+},
+"user.effective.entity.relationships.supervises.user.id": {
+"type": "keyword"
+},
+"user.effective.entity.relationships.supervises.user.name": {
+"type": "keyword"
+},
+"user.effective.entity.source": {
+"type": "keyword"
+},
+"user.effective.entity.sub_type": {
+"type": "keyword"
+},
+"user.effective.entity.type": {
+"type": "keyword"
+},
+"user.effective.full_name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"user.effective.group.domain": {
+"type": "keyword"
+},
+"user.effective.group.id": {
+"type": "keyword"
+},
+"user.effective.group.name": {
+"type": "keyword"
+},
+"user.effective.hash": {
+"type": "keyword"
+},
+"user.effective.id": {
+"type": "keyword"
+},
+"user.effective.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"user.effective.risk.calculated_level": {
+"type": "keyword"
+},
+"user.effective.risk.calculated_score": {
+"type": "float"
+},
+"user.effective.risk.calculated_score_norm": {
+"type": "float"
+},
+"user.effective.risk.static_level": {
+"type": "keyword"
+},
+"user.effective.risk.static_score": {
+"type": "float"
+},
+"user.effective.risk.static_score_norm": {
+"type": "float"
+},
+"user.effective.roles": {
+"type": "keyword"
+},
+"user.email": {
+"type": "keyword"
+},
+"user.entity.attributes.known_redirects": {
+"type": "keyword"
+},
+"user.entity.attributes.managed": {
+"type": "boolean"
+},
+"user.entity.attributes.mfa_enabled": {
+"type": "boolean"
+},
+"user.entity.attributes.oauth_consent_restriction": {
+"type": "keyword"
+},
+"user.entity.attributes.permissions": {
+"type": "keyword"
+},
+"user.entity.attributes.storage_class": {
+"type": "keyword"
+},
+"user.entity.behavior": {
+"type": "object"
+},
+"user.entity.display_name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"user.entity.id": {
+"type": "keyword"
+},
+"user.entity.last_seen_timestamp": {
+"type": "date"
+},
+"user.entity.lifecycle.last_activity": {
+"type": "date"
+},
+"user.entity.metrics": {
+"type": "object"
+},
+"user.entity.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"user.entity.raw": {
+"type": "object"
+},
+"user.entity.reference": {
+"type": "keyword"
+},
+"user.entity.relationships.administers.entity.id": {
+"type": "keyword"
+},
+"user.entity.relationships.administers.host.id": {
+"type": "keyword"
+},
+"user.entity.relationships.administers.host.name": {
+"type": "keyword"
+},
+"user.entity.relationships.administers.service.id": {
+"type": "keyword"
+},
+"user.entity.relationships.administers.service.name": {
+"type": "keyword"
+},
+"user.entity.relationships.administers.user.domain": {
+"type": "keyword"
+},
+"user.entity.relationships.administers.user.email": {
+"type": "keyword"
+},
+"user.entity.relationships.administers.user.id": {
+"type": "keyword"
+},
+"user.entity.relationships.administers.user.name": {
+"type": "keyword"
+},
+"user.entity.relationships.depends_on.entity.id": {
+"type": "keyword"
+},
+"user.entity.relationships.depends_on.host.id": {
+"type": "keyword"
+},
+"user.entity.relationships.depends_on.host.name": {
+"type": "keyword"
+},
+"user.entity.relationships.depends_on.service.id": {
+"type": "keyword"
+},
+"user.entity.relationships.depends_on.service.name": {
+"type": "keyword"
+},
+"user.entity.relationships.depends_on.user.domain": {
+"type": "keyword"
+},
+"user.entity.relationships.depends_on.user.email": {
+"type": "keyword"
+},
+"user.entity.relationships.depends_on.user.id": {
+"type": "keyword"
+},
+"user.entity.relationships.depends_on.user.name": {
+"type": "keyword"
+},
+"user.entity.relationships.owns.entity.id": {
+"type": "keyword"
+},
+"user.entity.relationships.owns.host.id": {
+"type": "keyword"
+},
+"user.entity.relationships.owns.host.name": {
+"type": "keyword"
+},
+"user.entity.relationships.owns.service.id": {
+"type": "keyword"
+},
+"user.entity.relationships.owns.service.name": {
+"type": "keyword"
+},
+"user.entity.relationships.owns.user.domain": {
+"type": "keyword"
+},
+"user.entity.relationships.owns.user.email": {
+"type": "keyword"
+},
+"user.entity.relationships.owns.user.id": {
+"type": "keyword"
+},
+"user.entity.relationships.owns.user.name": {
+"type": "keyword"
+},
+"user.entity.relationships.supervises.entity.id": {
+"type": "keyword"
+},
+"user.entity.relationships.supervises.host.id": {
+"type": "keyword"
+},
+"user.entity.relationships.supervises.host.name": {
+"type": "keyword"
+},
+"user.entity.relationships.supervises.service.id": {
+"type": "keyword"
+},
+"user.entity.relationships.supervises.service.name": {
+"type": "keyword"
+},
+"user.entity.relationships.supervises.user.domain": {
+"type": "keyword"
+},
+"user.entity.relationships.supervises.user.email": {
+"type": "keyword"
+},
+"user.entity.relationships.supervises.user.id": {
+"type": "keyword"
+},
+"user.entity.relationships.supervises.user.name": {
+"type": "keyword"
+},
+"user.entity.source": {
+"type": "keyword"
+},
+"user.entity.sub_type": {
+"type": "keyword"
+},
+"user.entity.type": {
+"type": "keyword"
+},
+"user.full_name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"user.group.domain": {
+"type": "keyword"
+},
+"user.group.id": {
+"type": "keyword"
+},
+"user.group.name": {
+"type": "keyword"
+},
+"user.hash": {
+"type": "keyword"
+},
+"user.id": {
+"type": "keyword"
+},
+"user.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"user.risk.calculated_level": {
+"type": "keyword"
+},
+"user.risk.calculated_score": {
+"type": "float"
+},
+"user.risk.calculated_score_norm": {
+"type": "float"
+},
+"user.risk.static_level": {
+"type": "keyword"
+},
+"user.risk.static_score": {
+"type": "float"
+},
+"user.risk.static_score_norm": {
+"type": "float"
+},
+"user.roles": {
+"type": "keyword"
+},
+"user.target.domain": {
+"type": "keyword"
+},
+"user.target.email": {
+"type": "keyword"
+},
+"user.target.entity.attributes.known_redirects": {
+"type": "keyword"
+},
+"user.target.entity.attributes.managed": {
+"type": "boolean"
+},
+"user.target.entity.attributes.mfa_enabled": {
+"type": "boolean"
+},
+"user.target.entity.attributes.oauth_consent_restriction": {
+"type": "keyword"
+},
+"user.target.entity.attributes.permissions": {
+"type": "keyword"
+},
+"user.target.entity.attributes.storage_class": {
+"type": "keyword"
+},
+"user.target.entity.behavior": {
+"type": "object"
+},
+"user.target.entity.display_name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"user.target.entity.id": {
+"type": "keyword"
+},
+"user.target.entity.last_seen_timestamp": {
+"type": "date"
+},
+"user.target.entity.lifecycle.last_activity": {
+"type": "date"
+},
+"user.target.entity.metrics": {
+"type": "object"
+},
+"user.target.entity.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"user.target.entity.raw": {
+"type": "object"
+},
+"user.target.entity.reference": {
+"type": "keyword"
+},
+"user.target.entity.relationships.administers.entity.id": {
+"type": "keyword"
+},
+"user.target.entity.relationships.administers.host.id": {
+"type": "keyword"
+},
+"user.target.entity.relationships.administers.host.name": {
+"type": "keyword"
+},
+"user.target.entity.relationships.administers.service.id": {
+"type": "keyword"
+},
+"user.target.entity.relationships.administers.service.name": {
+"type": "keyword"
+},
+"user.target.entity.relationships.administers.user.domain": {
+"type": "keyword"
+},
+"user.target.entity.relationships.administers.user.email": {
+"type": "keyword"
+},
+"user.target.entity.relationships.administers.user.id": {
+"type": "keyword"
+},
+"user.target.entity.relationships.administers.user.name": {
+"type": "keyword"
+},
+"user.target.entity.relationships.depends_on.entity.id": {
+"type": "keyword"
+},
+"user.target.entity.relationships.depends_on.host.id": {
+"type": "keyword"
+},
+"user.target.entity.relationships.depends_on.host.name": {
+"type": "keyword"
+},
+"user.target.entity.relationships.depends_on.service.id": {
+"type": "keyword"
+},
+"user.target.entity.relationships.depends_on.service.name": {
+"type": "keyword"
+},
+"user.target.entity.relationships.depends_on.user.domain": {
+"type": "keyword"
+},
+"user.target.entity.relationships.depends_on.user.email": {
+"type": "keyword"
+},
+"user.target.entity.relationships.depends_on.user.id": {
+"type": "keyword"
+},
+"user.target.entity.relationships.depends_on.user.name": {
+"type": "keyword"
+},
+"user.target.entity.relationships.owns.entity.id": {
+"type": "keyword"
+},
+"user.target.entity.relationships.owns.host.id": {
+"type": "keyword"
+},
+"user.target.entity.relationships.owns.host.name": {
+"type": "keyword"
+},
+"user.target.entity.relationships.owns.service.id": {
+"type": "keyword"
+},
+"user.target.entity.relationships.owns.service.name": {
+"type": "keyword"
+},
+"user.target.entity.relationships.owns.user.domain": {
+"type": "keyword"
+},
+"user.target.entity.relationships.owns.user.email": {
+"type": "keyword"
+},
+"user.target.entity.relationships.owns.user.id": {
+"type": "keyword"
+},
+"user.target.entity.relationships.owns.user.name": {
+"type": "keyword"
+},
+"user.target.entity.relationships.supervises.entity.id": {
+"type": "keyword"
+},
+"user.target.entity.relationships.supervises.host.id": {
+"type": "keyword"
+},
+"user.target.entity.relationships.supervises.host.name": {
+"type": "keyword"
+},
+"user.target.entity.relationships.supervises.service.id": {
+"type": "keyword"
+},
+"user.target.entity.relationships.supervises.service.name": {
+"type": "keyword"
+},
+"user.target.entity.relationships.supervises.user.domain": {
+"type": "keyword"
+},
+"user.target.entity.relationships.supervises.user.email": {
+"type": "keyword"
+},
+"user.target.entity.relationships.supervises.user.id": {
+"type": "keyword"
+},
+"user.target.entity.relationships.supervises.user.name": {
+"type": "keyword"
+},
+"user.target.entity.source": {
+"type": "keyword"
+},
+"user.target.entity.sub_type": {
+"type": "keyword"
+},
+"user.target.entity.type": {
+"type": "keyword"
+},
+"user.target.full_name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"user.target.group.domain": {
+"type": "keyword"
+},
+"user.target.group.id": {
+"type": "keyword"
+},
+"user.target.group.name": {
+"type": "keyword"
+},
+"user.target.hash": {
+"type": "keyword"
+},
+"user.target.id": {
+"type": "keyword"
+},
+"user.target.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"user.target.risk.calculated_level": {
+"type": "keyword"
+},
+"user.target.risk.calculated_score": {
+"type": "float"
+},
+"user.target.risk.calculated_score_norm": {
+"type": "float"
+},
+"user.target.risk.static_level": {
+"type": "keyword"
+},
+"user.target.risk.static_score": {
+"type": "float"
+},
+"user.target.risk.static_score_norm": {
+"type": "float"
+},
+"user.target.roles": {
+"type": "keyword"
+},
+"user_agent.device.name": {
+"type": "keyword"
+},
+"user_agent.name": {
+"type": "keyword"
+},
+"user_agent.original": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"user_agent.os.family": {
+"type": "keyword"
+},
+"user_agent.os.full": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"user_agent.os.kernel": {
+"type": "keyword"
+},
+"user_agent.os.name": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"user_agent.os.platform": {
+"type": "keyword"
+},
+"user_agent.os.type": {
+"type": "keyword"
+},
+"user_agent.os.version": {
+"type": "keyword"
+},
+"user_agent.version": {
+"type": "keyword"
+},
+"volume.bus_type": {
+"type": "keyword"
+},
+"volume.default_access": {
+"type": "keyword"
+},
+"volume.device_name": {
+"type": "keyword"
+},
+"volume.device_type": {
+"type": "keyword"
+},
+"volume.dos_name": {
+"type": "keyword"
+},
+"volume.file_system_type": {
+"type": "keyword"
+},
+"volume.mount_name": {
+"type": "keyword"
+},
+"volume.nt_name": {
+"type": "keyword"
+},
+"volume.product_id": {
+"type": "keyword"
+},
+"volume.product_name": {
+"type": "keyword"
+},
+"volume.removable": {
+"type": "boolean"
+},
+"volume.serial_number": {
+"type": "keyword"
+},
+"volume.size": {
+"type": "long"
+},
+"volume.vendor_id": {
+"type": "keyword"
+},
+"volume.vendor_name": {
+"type": "keyword"
+},
+"volume.writable": {
+"type": "boolean"
+},
+"vulnerability.category": {
+"type": "keyword"
+},
+"vulnerability.classification": {
+"type": "keyword"
+},
+"vulnerability.description": {
+"type": "keyword",
+"multi_fields": {
+"text": "match_only_text"
+}
+},
+"vulnerability.enumeration": {
+"type": "keyword"
+},
+"vulnerability.id": {
+"type": "keyword"
+},
+"vulnerability.reference": {
+"type": "keyword"
+},
+"vulnerability.report_id": {
+"type": "keyword"
+},
+"vulnerability.scanner.vendor": {
+"type": "keyword"
+},
+"vulnerability.score.base": {
+"type": "float"
+},
+"vulnerability.score.environmental": {
+"type": "float"
+},
+"vulnerability.score.temporal": {
+"type": "float"
+},
+"vulnerability.score.version": {
+"type": "keyword"
+},
+"vulnerability.severity": {
+"type": "keyword"
+},
+"vulnerability.status": {
+"type": "keyword"
+}
+}
+}

@@ -1,0 +1,10 @@
+# Replay tests for rules/sigma/proc_creation_win_lsass_dump_procdump_windash.yml (ProcDump only)
+rule_id: fbb60261-7ec0-413d-a603-9fcd452770fc
+positive:
+  - data: tests/data/atomic_t1003_ecs.json
+    min_hits: 3
+    max_hits: 3
+    expect_ids: [atk-001, atk-003, atk-005]   # plain, renamed + "/ma", mixed-case ProcDump
+negative:
+  - data: tests/data/benign_ecs.json
+    max_hits: 0

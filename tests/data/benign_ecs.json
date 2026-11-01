@@ -1,0 +1,462 @@
+[
+  {
+    "@timestamp": "2026-10-28T11:00:00.000Z",
+    "event": {
+      "id": "ben-001",
+      "kind": "event",
+      "category": [
+        "process"
+      ],
+      "type": [
+        "start"
+      ],
+      "action": "start",
+      "dataset": "endpoint.events.process",
+      "module": "endpoint",
+      "ingested": "2026-10-28T11:00:00.450Z"
+    },
+    "agent": {
+      "type": "endpoint",
+      "version": "9.5.5"
+    },
+    "host": {
+      "id": "4f2a9c3e-7d1b-4e8a-9b6c-2d5e8f1a3c7b",
+      "name": "WS-FIN-042",
+      "os": {
+        "type": "windows",
+        "family": "windows",
+        "name": "Windows 11 Pro",
+        "platform": "windows",
+        "version": "24H2"
+      }
+    },
+    "ecs": {
+      "version": "9.5.0"
+    },
+    "data_stream": {
+      "type": "logs",
+      "dataset": "endpoint.events.process",
+      "namespace": "default"
+    },
+    "process": {
+      "pid": 5120,
+      "entity_id": "ZW50aXR5LWJlbi05120",
+      "name": "procdump64.exe",
+      "executable": "C:\\Tools\\Sysinternals\\procdump64.exe",
+      "command_line": "\"C:\\Tools\\Sysinternals\\procdump64.exe\" -accepteula -ma w3wp.exe C:\\dumps\\w3wp.dmp",
+      "args": [
+        "C:\\Tools\\Sysinternals\\procdump64.exe",
+        "-accepteula",
+        "-ma",
+        "w3wp.exe",
+        "C:\\dumps\\w3wp.dmp"
+      ],
+      "args_count": 5,
+      "working_directory": "C:\\Windows\\system32\\",
+      "pe": {
+        "original_file_name": "procdump",
+        "company": "Sysinternals - www.sysinternals.com",
+        "product": "ProcDump"
+      },
+      "code_signature": {
+        "exists": true,
+        "subject_name": "Microsoft Corporation",
+        "trusted": true,
+        "status": "trusted"
+      },
+      "parent": {
+        "pid": 5100,
+        "entity_id": "ZW50aXR5LWNtZC1iZW4x",
+        "name": "cmd.exe",
+        "executable": "C:\\Windows\\System32\\cmd.exe",
+        "command_line": "\"C:\\Windows\\system32\\cmd.exe\""
+      }
+    },
+    "user": {
+      "name": "adm-iis-ops",
+      "domain": "CORP",
+      "id": "S-1-5-21-3623811015-3361044348-30300820-1104"
+    }
+  },
+  {
+    "@timestamp": "2026-10-28T11:02:00.000Z",
+    "event": {
+      "id": "ben-002",
+      "kind": "event",
+      "category": [
+        "process"
+      ],
+      "type": [
+        "start"
+      ],
+      "action": "start",
+      "dataset": "endpoint.events.process",
+      "module": "endpoint",
+      "ingested": "2026-10-28T11:02:00.450Z"
+    },
+    "agent": {
+      "type": "endpoint",
+      "version": "9.5.5"
+    },
+    "host": {
+      "id": "4f2a9c3e-7d1b-4e8a-9b6c-2d5e8f1a3c7b",
+      "name": "WS-FIN-042",
+      "os": {
+        "type": "windows",
+        "family": "windows",
+        "name": "Windows 11 Pro",
+        "platform": "windows",
+        "version": "24H2"
+      }
+    },
+    "ecs": {
+      "version": "9.5.0"
+    },
+    "data_stream": {
+      "type": "logs",
+      "dataset": "endpoint.events.process",
+      "namespace": "default"
+    },
+    "process": {
+      "pid": 5230,
+      "entity_id": "ZW50aXR5LWJlbi05230",
+      "name": "rundll32.exe",
+      "executable": "C:\\Windows\\System32\\rundll32.exe",
+      "command_line": "C:\\Windows\\System32\\rundll32.exe shell32.dll,Control_RunDLL desk.cpl,,0",
+      "args": [
+        "C:\\Windows\\System32\\rundll32.exe",
+        "shell32.dll,Control_RunDLL",
+        "desk.cpl,,0"
+      ],
+      "args_count": 3,
+      "working_directory": "C:\\Windows\\system32\\",
+      "pe": {
+        "original_file_name": "RUNDLL32.EXE"
+      },
+      "code_signature": {
+        "exists": true,
+        "subject_name": "Microsoft Corporation",
+        "trusted": true,
+        "status": "trusted"
+      },
+      "parent": {
+        "pid": 4100,
+        "entity_id": "ZW50aXR5LWV4cGxvcmVy",
+        "name": "explorer.exe",
+        "executable": "C:\\Windows\\explorer.exe",
+        "command_line": "C:\\Windows\\Explorer.EXE"
+      }
+    },
+    "user": {
+      "name": "j.doe",
+      "domain": "CORP",
+      "id": "S-1-5-21-3623811015-3361044348-30300820-1104"
+    }
+  },
+  {
+    "@timestamp": "2026-10-28T11:04:00.000Z",
+    "event": {
+      "id": "ben-003",
+      "kind": "event",
+      "category": [
+        "process"
+      ],
+      "type": [
+        "start"
+      ],
+      "action": "start",
+      "dataset": "endpoint.events.process",
+      "module": "endpoint",
+      "ingested": "2026-10-28T11:04:00.450Z"
+    },
+    "agent": {
+      "type": "endpoint",
+      "version": "9.5.5"
+    },
+    "host": {
+      "id": "4f2a9c3e-7d1b-4e8a-9b6c-2d5e8f1a3c7b",
+      "name": "WS-FIN-042",
+      "os": {
+        "type": "windows",
+        "family": "windows",
+        "name": "Windows 11 Pro",
+        "platform": "windows",
+        "version": "24H2"
+      }
+    },
+    "ecs": {
+      "version": "9.5.0"
+    },
+    "data_stream": {
+      "type": "logs",
+      "dataset": "endpoint.events.process",
+      "namespace": "default"
+    },
+    "process": {
+      "pid": 5344,
+      "entity_id": "ZW50aXR5LWJlbi05344",
+      "name": "notepad.exe",
+      "executable": "C:\\Windows\\System32\\notepad.exe",
+      "command_line": "\"C:\\Windows\\System32\\notepad.exe\" C:\\Users\\j.doe\\Documents\\comsvcs_MiniDump_detection_notes.txt",
+      "args": [
+        "C:\\Windows\\System32\\notepad.exe",
+        "C:\\Users\\j.doe\\Documents\\comsvcs_MiniDump_detection_notes.txt"
+      ],
+      "args_count": 2,
+      "working_directory": "C:\\Windows\\system32\\",
+      "pe": {
+        "original_file_name": "NOTEPAD.EXE"
+      },
+      "code_signature": {
+        "exists": true,
+        "subject_name": "Microsoft Corporation",
+        "trusted": true,
+        "status": "trusted"
+      },
+      "parent": {
+        "pid": 4100,
+        "entity_id": "ZW50aXR5LWV4cGxvcmVy",
+        "name": "explorer.exe",
+        "executable": "C:\\Windows\\explorer.exe",
+        "command_line": "C:\\Windows\\Explorer.EXE"
+      }
+    },
+    "user": {
+      "name": "j.doe",
+      "domain": "CORP",
+      "id": "S-1-5-21-3623811015-3361044348-30300820-1104"
+    }
+  },
+  {
+    "@timestamp": "2026-10-28T11:06:00.000Z",
+    "event": {
+      "id": "ben-004",
+      "kind": "event",
+      "category": [
+        "process"
+      ],
+      "type": [
+        "start"
+      ],
+      "action": "start",
+      "dataset": "endpoint.events.process",
+      "module": "endpoint",
+      "ingested": "2026-10-28T11:06:00.450Z"
+    },
+    "agent": {
+      "type": "endpoint",
+      "version": "9.5.5"
+    },
+    "host": {
+      "id": "4f2a9c3e-7d1b-4e8a-9b6c-2d5e8f1a3c7b",
+      "name": "WS-FIN-042",
+      "os": {
+        "type": "windows",
+        "family": "windows",
+        "name": "Windows 11 Pro",
+        "platform": "windows",
+        "version": "24H2"
+      }
+    },
+    "ecs": {
+      "version": "9.5.0"
+    },
+    "data_stream": {
+      "type": "logs",
+      "dataset": "endpoint.events.process",
+      "namespace": "default"
+    },
+    "process": {
+      "pid": 5410,
+      "entity_id": "ZW50aXR5LWJlbi05410",
+      "name": "WerFault.exe",
+      "executable": "C:\\Windows\\System32\\WerFault.exe",
+      "command_line": "C:\\Windows\\system32\\WerFault.exe -u -p 7312 -s 1144",
+      "args": [
+        "C:\\Windows\\system32\\WerFault.exe",
+        "-u",
+        "-p",
+        "7312",
+        "-s",
+        "1144"
+      ],
+      "args_count": 6,
+      "working_directory": "C:\\Windows\\system32\\",
+      "pe": {
+        "original_file_name": "WerFault.exe"
+      },
+      "code_signature": {
+        "exists": true,
+        "subject_name": "Microsoft Corporation",
+        "trusted": true,
+        "status": "trusted"
+      },
+      "parent": {
+        "pid": 1288,
+        "entity_id": "ZW50aXR5LXN2Yy0xMjg4",
+        "name": "svchost.exe",
+        "executable": "C:\\Windows\\System32\\svchost.exe",
+        "command_line": "C:\\Windows\\system32\\svchost.exe -k WerSvcGroup"
+      }
+    },
+    "user": {
+      "name": "SYSTEM",
+      "domain": "CORP",
+      "id": "S-1-5-21-3623811015-3361044348-30300820-1104"
+    }
+  },
+  {
+    "@timestamp": "2026-10-28T11:08:00.000Z",
+    "event": {
+      "id": "ben-005",
+      "kind": "event",
+      "category": [
+        "process"
+      ],
+      "type": [
+        "start"
+      ],
+      "action": "start",
+      "dataset": "endpoint.events.process",
+      "module": "endpoint",
+      "ingested": "2026-10-28T11:08:00.450Z"
+    },
+    "agent": {
+      "type": "endpoint",
+      "version": "9.5.5"
+    },
+    "host": {
+      "id": "4f2a9c3e-7d1b-4e8a-9b6c-2d5e8f1a3c7b",
+      "name": "WS-FIN-042",
+      "os": {
+        "type": "windows",
+        "family": "windows",
+        "name": "Windows 11 Pro",
+        "platform": "windows",
+        "version": "24H2"
+      }
+    },
+    "ecs": {
+      "version": "9.5.0"
+    },
+    "data_stream": {
+      "type": "logs",
+      "dataset": "endpoint.events.process",
+      "namespace": "default"
+    },
+    "process": {
+      "pid": 5502,
+      "entity_id": "ZW50aXR5LWJlbi05502",
+      "name": "procdump64.exe",
+      "executable": "C:\\Tools\\Sysinternals\\procdump64.exe",
+      "command_line": "\"C:\\Tools\\Sysinternals\\procdump64.exe\" -accepteula -e -ma -w notepad.exe C:\\dumps",
+      "args": [
+        "C:\\Tools\\Sysinternals\\procdump64.exe",
+        "-accepteula",
+        "-e",
+        "-ma",
+        "-w",
+        "notepad.exe",
+        "C:\\dumps"
+      ],
+      "args_count": 7,
+      "working_directory": "C:\\Windows\\system32\\",
+      "pe": {
+        "original_file_name": "procdump",
+        "company": "Sysinternals - www.sysinternals.com",
+        "product": "ProcDump"
+      },
+      "code_signature": {
+        "exists": true,
+        "subject_name": "Microsoft Corporation",
+        "trusted": true,
+        "status": "trusted"
+      },
+      "parent": {
+        "pid": 5100,
+        "entity_id": "ZW50aXR5LWNtZC1iZW4x",
+        "name": "cmd.exe",
+        "executable": "C:\\Windows\\System32\\cmd.exe",
+        "command_line": "\"C:\\Windows\\system32\\cmd.exe\""
+      }
+    },
+    "user": {
+      "name": "j.doe",
+      "domain": "CORP",
+      "id": "S-1-5-21-3623811015-3361044348-30300820-1104"
+    }
+  },
+  {
+    "@timestamp": "2026-10-28T07:59:00.000Z",
+    "event": {
+      "id": "ben-006",
+      "kind": "event",
+      "category": [
+        "process"
+      ],
+      "type": [
+        "start"
+      ],
+      "action": "start",
+      "dataset": "endpoint.events.process",
+      "module": "endpoint",
+      "ingested": "2026-10-28T07:59:00.450Z"
+    },
+    "agent": {
+      "type": "endpoint",
+      "version": "9.5.5"
+    },
+    "host": {
+      "id": "4f2a9c3e-7d1b-4e8a-9b6c-2d5e8f1a3c7b",
+      "name": "WS-FIN-042",
+      "os": {
+        "type": "windows",
+        "family": "windows",
+        "name": "Windows 11 Pro",
+        "platform": "windows",
+        "version": "24H2"
+      }
+    },
+    "ecs": {
+      "version": "9.5.0"
+    },
+    "data_stream": {
+      "type": "logs",
+      "dataset": "endpoint.events.process",
+      "namespace": "default"
+    },
+    "process": {
+      "pid": 724,
+      "entity_id": "ZW50aXR5LWJlbi0724",
+      "name": "lsass.exe",
+      "executable": "C:\\Windows\\System32\\lsass.exe",
+      "command_line": "C:\\Windows\\system32\\lsass.exe",
+      "args": [
+        "C:\\Windows\\system32\\lsass.exe"
+      ],
+      "args_count": 1,
+      "working_directory": "C:\\Windows\\system32\\",
+      "pe": {
+        "original_file_name": "lsass.exe"
+      },
+      "code_signature": {
+        "exists": true,
+        "subject_name": "Microsoft Corporation",
+        "trusted": true,
+        "status": "trusted"
+      },
+      "parent": {
+        "pid": 612,
+        "entity_id": "ZW50aXR5LXdpbmluaXQ=",
+        "name": "wininit.exe",
+        "executable": "C:\\Windows\\System32\\wininit.exe",
+        "command_line": "wininit.exe"
+      }
+    },
+    "user": {
+      "name": "SYSTEM",
+      "domain": "CORP",
+      "id": "S-1-5-21-3623811015-3361044348-30300820-1104"
+    }
+  }
+]
