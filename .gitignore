@@ -11,3 +11,4 @@ reports/
 build/
 .judge-cache/
 .claude/settings.local.json
+collectors/snowflake/elastic-agent.yml
