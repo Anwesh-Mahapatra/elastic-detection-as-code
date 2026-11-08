@@ -1,0 +1,80 @@
+[
+  {
+    "@timestamp": "2026-11-07T17:40:00.000Z",
+    "event": {
+      "id": "pos-001",
+      "kind": "event",
+      "category": [
+        "database"
+      ],
+      "type": [
+        "access"
+      ],
+      "action": "query",
+      "dataset": "snowflake.query_history",
+      "module": "snowflake",
+      "ingested": "2026-11-07T17:40:00.000Z"
+    },
+    "observer": {
+      "vendor": "Snowflake"
+    },
+    "data_stream": {
+      "type": "logs",
+      "dataset": "snowflake.query_history",
+      "namespace": "default"
+    },
+    "user": {
+      "name": "ANALYST_JOE",
+      "roles": [
+        "ANALYST_ROLE"
+      ]
+    },
+    "snowflake": {
+      "query_history": {
+        "rows_unloaded": 5000,
+        "query_text": "COPY INTO @CRM_DB.SALES.JOE_STAGE FROM CRM_DB.SALES.CUSTOMERS FILE_FORMAT=(TYPE=CSV)",
+        "warehouse_name": "LAB_WH",
+        "execution_status": "SUCCESS"
+      }
+    }
+  },
+  {
+    "@timestamp": "2026-11-07T17:39:00.000Z",
+    "event": {
+      "id": "pos-002",
+      "kind": "event",
+      "category": [
+        "database"
+      ],
+      "type": [
+        "access"
+      ],
+      "action": "query",
+      "dataset": "snowflake.query_history",
+      "module": "snowflake",
+      "ingested": "2026-11-07T17:39:00.000Z"
+    },
+    "observer": {
+      "vendor": "Snowflake"
+    },
+    "data_stream": {
+      "type": "logs",
+      "dataset": "snowflake.query_history",
+      "namespace": "default"
+    },
+    "user": {
+      "name": "ANALYST_JOE",
+      "roles": [
+        "ANALYST_ROLE"
+      ]
+    },
+    "snowflake": {
+      "query_history": {
+        "rows_unloaded": 0,
+        "query_text": "SELECT * FROM CRM_DB.SALES.CUSTOMERS",
+        "warehouse_name": "LAB_WH",
+        "execution_status": "SUCCESS"
+      }
+    }
+  }
+]
