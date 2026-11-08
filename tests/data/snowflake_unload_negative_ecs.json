@@ -1,0 +1,80 @@
+[
+  {
+    "@timestamp": "2026-11-07T18:00:00.000Z",
+    "event": {
+      "id": "neg-001",
+      "kind": "event",
+      "category": [
+        "database"
+      ],
+      "type": [
+        "access"
+      ],
+      "action": "query",
+      "dataset": "snowflake.query_history",
+      "module": "snowflake",
+      "ingested": "2026-11-07T18:00:00.000Z"
+    },
+    "observer": {
+      "vendor": "Snowflake"
+    },
+    "data_stream": {
+      "type": "logs",
+      "dataset": "snowflake.query_history",
+      "namespace": "default"
+    },
+    "user": {
+      "name": "ELASTIC_SVC",
+      "roles": [
+        "ELASTIC_ROLE"
+      ]
+    },
+    "snowflake": {
+      "query_history": {
+        "rows_unloaded": 5000,
+        "query_text": "COPY INTO @MONITORING.EXPORT.DAILY FROM ACCOUNT_USAGE.LOGIN_HISTORY FILE_FORMAT=(TYPE=CSV)",
+        "warehouse_name": "LAB_WH",
+        "execution_status": "SUCCESS"
+      }
+    }
+  },
+  {
+    "@timestamp": "2026-11-07T18:05:00.000Z",
+    "event": {
+      "id": "neg-002",
+      "kind": "event",
+      "category": [
+        "database"
+      ],
+      "type": [
+        "access"
+      ],
+      "action": "query",
+      "dataset": "snowflake.query_history",
+      "module": "snowflake",
+      "ingested": "2026-11-07T18:05:00.000Z"
+    },
+    "observer": {
+      "vendor": "Snowflake"
+    },
+    "data_stream": {
+      "type": "logs",
+      "dataset": "snowflake.query_history",
+      "namespace": "default"
+    },
+    "user": {
+      "name": "ANALYST_MIA",
+      "roles": [
+        "ANALYST_ROLE"
+      ]
+    },
+    "snowflake": {
+      "query_history": {
+        "rows_unloaded": 0,
+        "query_text": "SELECT name, email FROM CRM_DB.SALES.CUSTOMERS WHERE id = 42",
+        "warehouse_name": "LAB_WH",
+        "execution_status": "SUCCESS"
+      }
+    }
+  }
+]

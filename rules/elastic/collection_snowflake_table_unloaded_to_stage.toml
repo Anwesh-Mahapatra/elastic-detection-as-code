@@ -1,0 +1,76 @@
+[metadata]
+creation_date = "2026/11/08"
+integration = ["snowflake"]
+maturity = "production"
+updated_date = "2026/11/08"
+
+[rule]
+author = ["Anwesh Mahapatra"]
+description = """
+Identifies a Snowflake query that unloads rows from a table into a stage (COPY INTO @stage ...),
+the data-staging step that precedes exfiltration. In the UNC5537 campaign (2024) the actor logged in
+with stolen credentials, then staged and pulled whole tables out. An unload is rare in normal analyst
+work, so rows_unloaded > 0 by a non-pipeline user is a high-signal, low-noise indicator. The log
+collector's own service account is excluded because it reads ACCOUNT_USAGE views constantly.
+"""
+false_positives = [
+    """
+    Legitimate ETL or backup jobs that unload tables to a stage. Scope these out by their own service
+    account with a Kibana exception on user.name, the same way the collector account is excluded here,
+    rather than by widening the rule.
+    """,
+]
+from = "now-9m"
+language = "esql"
+license = "Apache-2.0"
+name = "Snowflake Table Unloaded to Stage (Possible Data Staging)"
+note = """## Triage
+- Confirm the user: user.name is a person or service account that does not normally run unloads.
+- Read the query: snowflake.query_history.query_text shows the source table and target stage.
+- Pivot on the session: look for the preceding login (login_history) and the download (GET) that follows.
+- Assume the staged data can leave; treat the source table's contents as exposed.
+"""
+references = [
+    "https://cloud.google.com/blog/topics/threat-intelligence/unc5537-snowflake-data-theft-extortion",
+    "https://attack.mitre.org/techniques/T1074/",
+]
+risk_score = 73
+rule_id = "4e60e7a1-de01-4f40-af31-2c445aff26a4"
+severity = "high"
+tags = [
+    "Domain: Cloud",
+    "Data Source: Snowflake",
+    "Use Case: Threat Detection",
+    "Tactic: Collection",
+    "Rule Type: ES|QL",
+]
+timestamp_override = "event.ingested"
+type = "esql"
+
+query = '''
+FROM logs-snowflake.query_history-*
+| WHERE snowflake.query_history.rows_unloaded > 0 AND user.name != "ELASTIC_SVC"
+| KEEP @timestamp, user.name, user.roles, snowflake.query_history.rows_unloaded, snowflake.query_history.query_text, snowflake.query_history.warehouse_name
+'''
+
+[rule.investigation_fields]
+field_names = [
+    "user.name",
+    "user.roles",
+    "snowflake.query_history.rows_unloaded",
+    "snowflake.query_history.query_text",
+    "snowflake.query_history.warehouse_name",
+]
+
+[[rule.threat]]
+framework = "MITRE ATT&CK"
+
+[[rule.threat.technique]]
+id = "T1074"
+name = "Data Staged"
+reference = "https://attack.mitre.org/techniques/T1074/"
+
+[rule.threat.tactic]
+id = "TA0009"
+name = "Collection"
+reference = "https://attack.mitre.org/tactics/TA0009/"

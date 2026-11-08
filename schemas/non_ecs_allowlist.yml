@@ -10,3 +10,5 @@
   why: Windows PowerShell integration (script block text, file paths)
 - pattern: "Effective_process.*"
   why: Elastic Defend effective-process fields on Windows events
+- pattern: "snowflake.*"
+  why: Snowflake integration fields (query_history.rows_unloaded, query_text, warehouse_name, login_history, sessions, ...)

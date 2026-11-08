@@ -1,0 +1,9 @@
+# Replay tests for rules/elastic/collection_snowflake_table_unloaded_to_stage.toml
+rule_id: 4e60e7a1-de01-4f40-af31-2c445aff26a4
+positive:
+  - data: tests/data/snowflake_unload_positive_ecs.json
+    min_hits: 1
+    max_hits: 1          # only the unload matches; the SELECT in the same file must not
+negative:
+  - data: tests/data/snowflake_unload_negative_ecs.json
+    max_hits: 0          # collector unload (excluded) + a normal read (rows_unloaded 0)
